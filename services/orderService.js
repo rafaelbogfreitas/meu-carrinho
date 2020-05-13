@@ -11,19 +11,19 @@ export const getOrder = () => {
     .then((response) => response.data);
 };
 
-export const getOrder = () => {
+export const createOrder = () => {
   return service
     .post('/', {})
     .then((response) => response.data);
 };
 
-export const getOrder = () => {
+export const updateOrder = () => {
   return service
     .patch('/', {})
     .then((response) => response.data);
 };
 
-export const getOrder = () => {
+export const deleteOrder = () => {
   return service
     .delete('/', {})
     .then((response) => response.data);
