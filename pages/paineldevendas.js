@@ -60,8 +60,6 @@ let doneOrders = orders.filter((order) => order.status === "done")
 // console.log(doneOrders)
 
 
-
-
 export default function paineldevendas() {
   return (
     <div>

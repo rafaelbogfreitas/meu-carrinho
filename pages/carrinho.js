@@ -15,11 +15,10 @@ let props = {
 export default function carrinho() {
   return (
     <div>
-      {props.products.map(product => {
+      {props.products.map((product, idx) => {
         return (
-          <div>
-            <p>{product.name}</p>
-            <p>{product.quantity}</p>
+          <div key={idx}>
+            <p>{product.name} - Quantidade: {product.quantity}</p>
           </div>
         )
       })}

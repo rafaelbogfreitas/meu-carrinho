@@ -18,9 +18,9 @@ export default function minhaslojas() {
   return (
     <div>
       <h1>Lojas do Usuário</h1>
-      {stores.map(store => {
+      {stores.map((store, idx) => {
         return (
-          <Link href="/"><a>
+          <Link key={idx} href="/"><a>
             <div>
               <h1>{store.name}</h1>
               <img src={store.src} alt={store.name}></img>
