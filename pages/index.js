@@ -10,7 +10,7 @@ import { login, signup } from '../services/AuthService';
 export default function Home() {
   let router = useRouter();
 
-  console.log(router)
+  // console.log(router)
 
   let [ name, setName ] = useState('');
   let [ email, setEmail ] = useState('');
