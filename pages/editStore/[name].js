@@ -1,17 +1,13 @@
 import { useState } from 'react';
-import { useRouter } from 'next/router';
+import axios from 'axios';
 
-const CreateStore = () => {
-  const [name, setName] = useState('');
-  const [about, setAbout] = useState('');
-  const [primaryColor, setPrimaryColor] = useState('#00ff00');
-  const [secondaryColor, setSecondaryColor] = useState('#0000ff');
-  const [phone, setPhone] = useState('');
-  const [file, setFile] = useState('');
-
-  const [loading, setLoading] = useState(false);
-
-  const router = useRouter();
+const Name = (props) => {
+  const [name, setName] = useState(props.name);
+  const [about, setAbout] = useState(props.about);
+  const [primaryColor, setPrimaryColor] = useState(props.theme.primaryColor);
+  const [secondaryColor, setSecondaryColor] = useState(props.theme.seconfaryor);
+  const [phone, setPhone] = useState(props.phone);
+  const [file, setFile] = useState(false);
 
   const handleInputName = (event) => {
     setName(event.target.value);
@@ -47,7 +43,6 @@ const CreateStore = () => {
 
   return (
     <>
-      {loading && router.push('/about')}
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">Nome da loja:</label>
         <input
@@ -95,4 +90,12 @@ const CreateStore = () => {
   );
 };
 
-export default CreateStore;
+Name.getInitialProps = async (ctx) => {
+  const { name } = ctx.query;
+  const response = await axios.get(
+    `http://localhost:5000/api/v1/store/${name}`
+  );
+  return { ...response.data[0] };
+};
+
+export default Name;
