@@ -1,16 +1,19 @@
 import Router from 'next/router';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { loggedin } from '../../services/authService';
 import Loading from '../Loading/Loading';
+import { UserContext } from '../../contexts/UserContext';
 
 const ProtectedRoute = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const { user, setUser } = useContext(UserContext);
 
   useEffect(() => {
     if (isLoggedIn === null) {
       loggedin()
-        .then(() => {
+        .then((user) => {
+          setUser(user);
           setIsLoggedIn(true);
           setIsLoading(false);
         })
@@ -18,7 +21,7 @@ const ProtectedRoute = ({ children }) => {
           Router.replace('/');
         });
     }
-  }, [isLoggedIn, isLoading]);
+  }, [isLoggedIn, isLoading, user]);
 
   return isLoading ? <Loading /> : <>{children}</>;
 };

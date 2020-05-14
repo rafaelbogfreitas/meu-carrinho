@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Link from 'next/link'
 import ProtectedRoute from '../components/ProtectedRoute/ProtectedRoute';
+import { UserContext } from '../contexts/UserContext';
+
 
 // TODO: TRAZER AS LOJAS DA API
 
@@ -16,6 +18,8 @@ let stores = [{
 }]
 
 export default function minhaslojas() {
+  const { user } = useContext(UserContext);
+
   return (
     <ProtectedRoute>
       <div>
