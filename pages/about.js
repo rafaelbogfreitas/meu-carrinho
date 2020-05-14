@@ -4,12 +4,7 @@ import Router from 'next/router';
 import { loggedin, logout } from '../services/authService';
 import Head from 'next/head';
 
-<<<<<<< HEAD
-// import fetch from 'isomorphic-unfetch'
-import axios from 'axios'
-=======
 import fetch from 'isomorphic-fetch';
->>>>>>> b4aca053bc360df9fb5adcb4afc9c3d2b41f9887
 
 export default function about() {
 
