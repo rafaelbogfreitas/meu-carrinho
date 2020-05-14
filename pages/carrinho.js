@@ -1,4 +1,3 @@
-import React from 'react'
 
 let props = {
   products: [{
@@ -13,6 +12,7 @@ let props = {
 }
 
 export default function carrinho() {
+
   return (
     <div>
       {props.products.map((product, idx) => {

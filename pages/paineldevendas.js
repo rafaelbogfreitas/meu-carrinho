@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import Router from 'next/router'
 import Orders from '../components/Orders/Orders'
+import Loading from '../components/Loading/Loading'
+import { loggedin } from '../services/authService'
 // TODO ACESSAR API PARA RECEBER ORDERS
 
 let orders = [
@@ -61,7 +64,25 @@ let doneOrders = orders.filter((order) => order.status === "done")
 
 
 export default function paineldevendas() {
-  return (
+
+  const [isLoggedIn, setIsLoggedIn] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    if (isLoggedIn === null) {
+      loggedin()
+        .then((user) => {
+          setIsLoggedIn(true);
+          setIsLoading(false);
+        })
+        .catch((error) => {
+          Router.replace('/');
+        });
+    }
+  }, [isLoggedIn, isLoading]);
+
+  return ( isLoading ?
+    <Loading/> :
     <div>
       <div>
         <h1>Pending orders</h1>

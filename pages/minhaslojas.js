@@ -1,5 +1,9 @@
 import React from 'react'
 import Link from 'next/link'
+import { useState, useEffect } from 'react';
+import { loggedin, logout } from '../services/authService';
+
+
 
 // TODO: TRAZER AS LOJAS DA API
 
@@ -14,7 +18,26 @@ let stores = [{
   url: 'url loja 2'
 }]
 
+
 export default function minhaslojas() {
+  const [isLoggedIn, setIsLoggedIn] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    if (isLoggedIn === null) {
+      loggedin()
+        .then((user) => {
+          console.log(`>>> User: ${user}`);
+          setIsLoggedIn(true);
+          setIsLoading(false);
+        })
+        .catch((error) => {
+          console.log(`>>> Error: ${error}`);
+          Router.replace('/');
+        });
+    }
+  }, [isLoggedIn, isLoading]);
+
   return (
     <div>
       <h1>Lojas do Usuário</h1>
