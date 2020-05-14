@@ -9,11 +9,11 @@ export default function Store({ store }){
 
   return (
     <div>
-    <h1 style={{backgroundColor: `${store.theme.secondaryColor}`}}>Welcome to {store.name} store!!</h1>
+      <h1 style={{backgroundColor: `${store.theme.secondaryColor}`}}>Welcome to {store.name} store!!</h1>
       <div className="products">
         {store.products.map( product => {
           return (
-            <Link href={'/product/[id]'} as={`/product/${product._id}`}>
+            <Link href={'/product/[id]'} as={`/product/${product._id}`} key={product._id}>
               <a key={product._id}>{product.name}</a>
             </Link>
           )

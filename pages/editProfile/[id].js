@@ -58,7 +58,6 @@ Id.getInitialProps = async (ctx) => {
   const response = await axios.get(
     `http://localhost:5000/api/v1/user/${id}`
   );
-  console.log(response.data)
   return { ...response.data.user };
 };
 
