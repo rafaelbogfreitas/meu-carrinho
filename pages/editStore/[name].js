@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import Router, { useRouter } from 'next/router';
-import { editStore, getStore } from '../../services/storeServices';
+import { editStore, getStore, deleteStore } from '../../services/storeServices';
 import { loggedin } from '../../services/authService';
 
 const Name = (props) => {
@@ -70,6 +70,17 @@ const Name = (props) => {
       });
   };
 
+  const handleDelete = () => {
+    deleteStore(props._id)
+      .then((response) => {
+        console.log('response: ', response);
+        router.push('/minhaslojas');
+      })
+      .catch((error) => {
+        console.log('error: ', error);
+      });
+  };
+
   return isLoading ? (
     <h2>loading...</h2>
   ) : (
@@ -115,8 +126,9 @@ const Name = (props) => {
         />
         <label htmlFor="image">Sua logo:</label>
         <input type="file" name="image" onChange={handleInputFile} />
-        <button type="submit">Criar Loja</button>
+        <button type="submit">Salvar edições</button>
       </form>
+      <button onClick={handleDelete}>Apagar loja</button>
     </>
   );
 };
