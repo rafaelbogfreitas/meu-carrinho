@@ -15,7 +15,7 @@ const Login = () => {
   const handleLogin = (e) => {
     e.preventDefault();
     login(email, password) // <== adicionei then e catch aqui por ser uma função async
-      .then(() => router.push('/about'))
+      .then(() => router.push('/minhaslojas'))
       .catch((error) => console.log(error));
   };
 
