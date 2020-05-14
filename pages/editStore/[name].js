@@ -1,13 +1,35 @@
-import { useState } from 'react';
-import axios from 'axios';
+import { useState, useEffect } from 'react';
+import Router, { useRouter } from 'next/router';
+import { editStore, getStore } from '../../services/storeServices';
+import { loggedin } from '../../services/authService';
 
 const Name = (props) => {
+  const router = useRouter();
+
   const [name, setName] = useState(props.name);
   const [about, setAbout] = useState(props.about);
   const [primaryColor, setPrimaryColor] = useState(props.theme.primaryColor);
   const [secondaryColor, setSecondaryColor] = useState(props.theme.seconfaryor);
   const [phone, setPhone] = useState(props.phone);
   const [file, setFile] = useState(false);
+
+  const [isLoggedIn, setIsLoggedIn] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    if (isLoggedIn === null) {
+      loggedin()
+        .then((user) => {
+          console.log('>>> User: ', user);
+          setIsLoggedIn(true);
+          setIsLoading(false);
+        })
+        .catch((error) => {
+          console.log('>>> Error: ', error);
+          Router.replace('/');
+        });
+    }
+  }, [isLoggedIn, isLoading]);
 
   const handleInputName = (event) => {
     setName(event.target.value);
@@ -38,10 +60,19 @@ const Name = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const body = { name, about, primaryColor, secondaryColor, phone, file };
-    // POST goes here
+    editStore(props._id, body)
+      .then((response) => {
+        console.log('>>> response: ', response);
+        router.push(`/store/${response.updatedStore.name}`);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
-  return (
+  return isLoading ? (
+    <h2>loading...</h2>
+  ) : (
     <>
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">Nome da loja:</label>
@@ -90,12 +121,10 @@ const Name = (props) => {
   );
 };
 
-Name.getInitialProps = async (ctx) => {
-  const { name } = ctx.query;
-  const response = await axios.get(
-    `http://localhost:5000/api/v1/store/${name}`
-  );
-  return { ...response.data[0] };
+Name.getInitialProps = async (context) => {
+  const { name } = context.query;
+  const response = await getStore(name);
+  return { ...response[0] };
 };
 
 export default Name;

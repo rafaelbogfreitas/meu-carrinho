@@ -1,7 +1,11 @@
-import { useState } from 'react';
-import { useRouter } from 'next/router';
+import { useState, useEffect } from 'react';
+import Router, { useRouter } from 'next/router';
+import { createStore } from '../services/storeServices';
+import { loggedin } from '../services/authService';
 
 const CreateStore = () => {
+  const router = useRouter();
+
   const [name, setName] = useState('');
   const [about, setAbout] = useState('');
   const [primaryColor, setPrimaryColor] = useState('#00ff00');
@@ -9,9 +13,23 @@ const CreateStore = () => {
   const [phone, setPhone] = useState('');
   const [file, setFile] = useState('');
 
-  const [loading, setLoading] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const router = useRouter();
+  useEffect(() => {
+    if (isLoggedIn === null) {
+      loggedin()
+        .then((user) => {
+          console.log(`>>> User: ${user}`);
+          setIsLoggedIn(true);
+          setIsLoading(false);
+        })
+        .catch((error) => {
+          console.log(`>>> Error: ${error}`);
+          Router.replace('/');
+        });
+    }
+  }, [isLoggedIn, isLoading]);
 
   const handleInputName = (event) => {
     setName(event.target.value);
@@ -42,12 +60,20 @@ const CreateStore = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const body = { name, about, primaryColor, secondaryColor, phone, file };
-    // POST goes here
+    createStore(body)
+      .then((response) => {
+        console.log(response);
+        router.push('/minhaslojas');
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
-  return (
+  return isLoading ? (
+    <h2>loading...</h2>
+  ) : (
     <>
-      {loading && router.push('/about')}
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">Nome da loja:</label>
         <input
