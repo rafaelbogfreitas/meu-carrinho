@@ -11,7 +11,7 @@ const CreateStore = () => {
   const [primaryColor, setPrimaryColor] = useState('#00ff00');
   const [secondaryColor, setSecondaryColor] = useState('#0000ff');
   const [phone, setPhone] = useState('');
-  const [file, setFile] = useState('');
+  const [image, setImage] = useState('');
 
   const [isLoggedIn, setIsLoggedIn] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -20,12 +20,12 @@ const CreateStore = () => {
     if (isLoggedIn === null) {
       loggedin()
         .then((user) => {
-          console.log(`>>> User: ${user}`);
+          console.log('>>> User: ', user);
           setIsLoggedIn(true);
           setIsLoading(false);
         })
         .catch((error) => {
-          console.log(`>>> Error: ${error}`);
+          console.log('>>> Error: ', error);
           Router.replace('/');
         });
     }
@@ -51,15 +51,15 @@ const CreateStore = () => {
     setPhone(event.target.value);
   };
 
-  const handleInputFile = (e) => {
+  const handleInputFile = (event) => {
     const uploadData = new FormData();
-    uploadData.append('image', e.target.files[0]);
-    setFile(uploadData);
+    uploadData.append('image', event.target.files[0]);
+    setImage(uploadData);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const body = { name, about, primaryColor, secondaryColor, phone, file };
+    const body = { name, about, primaryColor, secondaryColor, phone, image };
     createStore(body)
       .then((response) => {
         console.log(response);
