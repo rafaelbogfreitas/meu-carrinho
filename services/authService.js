@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const service = axios.create({
   baseURL: 'http://localhost:5000/api/v1/auth',
-  withCredentials: true,
+  withCredentials: true
 });
 
 export const signup = (name, email, password) => {

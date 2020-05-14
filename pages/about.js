@@ -3,7 +3,8 @@ import Link from 'next/link'
 import Router from 'next/router'
 import { loggedin, logout } from '../services/authService'
 
-import fetch from 'isomorphic-fetch'
+// import fetch from 'isomorphic-unfetch'
+import axios from 'axios'
 
 export default function about() {
 
@@ -22,14 +23,17 @@ export default function about() {
 
 about.getInitialProps = async ctx => {
 
-  // const response = await fetch('http://localhost:5000/api/v1/auth/loggedin')
-  // console.log(reponse)
-      const response = await loggedin()
+  const response = await axios({
+    method: 'get',
+    url: 'http://localhost:5000/api/v1/auth/loggedin',
+    headers: !ctx.req ? { cookie: ctx.req.headers.cookie } : undefined
+  })
+  
+    
 
-
-     
      
      if(response.status === 401 && !ctx.req){
+       console.log(response)
        Router.replace('/');
        return {}
       }
@@ -42,6 +46,7 @@ about.getInitialProps = async ctx => {
         return
       }
       
+      // const user = response.json()
       return {
         user: response
       }
