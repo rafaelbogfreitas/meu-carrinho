@@ -61,6 +61,22 @@ let doneOrders = orders.filter((order) => order.status === "done")
 
 
 export default function paineldevendas() {
+
+  const [isLoggedIn, setIsLoggedIn] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    if (isLoggedIn === null) {
+      loggedin()
+        .then((user) => {
+          setIsLoggedIn(true);
+          setIsLoading(false);
+        })
+        .catch((error) => {
+          Router.replace('/');
+        });
+    }
+  }, [isLoggedIn, isLoading]);
   return (
     <div>
       <div>

@@ -4,9 +4,7 @@ import Router from 'next/router';
 import { loggedin, logout } from '../services/authService';
 import Head from 'next/head';
 
-import fetch from 'isomorphic-fetch';
-
-export default function about() {
+export default function about({user}) {
 
   /**
    * Esse trecho estou usando o hook useEffect para
@@ -24,18 +22,16 @@ export default function about() {
     if (isLoggedIn === null) {
       loggedin()
         .then((user) => {
-          console.log(`>>> User: ${user}`);
           setIsLoggedIn(true);
           setIsLoading(false);
         })
         .catch((error) => {
-          console.log(`>>> Error: ${error}`);
           Router.replace('/');
         });
     }
   }, [isLoggedIn, isLoading]);
 
-  const handleLogout = () => {
+  const handleLogout = ( ) => {
     logout() // <== adicionei then e catch aqui por ser uma função async
       .then(() => Router.replace('/'))
       .catch((error) => console.log(error));
@@ -63,35 +59,3 @@ export default function about() {
 }
 
 
-/**
- * Deixei comentado esse trecho abaixo feito pelo Rafa, provavelmente essa seria
- * a forma ideal de checar login e tudo mais ao invés de usar o useEffect no frontend,
- * porém estávamos enfrentando problemas com a chamada quando feita pelo backend.
- */
-
-// about.getInitialProps = async (ctx) => {
-//   // const response = await fetch('http://localhost:5000/api/v1/auth/loggedin')
-//   // console.log(reponse)
-//   const response = await loggedin();
-
-//   // console.log('>>> response: ', response)
-
-//   if (response.status === 401 && !ctx.req) {
-//     console.log('\n\n>>> primeiro if')
-//     Router.replace('/');
-//     return {};
-//   }
-
-//   if (response.status === 401 && ctx.req) {
-//     console.log('\n\n>>> segundo if')
-//     ctx.res.writeHead(302, {
-//       Location: 'http://localhost:3000',
-//     });
-//     ctx.res.end();
-//     return;
-//   }
-
-//   return {
-//     user: response,
-//   };
-// };
