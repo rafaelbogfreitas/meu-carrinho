@@ -4,13 +4,13 @@ import loadingStyles from './loading.module.scss'
 
 const Loading = () => {
   return (
-    <div className={loadingStyles.sk-chase}>
-      <div className={loadingStyles.sk-chase-dot}></div>
-      <div className={loadingStyles.sk-chase-dot}></div>
-      <div className={loadingStyles.sk-chase-dot}></div>
-      <div className={loadingStyles.sk-chase-dot}></div>
-      <div className={loadingStyles.sk-chase-dot}></div>
-      <div className={loadingStyles.sk-chase-dot}></div>
+    <div className={loadingStyles.skChase}>
+      <div className={loadingStyles.skChaseDot}></div>
+      <div className={loadingStyles.skChaseDot}></div>
+      <div className={loadingStyles.skChaseDot}></div>
+      <div className={loadingStyles.skChaseDot}></div>
+      <div className={loadingStyles.skChaseDot}></div>
+      <div className={loadingStyles.skChaseDot}></div>
     </div>
   )
 }

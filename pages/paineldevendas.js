@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import Router from 'next/router'
 import Orders from '../components/Orders/Orders'
+import Loading from '../components/Loading/Loading'
+import { loggedin } from '../services/authService'
 // TODO ACESSAR API PARA RECEBER ORDERS
 
 let orders = [
@@ -77,7 +80,9 @@ export default function paineldevendas() {
         });
     }
   }, [isLoggedIn, isLoading]);
-  return (
+
+  return ( isLoading ?
+    <Loading/> :
     <div>
       <div>
         <h1>Pending orders</h1>

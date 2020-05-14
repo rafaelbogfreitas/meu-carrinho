@@ -1,7 +1,3 @@
-import React, { useState, useEffect } from 'react'
-import Router from  'next/router'
-import { loggedin } from '../services/authService';
-
 
 let props = {
   products: [{
@@ -16,22 +12,6 @@ let props = {
 }
 
 export default function carrinho() {
-
-  const [isLoggedIn, setIsLoggedIn] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    if (isLoggedIn === null) {
-      loggedin()
-        .then((user) => {
-          setIsLoggedIn(true);
-          setIsLoading(false);
-        })
-        .catch((error) => {
-          Router.replace('/');
-        });
-    }
-  }, [isLoggedIn, isLoading]);
 
   return (
     <div>
