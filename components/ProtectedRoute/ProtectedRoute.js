@@ -10,11 +10,11 @@ const ProtectedRoute = ({ children }) => {
   useEffect(() => {
     if (isLoggedIn === null) {
       loggedin()
-        .then((user) => {
+        .then(() => {
           setIsLoggedIn(true);
           setIsLoading(false);
         })
-        .catch((error) => {
+        .catch(() => {
           Router.replace('/');
         });
     }
