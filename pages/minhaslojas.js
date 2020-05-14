@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Link from 'next/link'
 import ProtectedRoute from '../components/ProtectedRoute/ProtectedRoute';
+import { UserContext } from '../contexts/UserContext';
+
 
 // TODO: TRAZER AS LOJAS DA API
 
@@ -16,12 +18,18 @@ let stores = [{
 }]
 
 export default function minhaslojas() {
+  const { user } = useContext(UserContext);
+
+  console.log(user)
+
+
+
   return (
     <ProtectedRoute>
       <div>
         <h1>Lojas do Usuário</h1>
         <Link href="createStore"><a>Criar Nova Loja</a></Link>
-        {stores.map((store, idx) => {
+        {user && user.stores.map((store, idx) => {
           return (
             <Link key={idx} href="/"><a>
               <div>
