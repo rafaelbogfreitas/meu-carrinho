@@ -1,9 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import { useState, useEffect } from 'react';
-import { loggedin, logout } from '../services/authService';
-
-
+import ProtectedRoute from '../components/ProtectedRoute/ProtectedRoute';
 
 // TODO: TRAZER AS LOJAS DA API
 
@@ -18,39 +15,23 @@ let stores = [{
   url: 'url loja 2'
 }]
 
-
 export default function minhaslojas() {
-  const [isLoggedIn, setIsLoggedIn] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    if (isLoggedIn === null) {
-      loggedin()
-        .then((user) => {
-          console.log(`>>> User: ${user}`);
-          setIsLoggedIn(true);
-          setIsLoading(false);
-        })
-        .catch((error) => {
-          console.log(`>>> Error: ${error}`);
-          Router.replace('/');
-        });
-    }
-  }, [isLoggedIn, isLoading]);
-
   return (
-    <div>
-      <h1>Lojas do Usuário</h1>
-      {stores.map((store, idx) => {
-        return (
-          <Link key={idx} href="/"><a>
-            <div>
-              <h1>{store.name}</h1>
-              <img src={store.src} alt={store.name}></img>
-            </div>
-          </a></Link>
-        )
-      })}
-    </div>
+    <ProtectedRoute>
+      <div>
+        <h1>Lojas do Usuário</h1>
+        <Link href="createStore"><a>Criar Nova Loja</a></Link>
+        {stores.map((store, idx) => {
+          return (
+            <Link key={idx} href="/"><a>
+              <div>
+                <h1>{store.name}</h1>
+                <img src={store.src} alt={store.name}></img>
+              </div>
+            </a></Link>
+          )
+        })}
+      </div>
+    </ProtectedRoute>
   )
 }
