@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
-import Router, { useRouter } from 'next/router';
 import { editStore, getStore, deleteStore } from '../../services/storeServices';
-import { loggedin } from '../../services/authService';
+import ProtectedRoute from '../../components/ProtectedRoute/ProtectedRoute';
 
 const Name = (props) => {
   const router = useRouter();
@@ -12,24 +11,6 @@ const Name = (props) => {
   const [secondaryColor, setSecondaryColor] = useState(props.theme.seconfaryor);
   const [phone, setPhone] = useState(props.phone);
   const [file, setFile] = useState(false);
-
-  const [isLoggedIn, setIsLoggedIn] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    if (isLoggedIn === null) {
-      loggedin()
-        .then((user) => {
-          console.log('>>> User: ', user);
-          setIsLoggedIn(true);
-          setIsLoading(false);
-        })
-        .catch((error) => {
-          console.log('>>> Error: ', error);
-          Router.replace('/');
-        });
-    }
-  }, [isLoggedIn, isLoading]);
 
   const handleInputName = (event) => {
     setName(event.target.value);
@@ -81,10 +62,8 @@ const Name = (props) => {
       });
   };
 
-  return isLoading ? (
-    <h2>loading...</h2>
-  ) : (
-    <>
+  return (
+    <ProtectedRoute>
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">Nome da loja:</label>
         <input
@@ -129,8 +108,8 @@ const Name = (props) => {
         <button type="submit">Salvar edições</button>
       </form>
       <button onClick={handleDelete}>Apagar loja</button>
-    </>
-  );
+    </ProtectedRoute>
+  )
 };
 
 Name.getInitialProps = async (context) => {
