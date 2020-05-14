@@ -5,7 +5,7 @@ import axios from 'axios'
 
 export default function Store({ store }){
   // let router = useRouter();
-  console.log(store)
+
 
   return (
     <div>
@@ -19,6 +19,9 @@ export default function Store({ store }){
           )
           }
         )}
+        <Link href={'/store/paineldevendas/[name]'} as={`/store/paineldevendas/${store.name}`}>
+          <a>Painel de vendas</a>
+        </Link>
       </div>
     </div>
   )
