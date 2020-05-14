@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import axios from 'axios';
 
+import ProtectedRoute from '../../components/ProtectedRoute/ProtectedRoute';
+
 const Id = (props) => {
   const [name, setName] = useState(props.name);
   const [email, setEmail] = useState(props.email);
@@ -27,29 +29,31 @@ const Id = (props) => {
   };
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Seu nome:</label>
-        <input
-          type="text"
-          placeholder="Minha loja"
-          name="name"
-          value={name}
-          onChange={handleInputName}
-        />
-        <label htmlFor="phone">Email:</label>
-        <input
-          type="email"
-          placeholder="seuemail@gmail.com"
-          name="email"
-          value={email}
-          onChange={handleInputEmail}
-        />
-        <label htmlFor="image">Sua foto:</label>
-        <input type="file" name="image" onChange={handleInputFile} />
-        <button type="submit">Salvar</button>
-      </form>
-    </>
+      <ProtectedRoute>
+        <>
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="name">Seu nome:</label>
+            <input
+              type="text"
+              placeholder="Minha loja"
+              name="name"
+              value={name}
+              onChange={handleInputName}
+            />
+            <label htmlFor="phone">Email:</label>
+            <input
+              type="email"
+              placeholder="seuemail@gmail.com"
+              name="email"
+              value={email}
+              onChange={handleInputEmail}
+            />
+            <label htmlFor="image">Sua foto:</label>
+            <input type="file" name="image" onChange={handleInputFile} />
+            <button type="submit">Salvar</button>
+          </form>
+        </>
+      </ProtectedRoute>
   );
 };
 
