@@ -5,26 +5,26 @@ const service = axios.create({
   withCredentials: true,
 });
 
-export const getStore = () => {
+export const getStore = (name) => {
   return service
-    .get('/', {})
+    .get(`/${name}`)
     .then((response) => response.data);
 };
 
-export const createStore = () => {
+export const createStore = (body) => {
   return service
-    .post('/', {})
+    .post('/new', { ...body })
     .then((response) => response.data);
 };
 
-export const editStore = () => {
+export const editStore = (id, body) => {
   return service
-    .patch('/', {})
+    .patch(`/edit/${id}`, { ...body })
     .then((response) => response.data);
 };
 
-export const deleteStore = () => {
+export const deleteStore = (id) => {
   return service
-    .delete('/', {})
+    .delete(`/delete/${id}`)
     .then((response) => response.data);
 };

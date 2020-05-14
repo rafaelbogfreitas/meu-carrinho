@@ -5,20 +5,20 @@ const service = axios.create({
   withCredentials: true,
 });
 
-export const getUser = () => {
+export const getUser = (id) => {
   return service
-    .get('/', {})
+    .get(`/${id}`)
     .then((response) => response.data);
 };
 
-export const editUser = () => {
+export const editUser = (id, body) => {
   return service
-    .patch('/', {})
+    .patch(`/edit/${id}`, { ...body })
     .then((response) => response.data);
 };
 
-export const deleteOrder = () => {
+export const deleteOrder = (id) => {
   return service
-    .delete('/', {})
+    .delete(`/delete/${id}`)
     .then((response) => response.data);
 };
