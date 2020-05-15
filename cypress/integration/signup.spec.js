@@ -1,29 +1,33 @@
 describe('Signup', () => {
+  const name = "Teste"
+  const email = "emailteste2@teste.com"
+  const password = "senhadeteste"
+
+  it('visits the app', () => {
+    cy.visit('/')
+  })
+
   it('Realizar input de nome', () => {
-    const input = "Teste"
     cy.get('.signup_login__3LVzd > form > [name="name"]')
-      .type(input)
-      .should('have.value', input)
+      .type(name)
+      .should('have.value', name)
   })
 
   it('Realizar input de Email', () => {
-    const input = "emailteste2@teste.com"
     cy.get('[name="email"]')
-      .type(input)
-      .should('have.value', input)
+      .type(email)
+      .should('have.value', email)
   })
 
   it('Realizar input de Senha', () => {
-    const input = "senhadeteste"
     cy.get('.signup_login__3LVzd > form > [name="password"]')
-      .type(input)
-      .should('have.value', input)
+    .type(password)
+    .should('have.value', password)
   })
-
-  it('Realizar input de Senha', () => {
+  
+  it('Submeter signup', () => {
     cy.get('.signup_login__3LVzd > form > button')
       .click()
   })
-
 })
 
