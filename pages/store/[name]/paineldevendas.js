@@ -34,7 +34,7 @@ export default function paineldevendas({ store }) {
             }
         </div>
       </div>
-      <Link href="/store/[name]" as={`/store/${name}`}>
+      <Link href="/store/[name]/dashboard" as={`/store/${name}/dashboard`}>
         <button>Voltar</button>
       </Link>
     </ProtectedRoute>

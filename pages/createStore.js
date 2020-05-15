@@ -1,7 +1,6 @@
-import { useState, useEffect } from 'react';
-import Router, { useRouter } from 'next/router';
+import { useState } from 'react';
+import { useRouter } from 'next/router';
 import { createStore } from '../services/storeService';
-import { loggedin } from '../services/authService';
 import Link from 'next/link';
 import {
   handleInputChange,
@@ -18,21 +17,6 @@ const CreateStore = () => {
   const [secondaryColor, setSecondaryColor] = useState('#0000ff');
   const [phone, setPhone] = useState('');
   const [image, setImage] = useState('');
-
-  useEffect(() => {
-    if (isLoggedIn === null) {
-      loggedin()
-        .then((user) => {
-          console.log('>>> User: ', user);
-          setIsLoggedIn(true);
-          setIsLoading(false);
-        })
-        .catch((error) => {
-          console.log('>>> Error: ', error);
-          Router.replace('/');
-        });
-    }
-  }, [isLoggedIn, isLoading]);
 
   const handleSubmit = (event) => {
     event.preventDefault();

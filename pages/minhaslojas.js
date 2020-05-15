@@ -18,7 +18,7 @@ export default function minhaslojas() {
         <Link href="createStore"><a>Criar Nova Loja</a></Link>
         {user && user.stores.map((store, idx) => {
           return (
-            <Link key={idx} href="/store/[name]" as={`/store/${store.name}`}>
+            <Link key={idx} href="/store/[name]/dashboard" as={`/store/${store.name}/dashboard`}>
               <a>
                 <div>
                   <h1>{store.name}</h1>
