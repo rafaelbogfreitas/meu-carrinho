@@ -3,6 +3,10 @@ describe('Signup', () => {
   const email = "emailteste2@teste.com"
   const password = "senhadeteste"
 
+  beforeEach(() => {
+    Cypress.Cookies.preserveOnce('session_id', 'remember_token', 'connect.sid')
+  })
+
   it('visits the app', () => {
     cy.visit('/')
   })

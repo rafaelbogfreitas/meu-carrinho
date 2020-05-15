@@ -4,8 +4,12 @@ describe('Criar Nova Loja', () => {
   const phone = '99999999999'
   const storePhoto = '../test data/carrinho-compras.png'
 
+  beforeEach(() => {
+    Cypress.Cookies.preserveOnce('session_id', 'remember_token', 'connect.sid')
+  })
+
   it('Ir para Criar Nova Loja', () => {
-    cy.get('a')
+    cy.get('[href="createStore"]')
       .click()
     cy.location('pathname').should('eq', '/createStore')
   })

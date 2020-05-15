@@ -1,20 +1,22 @@
 describe('Login', () => {
   const email = "emailteste2@teste.com"
   const password = "senhadeteste"
+
+  beforeEach(() => {
+    Cypress.Cookies.preserveOnce('session_id', 'remember_token', 'connect.sid')
+  })
   
   it('visits the app', () => {
     cy.visit('/')
   })
 
   it('Realizar input de Email', () => {
-    // const email = "emailteste2@teste.com"
     cy.get('.login_login__1rtGP > form > [name="name"]')
       .type(email)
       .should('have.value', email)
   })
 
   it('Realizar input de Senha', () => {
-    // const password = "senhadeteste"
     cy.get('.login_login__1rtGP > form > [name="password"]')
       .type(password)
       .should('have.value', password)
