@@ -11,15 +11,15 @@ export const getStore = (name) => {
     .then((response) => response.data);
 };
 
-export const createStore = (body) => {
+export const createStore = (data) => {
   return service
-    .post('/new', body)
+    .post('/new', data)
     .then((response) => response.data);
 };
 
-export const editStore = (id, body) => {
+export const editStore = (id, data) => {
   return service
-    .patch(`/edit/${id}`, { ...body })
+    .patch(`/edit/${id}`, data)
     .then((response) => response.data);
 };
 
