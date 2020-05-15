@@ -2,9 +2,12 @@ import { useState, useEffect } from 'react';
 import Router, { useRouter } from 'next/router';
 import { createStore } from '../services/storeServices';
 import { loggedin } from '../services/authService';
-import axios from 'axios';
-import Link from 'next/link'
-
+import Link from 'next/link';
+import {
+  handleInputChange,
+  handleFileChange,
+  processFormData,
+} from '../../services/helpers';
 
 const CreateStore = () => {
   const router = useRouter();
@@ -15,9 +18,6 @@ const CreateStore = () => {
   const [secondaryColor, setSecondaryColor] = useState('#0000ff');
   const [phone, setPhone] = useState('');
   const [image, setImage] = useState('');
-
-  const [isLoggedIn, setIsLoggedIn] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     if (isLoggedIn === null) {
@@ -34,61 +34,17 @@ const CreateStore = () => {
     }
   }, [isLoggedIn, isLoading]);
 
-  const handleInputName = (event) => {
-    setName(event.target.value);
-  };
-
-  const handleInputAbout = (event) => {
-    setAbout(event.target.value);
-  };
-
-  const handleInputPrimaryColor = (event) => {
-    setPrimaryColor(event.target.value);
-  };
-
-  const handleInputSecondaryColor = (event) => {
-    setSecondaryColor(event.target.value);
-  };
-
-  const handleInputNumber = (event) => {
-    setPhone(event.target.value);
-  };
-
-  const handleInputFile = (event) => {
-    setImage(event.target.files[0]);
-  };
-
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    let uploadData = new FormData();
-    const body = { name, about, primaryColor, secondaryColor, phone, image };
+    const data = { name, about, primaryColor, secondaryColor, phone, image };
 
-    for(let item in body ){
-      uploadData.set(item, body[item]);
-    }
-
-      // axios({
-      //   method:'post',
-      //   url:'http://localhost:5000/api/v1/store/new',
-      //   data: uploadData,
-      //   headers:{
-      //     'Content-Type':'multipart/form-data'
-      //   },
-      //   withCredentials:true,
-      // })
-      createStore(uploadData)
-      .then(() => {
-        router.push('/minhaslojas');
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    createStore(processFormData(data))
+      .then(() => router.push('/minhaslojas'))
+      .catch((error) => console.log(error));
   };
 
-  return isLoading ? (
-    <h2>loading...</h2>
-  ) : (
+  return (
     <>
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">Nome da loja:</label>
@@ -97,7 +53,7 @@ const CreateStore = () => {
           placeholder="Minha loja"
           name="name"
           value={name}
-          onChange={handleInputName}
+          onChange={(event) => handleInputChange(event, setName)}
         />
         <label htmlFor="about">Sobre sua loja:</label>
         <textarea
@@ -105,21 +61,21 @@ const CreateStore = () => {
           placeholder="Uma loja sobre..."
           name="about"
           value={about}
-          onChange={handleInputAbout}
+          onChange={(event) => handleInputChange(event, setAbout)}
         />
         <label htmlFor="primaryColor">Cor primária:</label>
         <input
           type="color"
           name="primaryColor"
           value={primaryColor}
-          onChange={handleInputPrimaryColor}
+          onChange={(event) => handleInputChange(event, setPrimaryColor)}
         />
         <label htmlFor="secondaryColor">Cor secundária:</label>
         <input
           type="color"
           name="secondaryColor"
           value={secondaryColor}
-          onChange={handleInputSecondaryColor}
+          onChange={(event) => handleInputChange(event, setSecondaryColor)}
         />
         <label htmlFor="phone">Telefone</label>
         <input
@@ -127,13 +83,19 @@ const CreateStore = () => {
           placeholder="(xx) xxxxx-xxxx"
           name="phone"
           value={phone}
-          onChange={handleInputNumber}
+          onChange={(event) => handleInputChange(event, setPhone)}
         />
         <label htmlFor="image">Sua logo:</label>
-        <input type="file" name="image" onChange={handleInputFile} />
+        <input
+          type="file"
+          name="image"
+          onChange={(event) => handleFileChange(event, setImage)}
+        />
         <button type="submit">Criar Loja</button>
       </form>
-      <Link href="minhaslojas"><a>Ir para minhas lojas</a></Link>
+      <Link href="minhaslojas">
+        <a>Ir para minhas lojas</a>
+      </Link>
     </>
   );
 };

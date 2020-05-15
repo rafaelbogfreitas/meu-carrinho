@@ -27,13 +27,8 @@ const Name = ({ store }) => {
     const data = { name, about, primaryColor, secondaryColor, phone, image };
 
     editStore(id, processFormData(data))
-      .then((response) => {
-        console.log('>>> response: ', response);
-        router.push(`/store/${response.updatedStore.name}`);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+      .then((response) => router.push(`/store/${response.updatedStore.name}`))
+      .catch((error) => console.log(error));
   };
 
   const handleDelete = () => {
@@ -89,7 +84,11 @@ const Name = ({ store }) => {
           onChange={(event) => handleInputChange(event, setPhone)}
         />
         <label htmlFor="image">Sua logo:</label>
-        <input type="file" name="image" onChange={(event) => handleFileChange(event, setImage)} />
+        <input
+          type="file"
+          name="image"
+          onChange={(event) => handleFileChange(event, setImage)}
+        />
         <button type="submit">Salvar edições</button>
       </form>
       <button onClick={handleDelete}>Apagar loja</button>
