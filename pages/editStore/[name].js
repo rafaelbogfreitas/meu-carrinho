@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { editStore, getStore, deleteStore } from '../../services/storeService';
 import ProtectedRoute from '../../components/ProtectedRoute/ProtectedRoute';
+import Loading from '../../components/ProtectedRoute/ProtectedRoute';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import {
@@ -18,32 +19,42 @@ const Name = ({ store }) => {
   const [secondaryColor, setSecondaryColor] = useState(store.theme.secondaryColor);
   const [phone, setPhone] = useState(store.phone);
   const [image, setImage] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const { _id: id } = store;
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    setLoading(true);
 
     const data = { name, about, primaryColor, secondaryColor, phone, image };
 
     editStore(id, processFormData(data))
       .then((response) => router.push(`/store/${response.updatedStore.name}/dashboard`))
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        setLoading(false);
+        console.log(error)
+      });
   };
 
   const handleDelete = () => {
+    setLoading(true)
     deleteStore(id)
       .then((response) => {
         console.log('response: ', response);
         router.push('/minhaslojas');
       })
       .catch((error) => {
+        setLoading(false)
         console.log('error: ', error);
       });
   };
 
   return (
     <ProtectedRoute>
+    { loading ?
+      <Loading/> :
+      <>
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">Nome da loja:</label>
         <input
@@ -98,6 +109,8 @@ const Name = ({ store }) => {
       <Link href="/store/[name]/dashboard" as={`/store/${store.name}/dashboard`}>
         <a>Voltar</a>
       </Link>
+      </>
+    }
     </ProtectedRoute>
   );
 };
