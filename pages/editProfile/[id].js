@@ -2,40 +2,28 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import axios from 'axios';
 import { getUser, editUser } from '../../services/userService';
+import {
+  handleInputChange,
+  handleFileChange,
+  processFormData,
+} from '../../services/helpers';
 
 import ProtectedRoute from '../../components/ProtectedRoute/ProtectedRoute';
 
-const Id = (props) => {
-  const [name, setName] = useState(props.name);
-  const [email, setEmail] = useState(props.email);
+const Id = ({ user }) => {
+  const [name, setName] = useState(user.name);
+  const [email, setEmail] = useState(user.email);
   const [image, setImage] = useState(false);
 
   const router = useRouter();
 
-  const handleInputName = (event) => {
-    setName(event.target.value);
-  };
-
-  const handleInputEmail = (event) => {
-    setEmail(event.target.value);
-  };
-
-  const handleInputFile = (event) => {
-    setImage(event.target.files[0]);
-  };
-
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const { _id } = props;
-    const formData = new FormData();
+    const { _id } = user;
     const data = { name, email, image };
 
-    for (let item in data) {
-      formData.set(item, data[item]);
-    }
-
-    editUser(_id, formData)
+    editUser(_id, processFormData(data))
       .then((response) => {
         console.log(response);
         router.push('/minhaslojas');
@@ -55,7 +43,7 @@ const Id = (props) => {
             placeholder="Minha loja"
             name="name"
             value={name}
-            onChange={handleInputName}
+            onChange={(event) => handleInputChange(event, setName)}
           />
           <label htmlFor="phone">Email:</label>
           <input
@@ -63,10 +51,14 @@ const Id = (props) => {
             placeholder="seuemail@gmail.com"
             name="email"
             value={email}
-            onChange={handleInputEmail}
+            onChange={(event) => handleInputChange(event, setEmail)}
           />
           <label htmlFor="image">Sua foto:</label>
-          <input type="file" name="image" onChange={handleInputFile} />
+          <input
+            type="file"
+            name="image"
+            onChange={(event) => handleFileChange(event, setImage)}
+          />
           <button type="submit">Salvar</button>
         </form>
       </>
@@ -74,10 +66,8 @@ const Id = (props) => {
   );
 };
 
-Id.getInitialProps = async (context) => {
-  const { id } = context.query;
-  const { response } = await getUser(id);
-  return { ...response.user };
+Id.getInitialProps = async ({ query: { id }}) => {
+  return { user } = await getUser(id);
 };
 
 export default Id;
