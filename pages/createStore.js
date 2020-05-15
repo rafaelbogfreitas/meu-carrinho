@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { createStore } from '../services/storeService';
 import Link from 'next/link';
+import ProtectedRoute from '../components/ProtectedRoute/ProtectedRoute';
 import {
   handleInputChange,
   handleFileChange,
@@ -29,7 +30,7 @@ const CreateStore = () => {
   };
 
   return (
-    <>
+    <ProtectedRoute>
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">Nome da loja:</label>
         <input
@@ -80,7 +81,7 @@ const CreateStore = () => {
       <Link href="minhaslojas">
         <a>Ir para minhas lojas</a>
       </Link>
-    </>
+    </ProtectedRoute>
   );
 };
 
