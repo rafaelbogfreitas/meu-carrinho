@@ -13,7 +13,7 @@ export const getStore = (name) => {
 
 export const createStore = (body) => {
   return service
-    .post('/new', { ...body })
+    .post('/new', body)
     .then((response) => response.data);
 };
 

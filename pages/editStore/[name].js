@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { editStore, getStore, deleteStore } from '../../services/storeServices';
 import ProtectedRoute from '../../components/ProtectedRoute/ProtectedRoute';
-
+import { useRouter } from 'next/router'
 const Name = (props) => {
   const router = useRouter();
 
@@ -97,7 +97,7 @@ const Name = (props) => {
         />
         <label htmlFor="phone">Telefone</label>
         <input
-          type="text"
+          type="tel"
           placeholder="(xx) xxxxx-xxxx"
           name="phone"
           value={phone}

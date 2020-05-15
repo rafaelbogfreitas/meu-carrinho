@@ -22,6 +22,9 @@ export default function Store({ store }){
         <Link href={'/store/paineldevendas/[name]'} as={`/store/paineldevendas/${store.name}`}>
           <a>Painel de vendas</a>
         </Link>
+        <Link href={'/editStore/[name]'} as={`/editStore/${store.name}`}>
+          <a>Editar</a>
+        </Link>
       </div>
     </div>
   )

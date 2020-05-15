@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Router, { useRouter } from 'next/router';
 import { createStore } from '../services/storeServices';
 import { loggedin } from '../services/authService';
+import axios from 'axios';
 
 const CreateStore = () => {
   const router = useRouter();
@@ -52,17 +53,30 @@ const CreateStore = () => {
   };
 
   const handleInputFile = (event) => {
-    const uploadData = new FormData();
-    uploadData.append('image', event.target.files[0]);
-    setImage(uploadData);
+    setImage(event.target.files[0]);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    let uploadData = new FormData();
     const body = { name, about, primaryColor, secondaryColor, phone, image };
-    createStore(body)
-      .then((response) => {
-        console.log(response);
+
+    for(let item in body ){
+      uploadData.set(item, body[item]);
+    }
+
+      // axios({
+      //   method:'post',
+      //   url:'http://localhost:5000/api/v1/store/new',
+      //   data: uploadData,
+      //   headers:{
+      //     'Content-Type':'multipart/form-data'
+      //   },
+      //   withCredentials:true,
+      // })
+      createStore(uploadData)
+      .then(() => {
         router.push('/minhaslojas');
       })
       .catch((error) => {
