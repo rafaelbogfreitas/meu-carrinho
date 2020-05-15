@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { handleInputChange, handleFileChange } from '../../services/helpers'
+import { handleInputChange, handleFileChange, processFormData } from '../../services/helpers'
 
 const newproduct = () => {
   let [name, setName] = useState('');
@@ -9,6 +9,12 @@ const newproduct = () => {
   let [image,setImage] = useState('');
 
   const handleSubmit = e => {
+    e.preventDefault();
+
+    let body = { name, description, quantity, image };
+
+    let uploadData = processFormData(body);
+
     
   }
 

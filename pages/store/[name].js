@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Router from 'next/router';
 import { getStore } from '../../services/storeServices';
 
 export default function Store({store}) {
@@ -38,6 +39,6 @@ Store.getInitialProps = async (context) => {
   const { name } = context.query;
   const [store] = await getStore(name);
   return {
-    props:store,
+    store,
   }
 };
