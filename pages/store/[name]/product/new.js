@@ -1,27 +1,31 @@
 import React, { useState } from 'react'
 
+import { useRouter } from 'next/router'
 import { handleInputChange, handleFileChange, processFormData } from '../../../../services/helpers'
-import { createProduct } from '../../../../services/productService';
-import { getStore } from '../../../../services/storeService';
-import Link from 'next/link';
+import { createProduct } from '../../../../services/productService'
+import { getStore } from '../../../../services/storeService'
+import Link from 'next/link'
 
 const newproduct = ({ store }) => {
-  let [name, setName] = useState('');
-  let [description,setDescription] = useState('');
-  let [quantity,setQuantity] = useState('');
-  let [price,setPrice] = useState('');
-  let [image,setImage] = useState('');
+
+  let router = useRouter();
+
+  let [name, setName] = useState('')
+  let [description,setDescription] = useState('')
+  let [quantity,setQuantity] = useState('')
+  let [price,setPrice] = useState('')
+  let [image,setImage] = useState('')
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
-    let body = { name, description, price, quantity, image };
+    let body = { name, description, price, quantity, image }
 
-    let uploadData = processFormData(body);
+    let uploadData = processFormData(body)
     console.log(uploadData)
     createProduct(store._id, uploadData)
       .then( newProduct => {
-        // Router.push()
+        router.push(`/store/${store.name}/dashboard`)
         console.log(newProduct)
       })
       .catch( error => console.log(error))
@@ -48,13 +52,13 @@ const newproduct = ({ store }) => {
 }
 
 newproduct.getInitialProps = async ctx => {
-  let { name } = ctx.query;
-  console.log(name);
+  let { name } = ctx.query
+  console.log(name)
 
-  const [store] = await getStore(name);
+  const [store] = await getStore(name)
   console.log(store)
 
-  return { store };
+  return { store }
 }
 
-export default newproduct;
+export default newproduct
