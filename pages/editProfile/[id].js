@@ -1,12 +1,16 @@
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 import axios from 'axios';
+import { editUser } from '../../services/userService'
 
 import ProtectedRoute from '../../components/ProtectedRoute/ProtectedRoute';
 
 const Id = (props) => {
   const [name, setName] = useState(props.name);
   const [email, setEmail] = useState(props.email);
-  const [file, setFile] = useState(false);
+  const [image, setImage] = useState(false);
+
+  const router = useRouter();
 
   const handleInputName = (event) => {
     setName(event.target.value);
@@ -16,16 +20,27 @@ const Id = (props) => {
     setEmail(event.target.value);
   };
 
-  const handleInputFile = (e) => {
-    const uploadData = new FormData();
-    uploadData.append('image', e.target.files[0]);
-    setFile(uploadData);
+  const handleInputFile = (event) => {
+    setImage(event.target.files[0]);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const body = { name, email, file };
-    // POST goes here
+
+    const { _id } = props;
+    const formData = new FormData();
+    const data = { name, email, image };
+
+    for(let item in data) {
+      formData.set(item, data[item]);
+    }
+
+    editUser(_id, formData)
+      .then((response) => {
+        console.log(response)
+        router.push('/minhaslojas');
+      })
+      .catch((error) => console.log(error))
   };
 
   return (

@@ -13,7 +13,7 @@ export const getUser = (id) => {
 
 export const editUser = (id, body) => {
   return service
-    .patch(`/edit/${id}`, { ...body })
+    .patch(`/edit/${id}`, body)
     .then((response) => response.data);
 };
 
