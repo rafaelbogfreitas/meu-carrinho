@@ -1,45 +1,43 @@
-import React, { useState } from 'react'
+import React from 'react';
+import Link from 'next/link';
+import { getStore } from '../../services/storeServices';
 
-import Link from 'next/link'
-import axios from 'axios'
-
-
-export default function Store({ store }){
-
-  let [products, setProducts] = setState(store.products);
-
-
+export default function Store({store}) {
   return (
     <div>
-      <h1 style={{backgroundColor: `${store.theme.secondaryColor}`}}>Welcome to {store.name} store!!</h1>
+      <h1 style={{ backgroundColor: `${store.theme.secondaryColor}` }}>
+        Welcome to {store.name} store!!
+      </h1>
       <div className="products">
-        <Link to={}>
-          <a>+</a>
-        </Link>
-        {store.products.map( product => {
+        {store.products.map((product) => {
           return (
-            <Link href={'/product/[id]'} as={`/product/${product._id}`} key={product._id}>
+            <Link
+              href={'/product/[id]'}
+              as={`/product/${product._id}`}
+              key={product._id}
+            >
               <a key={product._id}>{product.name}</a>
             </Link>
-          )}
-        )}
-      </div>
-        <Link href={'/store/paineldevendas/[name]'} as={`/store/paineldevendas/${store.name}`}>
+          );
+        })}
+        <Link
+          href={'/store/paineldevendas/[name]'}
+          as={`/store/paineldevendas/${store.name}`}
+        >
           <a>Painel de vendas</a>
         </Link>
         <Link href={'/editStore/[name]'} as={`/editStore/${store.name}`}>
           <a>Editar</a>
         </Link>
+      </div>
     </div>
-  )
+  );
 }
 
-
-Store.getInitialProps = async ctx => {
-  let { name } = ctx.query;
-  const store = await axios.get(`http://localhost:5000/api/v1/store/${name}`)
+Store.getInitialProps = async (context) => {
+  const { name } = context.query;
+  const [store] = await getStore(name);
   return {
-    store: store.data[0]
+    props:store,
   }
-}
-
+};

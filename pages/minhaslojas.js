@@ -14,7 +14,7 @@ export default function minhaslojas() {
   return (
     <ProtectedRoute>
       <div>
-        <h1>Lojas do Usuário</h1>
+        <h1>Lojas do Usuário: {user && user.name}</h1>
         <Link href="createStore"><a>Criar Nova Loja</a></Link>
         {user && user.stores.map((store, idx) => {
           return (
