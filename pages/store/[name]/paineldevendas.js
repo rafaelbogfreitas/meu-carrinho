@@ -1,5 +1,4 @@
-
-import fetch from 'isomorphic-unfetch'
+import { getStore } from '../../../services/storeService';
 import Link from 'next/link'
 
 import Orders from '../../../components/Orders/Orders'
@@ -41,11 +40,7 @@ export default function paineldevendas({ store }) {
   );
 }
 
-paineldevendas.getInitialProps = async (ctx) => {
-  let { name } = ctx.query;
-  const store = await fetch(`http://localhost:5000/api/v1/store/${name}`)
-  const data = await store.json();
-  return {
-    store: data
-  }
+paineldevendas.getInitialProps = async ({ query: { name } }) => {
+  const store = await getStore(name);
+  return { store };
 }
