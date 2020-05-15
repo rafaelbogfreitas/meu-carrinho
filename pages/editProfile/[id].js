@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import axios from 'axios';
-import { editUser } from '../../services/userService'
+import { editUser } from '../../services/userService';
 
 import ProtectedRoute from '../../components/ProtectedRoute/ProtectedRoute';
 
@@ -31,52 +31,52 @@ const Id = (props) => {
     const formData = new FormData();
     const data = { name, email, image };
 
-    for(let item in data) {
+    for (let item in data) {
       formData.set(item, data[item]);
     }
 
     editUser(_id, formData)
       .then((response) => {
-        console.log(response)
+        console.log(response);
         router.push('/minhaslojas');
       })
-      .catch((error) => console.log(error))
+      .catch(({ response }) => {
+        console.log(response);
+      });
   };
 
   return (
-      <ProtectedRoute>
-        <>
-          <form onSubmit={handleSubmit}>
-            <label htmlFor="name">Seu nome:</label>
-            <input
-              type="text"
-              placeholder="Minha loja"
-              name="name"
-              value={name}
-              onChange={handleInputName}
-            />
-            <label htmlFor="phone">Email:</label>
-            <input
-              type="email"
-              placeholder="seuemail@gmail.com"
-              name="email"
-              value={email}
-              onChange={handleInputEmail}
-            />
-            <label htmlFor="image">Sua foto:</label>
-            <input type="file" name="image" onChange={handleInputFile} />
-            <button type="submit">Salvar</button>
-          </form>
-        </>
-      </ProtectedRoute>
+    <ProtectedRoute>
+      <>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="name">Seu nome:</label>
+          <input
+            type="text"
+            placeholder="Minha loja"
+            name="name"
+            value={name}
+            onChange={handleInputName}
+          />
+          <label htmlFor="phone">Email:</label>
+          <input
+            type="email"
+            placeholder="seuemail@gmail.com"
+            name="email"
+            value={email}
+            onChange={handleInputEmail}
+          />
+          <label htmlFor="image">Sua foto:</label>
+          <input type="file" name="image" onChange={handleInputFile} />
+          <button type="submit">Salvar</button>
+        </form>
+      </>
+    </ProtectedRoute>
   );
 };
 
 Id.getInitialProps = async (ctx) => {
   const { id } = ctx.query;
-  const response = await axios.get(
-    `http://localhost:5000/api/v1/user/${id}`
-  );
+  const response = await axios.get(`http://localhost:5000/api/v1/user/${id}`);
   return { ...response.data.user };
 };
 
