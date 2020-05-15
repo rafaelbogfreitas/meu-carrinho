@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Head from 'next/head'
 import Link from 'next/link';
@@ -7,6 +7,16 @@ import { getStore } from '../../../services/storeService';
 
 
 export default function Store({store}) {
+
+  let [ products, setProducts ] = useState(store.products)
+  let [ cart, setCart ] = useState([]);
+
+  const updateCart = id => {
+    let [cartProduct] = products.filter( product => product._id == id )
+    cartProduct.quantity++
+    setCart([ ...cart, cartProduct ]);
+  }
+
   return (
     <div>
     <Head>
@@ -16,10 +26,9 @@ export default function Store({store}) {
         Welcome to {store.name} store!!
       </h1>
       <div className="products">
-        {store.products.map((product) => {
+        {products.map((product) => {
           return (
             <aside className="product">
-
               <Link
                 href={'/store/[name]/product/[id]'}
                 as={`/store/${store.name}/product/${product._id}`}
@@ -30,6 +39,7 @@ export default function Store({store}) {
               <img src={product.imageUrl} alt={product.name}/>
               <div className="quantity">{product.quantity}</div>
               <div className="price">{product.price},00 R$</div>
+              <button onClick={() => updateCart(product._id)}>add</button>
             </aside>
           );
         })}
@@ -46,6 +56,11 @@ export default function Store({store}) {
           <a name={store.name}>New Produto</a>
         </Link>
         <Link href="/minhaslojas"><a>Ir para minhas lojas</a></Link>
+      </div>
+      <div>
+        {cart.map(product => {
+          return <h2>{product.name}: <span>{product.quantity}</span></h2>
+        })}
       </div>
     </div>
   );
