@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import axios from 'axios';
-import { editUser } from '../../services/userService';
+import { getUser, editUser } from '../../services/userService';
 
 import ProtectedRoute from '../../components/ProtectedRoute/ProtectedRoute';
 
@@ -74,10 +74,10 @@ const Id = (props) => {
   );
 };
 
-Id.getInitialProps = async (ctx) => {
-  const { id } = ctx.query;
-  const response = await axios.get(`http://localhost:5000/api/v1/user/${id}`);
-  return { ...response.data.user };
+Id.getInitialProps = async (context) => {
+  const { id } = context.query;
+  const { response } = await getUser(id);
+  return { ...response.user };
 };
 
 export default Id;
