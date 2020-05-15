@@ -1,4 +1,6 @@
 import React from 'react';
+
+import Head from 'next/head'
 import Link from 'next/link';
 import Router from 'next/router';
 import { getStore } from '../../../services/storeService';
@@ -7,6 +9,9 @@ import { getStore } from '../../../services/storeService';
 export default function Store({store}) {
   return (
     <div>
+    <Head>
+      <title>{store.name}</title>
+    </Head>
       <h1 style={{ backgroundColor: `${store.theme.secondaryColor}` }}>
         Welcome to {store.name} store!!
       </h1>
