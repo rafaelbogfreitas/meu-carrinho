@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Router from 'next/router';
-import { getStore } from '../../services/storeServices';
+import { getStore } from '../../services/storeService';
 
 export default function Store({store}) {
   return (
@@ -29,6 +29,9 @@ export default function Store({store}) {
         </Link>
         <Link href={'/editStore/[name]'} as={`/editStore/${store.name}`}>
           <a>Editar</a>
+        </Link>
+        <Link href={'product/[storeId]/new'} as={`product/${store._id}/new`}>
+          <a name={store.name}>New Produto</a>
         </Link>
       </div>
     </div>
