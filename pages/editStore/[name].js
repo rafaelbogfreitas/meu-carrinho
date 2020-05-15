@@ -2,9 +2,11 @@ import { useState, useEffect } from 'react';
 import { editStore, getStore, deleteStore } from '../../services/storeServices';
 import ProtectedRoute from '../../components/ProtectedRoute/ProtectedRoute';
 import { useRouter } from 'next/router'
+import Link from 'next/link'
+
+
 const Name = (props) => {
   const router = useRouter();
-
   const [name, setName] = useState(props.name);
   const [about, setAbout] = useState(props.about);
   const [primaryColor, setPrimaryColor] = useState(props.theme.primaryColor);
@@ -108,6 +110,7 @@ const Name = (props) => {
         <button type="submit">Salvar edições</button>
       </form>
       <button onClick={handleDelete}>Apagar loja</button>
+      <Link href="minhaslojas"><a>Ir para minhas lojas</a></Link>
     </ProtectedRoute>
   )
 };

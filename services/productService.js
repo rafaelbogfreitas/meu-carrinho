@@ -11,15 +11,15 @@ export const getProduct = (productId) => {
     .then((response) => response.data);
 };
 
-export const createProduct = (storeId, body) => {
+export const createProduct = (storeId, data) => {
   return service
-    .post(`/${storeId}/new`, { ...body })
+    .post(`/${storeId}/new`, data)
     .then((response) => response.data);
 };
 
-export const editProduct = (productId, body) => {
+export const editProduct = (productId, data) => {
   return service
-    .patch(`/edit/${productId}`, { ...body })
+    .patch(`/edit/${productId}`, data)
     .then((response) => response.data);
 };
 
