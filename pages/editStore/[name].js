@@ -27,7 +27,7 @@ const Name = ({ store }) => {
     const data = { name, about, primaryColor, secondaryColor, phone, image };
 
     editStore(id, processFormData(data))
-      .then((response) => router.push(`/store/${response.updatedStore.name}`))
+      .then((response) => router.push(`/store/${response.updatedStore.name}/dashboard`))
       .catch((error) => console.log(error));
   };
 
@@ -92,8 +92,11 @@ const Name = ({ store }) => {
         <button type="submit">Salvar edições</button>
       </form>
       <button onClick={handleDelete}>Apagar loja</button>
-      <Link href="minhaslojas">
+      <Link href="/minhaslojas">
         <a>Ir para minhas lojas</a>
+      </Link>
+      <Link href="/store/[name]/dashboard" as={`/store/${store.name}/dashboard`}>
+        <a>Voltar</a>
       </Link>
     </ProtectedRoute>
   );
