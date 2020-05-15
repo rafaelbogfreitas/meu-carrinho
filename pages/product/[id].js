@@ -1,22 +1,12 @@
-import React from 'react'
-import axios from 'axios';
+import React from 'react';
+import { getProduct } from '../../services/productService';
 
-const SingleProduct = ({product}) => {
-  return (
-    <div>
-      {product.name}
-    </div>
-  )
-}
+const SingleProduct = ({ product }) => {
+  return <div>{product.name}</div>;
+};
 
-SingleProduct.getInitialProps = async ctx => {
-  let { id } = ctx.query;
-  console.log(id)
-  const product = await axios.get(`http://localhost:5000/api/v1/product/${id}`)
-  console.log(product)
-  return {
-    product: product.data.product
-  }
-}
+SingleProduct.getInitialProps = async ({ query : { id }}) => {
+  return await getProduct(id);
+};
 
 export default SingleProduct;
