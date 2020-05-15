@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Router from 'next/router';
 import { getStore } from '../../services/storeServices';
 
+
 export default function Store({store}) {
   return (
     <div>
@@ -30,6 +31,7 @@ export default function Store({store}) {
         <Link href={'/editStore/[name]'} as={`/editStore/${store.name}`}>
           <a>Editar</a>
         </Link>
+        <Link href="minhaslojas"><a>Ir para minhas lojas</a></Link>
       </div>
     </div>
   );

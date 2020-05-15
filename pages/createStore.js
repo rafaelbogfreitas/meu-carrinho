@@ -3,6 +3,8 @@ import Router, { useRouter } from 'next/router';
 import { createStore } from '../services/storeServices';
 import { loggedin } from '../services/authService';
 import axios from 'axios';
+import Link from 'next/link'
+
 
 const CreateStore = () => {
   const router = useRouter();
@@ -131,6 +133,7 @@ const CreateStore = () => {
         <input type="file" name="image" onChange={handleInputFile} />
         <button type="submit">Criar Loja</button>
       </form>
+      <Link href="minhaslojas"><a>Ir para minhas lojas</a></Link>
     </>
   );
 };
