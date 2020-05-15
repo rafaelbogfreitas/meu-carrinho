@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Head from 'next/head'
 import Link from 'next/link';
@@ -11,10 +11,12 @@ export default function Store({store}) {
   let [ products, setProducts ] = useState(store.products)
   let [ cart, setCart ] = useState([]);
 
+  useEffect(() => {
+    window.localStorage.setItem('products', JSON.stringify(products))
+  }, [products])
+
   const updateCart = id => {
-    let [cartProduct] = products.filter( product => product._id == id )
-    cartProduct.quantity++
-    setCart([ ...cart, cartProduct ]);
+    
   }
 
   return (
@@ -59,7 +61,9 @@ export default function Store({store}) {
       </div>
       <div>
         {cart.map(product => {
-          return <h2>{product.name}: <span>{product.quantity}</span></h2>
+          return (
+            <Product product={product}/>
+          );
         })}
       </div>
     </div>
