@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
 import Router, { useRouter } from 'next/router';
-import { createStore } from '../services/storeServices';
+import { createStore } from '../services/storeService';
 import { loggedin } from '../services/authService';
 import Link from 'next/link';
 import {
   handleInputChange,
   handleFileChange,
   processFormData,
-} from '../../services/helpers';
+} from '../services/helpers';
 
 const CreateStore = () => {
   const router = useRouter();
