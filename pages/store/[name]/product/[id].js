@@ -1,5 +1,5 @@
 import React from 'react';
-import { getProduct } from '../../services/productService';
+import { getProduct } from '../../../../services/productService';
 
 const SingleProduct = ({ product }) => {
   return <div>{product.name}</div>;

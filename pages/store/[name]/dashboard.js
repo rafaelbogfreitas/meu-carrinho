@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Router from 'next/router';
-import { getStore } from '../../services/storeService';
+import { getStore } from '../../../services/storeService';
 
 
 export default function Store({store}) {
@@ -13,28 +13,34 @@ export default function Store({store}) {
       <div className="products">
         {store.products.map((product) => {
           return (
-            <Link
-              href={'/product/[id]'}
-              as={`/product/${product._id}`}
-              key={product._id}
-            >
-              <a key={product._id}>{product.name}</a>
-            </Link>
+            <aside className="product">
+
+              <Link
+                href={'/store/[name]/product/[id]'}
+                as={`/store/${store.name}/product/${product._id}`}
+                key={product._id}
+              >
+                <a key={product._id}>{product.name}</a>
+              </Link>
+              <img src={product.imageUrl} alt={product.name}/>
+              <div className="quantity">{product.quantity}</div>
+              <div className="price">{product.price},00 R$</div>
+            </aside>
           );
         })}
         <Link
-          href={'/store/paineldevendas/[name]'}
-          as={`/store/paineldevendas/${store.name}`}
+          href={'/store/[name]/paineldevendas'}
+          as={`/store/${store.name}/paineldevendas`}
         >
           <a>Painel de vendas</a>
         </Link>
         <Link href={'/editStore/[name]'} as={`/editStore/${store.name}`}>
           <a>Editar</a>
         </Link>
-        <Link href={'product/[storeId]/new'} as={`product/${store._id}/new`}>
+        <Link href={'product/new'} as={`product/new`}>
           <a name={store.name}>New Produto</a>
         </Link>
-        <Link href="minhaslojas"><a>Ir para minhas lojas</a></Link>
+        <Link href="/minhaslojas"><a>Ir para minhas lojas</a></Link>
       </div>
     </div>
   );
