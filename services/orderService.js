@@ -17,9 +17,9 @@ export const createOrder = (storeId, body) => {
     .then((response) => response.data);
 };
 
-export const updateOrder = (orderId, body) => {
+export const updateOrder = (orderId) => {
   return service
-    .patch(`/update/${orderId}`, { ...body })
+    .patch(`/update/${orderId}`)
     .then((response) => response.data);
 };
 

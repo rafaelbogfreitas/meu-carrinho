@@ -88,7 +88,7 @@ export default function Store({store}) {
     setCart(updatedCart);
     setProducts(updatedProducts);
   }
-
+  console.log(store)
   return (
     <div>
     <Head>
