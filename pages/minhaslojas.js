@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 
 import Router from 'next/router'
 import Link from 'next/link'
+import Head from 'next/head'
 import { UserContext } from '../contexts/UserContext'
 import { handleLogout } from '../services/helpers'
 
@@ -13,6 +14,9 @@ export default function minhaslojas() {
 
   return (
     <ProtectedRoute>
+      <Head>
+        <title>{user && user.name} | Minhas Lojas</title>
+      </Head>
       <div>
         <h1>Lojas do Usuário: {user && user.name}</h1>
         <Link href="createStore"><a>Criar Nova Loja</a></Link>

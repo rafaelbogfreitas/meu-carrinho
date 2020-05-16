@@ -6,6 +6,9 @@ export default function Home() {
 
   return (
     <>
+    <Head>
+      <title>Minha Loja</title>
+    </Head>
       {/* Navbar placeholder */}
 
       <Login/>

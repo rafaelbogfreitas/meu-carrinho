@@ -1,5 +1,6 @@
 import { getStore } from '../../../services/storeService';
 import Link from 'next/link'
+import Head from 'next/head'
 
 import Orders from '../../../components/Orders/Orders'
 import ProtectedRoute from "../../../components/ProtectedRoute/ProtectedRoute";
@@ -9,6 +10,9 @@ export default function paineldevendas({ store }) {
   console.log(store)
   return ( 
     <ProtectedRoute>
+    <Head>
+      <title>Painel de vendas</title>
+    </Head>
       <div>
         <div>
           <h1>Pending orders</h1>
