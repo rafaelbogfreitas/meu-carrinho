@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react';
+
+import Head from 'next/head';
 import { getProduct } from '../../../../services/productService';
 
 const SingleProduct = ({ product }) => {
@@ -15,6 +17,9 @@ const SingleProduct = ({ product }) => {
 
   return (
     <>
+      <Head>
+        <title>{product.name}</title>
+      </Head>
       <div>{product.name}</div>
       <img src={product.imageUrl} alt={product.description}/>
       <p>{product.price},00 R$</p>
