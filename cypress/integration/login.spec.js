@@ -1,8 +1,6 @@
 import {email, password} from '../test data/testData'
 
-
 describe('Login', () => {
-  require('../test data/testData')
   beforeEach(() => {
     Cypress.Cookies.preserveOnce('session_id', 'remember_token', 'connect.sid')
   })

@@ -19,3 +19,12 @@ export const editStorePhone = 'TELEFONE EDITADO'
 export const editStorePhoto = '../test data/robo-bbb-1.png'
 export const editStorePrimaryColor = '#0f0fff'
 export const editStoreSecondaryColor = '#0f0f5f'
+
+// CREATE PRODUCT
+export const product1 = {
+  name: 'Produto Teste',
+  description: 'Descrição Produto Teste',
+  price: '50',
+  quantity: '100',
+  image: '../test data/heineken.jpg'
+}

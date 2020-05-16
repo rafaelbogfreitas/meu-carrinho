@@ -1,6 +1,5 @@
 import {storeName, storeDescription, storePhone, storePhoto, storePrimaryColor, storeSecondaryColor} from '../test data/testData'
 
-
 describe('Criar Nova Loja', () => {
   beforeEach(() => {
     Cypress.Cookies.preserveOnce('session_id', 'remember_token', 'connect.sid')
@@ -49,15 +48,13 @@ describe('Criar Nova Loja', () => {
       .click()
   })
 
-  it('Ir para Nova Loja', () => {
-    cy.get('h1').contains(`${storeName}`).click()
-    cy.location('pathname').should('eq', `/store/${storeName}/dashboard`)
+  it('Redirecionar para Minhas Lojas', () => {
+    cy.location('pathname').should('eq', `/minhaslojas`)
   })
 
-  it('Ir para editar loja', () => {
-    cy.get(`[href="/editStore/${storeName}"]`)
-      .click()
-      .then(() => cy.location('pathname').should('eq', `/editStore/${storeName}`))
+  it('Ir para Nova Loja', () => {
+    cy.get(`[href="/store/${storeName}/dashboard"]`).click()
+    cy.location('pathname').should('eq', `/store/${storeName}/dashboard`)
   })
 })
 

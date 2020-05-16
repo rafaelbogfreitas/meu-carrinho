@@ -1,8 +1,14 @@
-import {editStoreName, editStoreDescription, editStorePhone, editStorePhoto, editStorePrimaryColor, editStoreSecondaryColor} from '../test data/testData'
+import {storeName, editStoreName, editStoreDescription, editStorePhone, editStorePhoto, editStorePrimaryColor, editStoreSecondaryColor} from '../test data/testData'
 
 describe('Editar Loja', () => {
   beforeEach(() => {
     Cypress.Cookies.preserveOnce('session_id', 'remember_token', 'connect.sid')
+  })
+
+  it('Ir para editar loja', () => {
+    cy.get(`[href="/editStore/${storeName}"]`)
+      .click()
+      .then(() => cy.location('pathname').should('eq', `/editStore/${storeName}`))
   })
 
   it('Preencher nome da nova loja', () => {
@@ -43,11 +49,5 @@ describe('Editar Loja', () => {
   it('Subemeter formulário', () => {
     cy.get('form > button')
       .click()
-  })
-
-  it('Ir para loja editada', () => {
-    cy.get('h1').contains(`${editStoreName}`)
-      .click()
-      .then(() => cy.location('pathname').should('eq', `/store/${editStoreName}/dashboard`))
   })
 })
