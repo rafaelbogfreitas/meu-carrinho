@@ -123,7 +123,12 @@ export default function Store({store}) {
         <Link href="/minhaslojas"><a>Ir para minhas lojas</a></Link>
       </div>
       <div>
-       <Cart cart={cart} removeItemsFromCart={removeItemsFromCart}/>
+       <Cart 
+        cart={cart} 
+        storeId={store._id} 
+        removeItemsFromCart={removeItemsFromCart}
+        setCart={setCart}
+       />
       </div>
     </div>
   );
