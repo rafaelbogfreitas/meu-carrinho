@@ -1,8 +1,6 @@
-describe('Signup', () => {
-  const name = "Teste"
-  const email = "emailteste2@teste.com"
-  const password = "senhadeteste"
+import {name, email, password} from '../test data/testData'
 
+describe('Signup', () => {
   beforeEach(() => {
     Cypress.Cookies.preserveOnce('session_id', 'remember_token', 'connect.sid')
   })

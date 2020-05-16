@@ -1,9 +1,7 @@
-describe('Criar Nova Loja', () => {
-  const storeName = 'BOARICKY'
-  const storeDescription = 'Descricao do rafael'
-  const phone = '1111111111111'
-  const storePhoto = '../test data/carrinho-compras.png'
+import {storeName, storeDescription, storePhone, storePhoto, storePrimaryColor, storeSecondaryColor} from '../test data/testData'
 
+
+describe('Criar Nova Loja', () => {
   beforeEach(() => {
     Cypress.Cookies.preserveOnce('session_id', 'remember_token', 'connect.sid')
   })
@@ -26,8 +24,8 @@ describe('Criar Nova Loja', () => {
   })
   it('Preencher telefone da nova loja', () => {
     cy.get('[placeholder="(xx) xxxxx-xxxx"]')
-      .type(phone)
-      .should('have.value', phone)
+      .type(storePhone)
+      .should('have.value', storePhone)
   })
   it('Selecionar foto da nova loja', () => {
     cy.get('[type="file"]')
@@ -35,15 +33,15 @@ describe('Criar Nova Loja', () => {
   })
   it('Selecionar cor primária da nova loja', () => {
     cy.get('[name="primaryColor"]')
-      .invoke('val', '#fe0090')
+      .invoke('val', storePrimaryColor)
       .trigger('change')
-      .should('have.value', '#fe0090')
+      .should('have.value', storePrimaryColor)
   })
   it('Selecionar cor secundária da nova loja', () => {
     cy.get('[name="secondaryColor"]')
-      .invoke('val', '#ff9999')
+      .invoke('val', storeSecondaryColor)
       .trigger('change')
-      .should('have.value', '#ff9999')
+      .should('have.value', storeSecondaryColor)
   })
 
   it('Subemeter formulário', () => {
@@ -54,6 +52,12 @@ describe('Criar Nova Loja', () => {
   it('Ir para Nova Loja', () => {
     cy.get('h1').contains(`${storeName}`).click()
     cy.location('pathname').should('eq', `/store/${storeName}/dashboard`)
+  })
+
+  it('Ir para editar loja', () => {
+    cy.get(`[href="/editStore/${storeName}"]`)
+      .click()
+      .then(() => cy.location('pathname').should('eq', `/editStore/${storeName}`))
   })
 })
 
