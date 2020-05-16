@@ -104,7 +104,7 @@ export default function Store({store}) {
               key ={i} 
               handleProduct={handleProduct} 
               {...product}
-              storeName={store}  
+              storeName={store.name}  
             />
           );
         })}
