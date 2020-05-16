@@ -18,6 +18,7 @@ export default function Store({ store }) {
     if (products === null || store.name !== storeName) {
       setStoreName(store.name);
       setProducts(store.products);
+      setCart([]);
     }
     setIsLoading(false);
     // window.localStorage.setItem('products', JSON.stringify(products))
@@ -131,7 +132,12 @@ export default function Store({ store }) {
         </Link>
       </div>
       <div>
-        <Cart cart={cart} removeItemsFromCart={removeItemsFromCart} />
+       <Cart 
+        cart={cart} 
+        storeId={store._id} 
+        removeItemsFromCart={removeItemsFromCart}
+        setCart={setCart}
+       />
       </div>
     </div>
   );
