@@ -15,8 +15,42 @@ export default function Store({store}) {
     window.localStorage.setItem('products', JSON.stringify(products))
   }, [products])
 
-  const updateCart = id => {
-    
+  const handleProduct = id => {
+    const updatedProducts = [...products].map(product => {
+      // const productCopy = JSON.parse(JSON.stringify(product));
+      if (product._id === id) {
+        const newProduct = {
+          ...product,
+          quantity: product.quantity - 1
+        }
+        // handleCart(newProduct);
+      }
+      return product;
+    });
+    console.log(updatedProducts);
+    setProducts(updatedProducts);
+  }
+
+  const handleCart = (product) => {
+
+    // if (cart.findIndex(item => item._id === product._id) === -1) {
+    //   console.log('aqui')
+    //   setCart([...cart, product]);
+    //   return;
+    // }
+
+    // const updatedCart = [...cart].map(item => {
+    //   if (item._id === product._id) {
+    //     const newItem = {
+    //       ...item,
+    //       quantity: item.quantity + 1
+    //     }
+    //     return newItem;
+    //   }
+    //   return item;
+    // })
+
+    // setCart(updatedCart);
   }
 
   return (
@@ -28,9 +62,9 @@ export default function Store({store}) {
         Welcome to {store.name} store!!
       </h1>
       <div className="products">
-        {products.map((product) => {
+        {products.map((product, i) => {
           return (
-            <aside className="product">
+            <aside key={i} className="product">
               <Link
                 href={'/store/[name]/product/[id]'}
                 as={`/store/${store.name}/product/${product._id}`}
@@ -41,7 +75,7 @@ export default function Store({store}) {
               <img src={product.imageUrl} alt={product.name}/>
               <div className="quantity">{product.quantity}</div>
               <div className="price">{product.price},00 R$</div>
-              <button onClick={() => updateCart(product._id)}>add</button>
+              <button onClick={() => handleProduct(product._id)}>add</button>
             </aside>
           );
         })}
@@ -60,9 +94,13 @@ export default function Store({store}) {
         <Link href="/minhaslojas"><a>Ir para minhas lojas</a></Link>
       </div>
       <div>
-        {cart.map(product => {
+        {cart.map((product, i) => {
           return (
-            <Product product={product}/>
+            <div key={i}>
+              <h2>{product.name}</h2>
+              <h2>{product.price}</h2>
+            {/*<Product product={product}/>*/}
+            </div>
           );
         })}
       </div>
