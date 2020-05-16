@@ -15,6 +15,7 @@ export default function paineldevendas({ store }) {
 
   return ( 
     <ProtectedRoute>
+    {console.log(orders)}
     <Head>
       <title>Painel de vendas</title>
     </Head>

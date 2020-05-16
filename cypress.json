@@ -1,9 +1,10 @@
 {
   "baseUrl": "http://localhost:3000",
   "testFiles": [
-    "visit.spec.js",
     "signup.spec.js",
     "login.spec.js",
-    "createStore.spec.js"
+    "createStore.spec.js",
+    "editStore.spec.js",
+    "createProduct.spec.js"
   ]
 }

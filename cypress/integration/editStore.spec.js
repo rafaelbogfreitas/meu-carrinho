@@ -1,53 +1,53 @@
-// describe('Criar Nova Loja', () => {
-//   const storeName = 'xxxxxxxxxx'
-//   const storeDescription = 'xxxxxxxxxx'
-//   const phone = 'xxxxxxxxxxx'
-//   const storePhoto = '../test data/carrinho-compras.png'
+import {storeName, editStoreName, editStoreDescription, editStorePhone, editStorePhoto, editStorePrimaryColor, editStoreSecondaryColor} from '../test data/testData'
 
-//   beforeEach(() => {
-//     Cypress.Cookies.preserveOnce('session_id', 'remember_token', 'connect.sid')
-//   })
+describe('Editar Loja', () => {
+  beforeEach(() => {
+    Cypress.Cookies.preserveOnce('session_id', 'remember_token', 'connect.sid')
+  })
 
-//   it('Preencher nome da nova loja', () => {
-//     cy.get('[placeholder="Minha loja"]')
-//       .type(storeName)
-//       .should('have.value', storeName)
-//   })
-//   it('Preencher descrição da nova loja', () => {
-//     cy.get('textarea')
-//       .type(storeDescription)
-//       .should('have.value', storeDescription)
-//   })
-//   it('Preencher telefone da nova loja', () => {
-//     cy.get('[placeholder="(xx) xxxxx-xxxx"]')
-//       .type(phone)
-//       .should('have.value', phone)
-//   })
-//   it('Selecionar foto da nova loja', () => {
-//     cy.get('[type="file"]')
-//       .attachFile(storePhoto);
-//   })
-//   it('Selecionar cor primária da nova loja', () => {
-//     cy.get('[name="primaryColor"]')
-//       .invoke('val', '#fe0090')
-//       .trigger('change')
-//       .should('have.value', '#fe0090')
-//   })
-//   it('Selecionar cor secundária da nova loja', () => {
-//     cy.get('[name="secondaryColor"]')
-//       .invoke('val', '#ff9999')
-//       .trigger('change')
-//       .should('have.value', '#ff9999')
-//   })
+  it('Ir para editar loja', () => {
+    cy.get(`[href="/editStore/${storeName}"]`)
+      .click()
+      .then(() => cy.location('pathname').should('eq', `/editStore/${storeName}`))
+  })
 
-//   it('Subemeter formulário', () => {
-//     cy.get('button')
-//       .click()
-//   })
+  it('Preencher nome da nova loja', () => {
+    cy.get('[placeholder="Minha loja"]')
+      .clear()
+      .type(editStoreName)
+      .should('have.value', editStoreName)
+  })
+  it('Preencher descrição da nova loja', () => {
+    cy.get('textarea')
+      .clear()
+      .type(editStoreDescription)
+      .should('have.value', editStoreDescription)
+  })
+  it('Preencher telefone da nova loja', () => {
+    cy.get('[placeholder="(xx) xxxxx-xxxx"]')
+      .clear()
+      .type(editStorePhone)
+      .should('have.value', editStorePhone)
+  })
+  it('Selecionar foto da nova loja', () => {
+    cy.get('[type="file"]')
+      .attachFile(editStorePhoto);
+  })
+  it('Selecionar cor primária da nova loja', () => {
+    cy.get('[name="primaryColor"]')
+      .invoke('val', editStorePrimaryColor)
+      .trigger('change')
+      .should('have.value', editStorePrimaryColor)
+  })
+  it('Selecionar cor secundária da nova loja', () => {
+    cy.get('[name="secondaryColor"]')
+      .invoke('val', editStoreSecondaryColor)
+      .trigger('change')
+      .should('have.value', editStoreSecondaryColor)
+  })
 
-//   it('Ir para Nova Loja', () => {
-//     cy.get('h1').contains(`${storeName}`).click()
-//     cy.location('pathname').should('eq', `/store/${storeName}/dashboard`)
-//   })
-// })
-
+  it('Subemeter formulário', () => {
+    cy.get('form > button')
+      .click()
+  })
+})
