@@ -7,7 +7,7 @@ import { useRouter } from 'next/router'
 import { getProduct, editProduct, deleteProduct } from '../../../../../services/productService'
 import { handleInputChange, processFormData } from '../../../../../services/helpers'
 
-const edit = ({product}) => {
+const edit = ({product, storeName}) => {
   console.log(product)
   let router = useRouter()
 
@@ -26,7 +26,7 @@ const edit = ({product}) => {
     const data = { name, description, price, quantity, image};
 
     editProduct(product._id, processFormData(data))
-      .then((response) => router.push('/'))
+      .then((response) => router.push(`/store/${storeName}/dashboard`))
       .catch((error) => {
         setLoading(false);
         console.log(error)
@@ -65,11 +65,12 @@ const edit = ({product}) => {
 edit.getInitialProps = async ctx => {
   console.log(ctx.query)
   let { id } = ctx.query;
-
+  let { name } = ctx.query;
   let {product} = await getProduct(id);
 
   return {
-    product
+    product,
+    storeName: name
   }
 }
 
