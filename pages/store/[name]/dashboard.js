@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Product from '../../../components/Product/Product'
 
 import Head from 'next/head'
 import Link from 'next/link';
@@ -98,19 +99,12 @@ export default function Store({store}) {
       <div className="products">
         {products.map((product, i) => {
           return (
-            <aside key={i} className="product">
-              <Link
-                href={'/store/[name]/product/[id]'}
-                as={`/store/${store.name}/product/${product._id}`}
-                key={product._id}
-              >
-                <a key={product._id}>{product.name}</a>
-              </Link>
-              <img src={product.imageUrl} alt={product.name}/>
-              <div className="quantity">{product.quantity}</div>
-              <div className="price">{product.price},00 R$</div>
-              <button onClick={() => handleProduct(product._id)}>add</button>
-            </aside>
+            <Product 
+              key ={i} 
+              handleProduct={handleProduct} 
+              {...product}
+              storeName={store.name}  
+            />
           );
         })}
         <Link
