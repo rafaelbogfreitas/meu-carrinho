@@ -1,7 +1,17 @@
+//provisory to improve view
+* {
+  font-size: $root_size;
+}
+
 body {
   width: 100vw;
   height: 100vh;
   background-color: #eee;
+
+  //provisory
+  padding: 50px;
+  font-family: $main-font;
+  font-size: 3rem;
 }
 
 img {
