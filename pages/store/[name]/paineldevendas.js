@@ -7,9 +7,10 @@ import ProtectedRoute from "../../../components/ProtectedRoute/ProtectedRoute";
 import { getStore } from '../../../services/storeService';
 export default function paineldevendas({ store }) {
   let { orders, name, _id } = store[0];
-
+  
   return ( 
     <ProtectedRoute>
+    {console.log(orders)}
     <Head>
       <title>Painel de vendas</title>
     </Head>
