@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Product from '../../../components/Product/Product'
+import Cart from '../../../components/Cart/Cart'
 
 import Head from 'next/head'
 import Link from 'next/link';
@@ -103,7 +104,7 @@ export default function Store({store}) {
               key ={i} 
               handleProduct={handleProduct} 
               {...product}
-              storeName={store.name}  
+              storeName={store}  
             />
           );
         })}
@@ -122,15 +123,7 @@ export default function Store({store}) {
         <Link href="/minhaslojas"><a>Ir para minhas lojas</a></Link>
       </div>
       <div>
-        {cart.map((product, i) => {
-          return (
-            <div key={i}>
-              <h2>{product.name}</h2>
-              <h2>{product.quantity}</h2>
-              <button onClick={() => removeItemsFromCart(product._id)}>remove</button>
-            </div>
-          );
-        })}
+       <Cart cart={cart} removeItemsFromCart={removeItemsFromCart}/>
       </div>
     </div>
   );

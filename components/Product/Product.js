@@ -23,6 +23,7 @@ const Product = ({
           <a key={_id}>{name}</a>
         </Link>
         <img src={imageUrl} alt={name}/>
+        <div>{description}</div>
         <div className="quantity">{quantity}</div>
         <div className="price">{price},00 R$</div>
         <button onClick={() => handleProduct(_id)}>add</button>
