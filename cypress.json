@@ -6,6 +6,7 @@
     "createStore.spec.js",
     "editStore.spec.js",
     "createProduct.spec.js",
-    "editProduct.spec.js"
+    "editProduct.spec.js",
+    "goToDashboard.spec.js"
   ]
 }
