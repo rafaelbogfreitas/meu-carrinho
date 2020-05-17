@@ -2,26 +2,42 @@ import React, { useEffect } from 'react'
 import orderStyles from './orders.module.scss'
 
 import { deleteOrder, updateOrder } from '../../services/orderService'
+import { getStore } from '../../services/storeService'
+
 import Moment from 'react-moment';
 
 export default function Orders(props) {
   
-  useEffect(() => {
+  const removeOrder =  async (storeId, orderId) => {
+    try {
 
-  }, [])
-  
-  const removeOrder = (storeId, orderId) => {
-    deleteOrder(storeId, orderId)
-      .then( response => {
-        console.log(response)
-      })
-      .catch(error => console.log(error))
+      let deleted =  await deleteOrder(storeId, orderId)
+      let [updatedStore] = await getStore(props.storeName)
+
+
+      props.setOrders(updatedStore.orders)
+    }
+
+    catch(error) {
+      console.log(error)
+    }
   }
 
-  const changeOrderStatus = (orderId, body) => {
-    updateOrder(orderId, body)
-      .then( response => console.log(response))
-      .catch( error => console.log(error))
+  const changeOrderStatus =  async (orderId) => {
+
+    try {
+      
+      let updated = await updateOrder(orderId)
+      let [updatedStore] = await getStore(props.storeName)
+      console.log(updatedStore)
+      props.setOrders(updatedStore.orders)
+
+    }
+
+    catch(error) {
+      console.log(error)
+    }
+      
   }
 
   return (

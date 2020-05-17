@@ -13,12 +13,6 @@ export default function paineldevendas({ store }) {
 
   let [ orders, setOrders ] = useState(ordersDB)
 
-  const updateOrders = order => {
-    setOrders([
-
-    ])
-  }
-
   return ( 
     <ProtectedRoute>
     <Head>
@@ -30,9 +24,15 @@ export default function paineldevendas({ store }) {
           {orders.length > 0 ?
             orders
             .filter((order) => order.status === "pending")
-            .map((orderz, idx) => {
-              return  <Orders key={idx} order={orderz} storeId={_id}/>
-            }):
+            .map((orderz, idx) =>
+                <Orders 
+                  key={idx} 
+                  order={orderz} 
+                  storeId={_id}
+                  storeName={name}
+                  setOrders={setOrders}
+                />
+              ):
             <div>You have no pending orders</div>
             }
         </div>
@@ -41,13 +41,15 @@ export default function paineldevendas({ store }) {
           {orders.length > 0 ?
             orders
             .filter((order) => order.status === "done")
-            .map((orderz, idx) => {
-              return  <Orders 
-                        key={idx} 
-                        order={orderz} 
-                        storeId={_id} 
-                        />
-            }) :
+            .map((orderz, idx) => 
+                <Orders 
+                  key={idx} 
+                  order={orderz} 
+                  storeId={_id} 
+                  storeName={name}
+                  setOrders={setOrders}
+                />
+            ) :
             <div>You have no finished orders</div>
             }
         </div>

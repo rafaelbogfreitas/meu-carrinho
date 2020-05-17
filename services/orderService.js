@@ -20,11 +20,13 @@ export const createOrder = (storeId, body) => {
 export const updateOrder = (orderId) => {
   return service
     .patch(`/update/${orderId}`)
-    .then((response) => response.data);
+    .then((response) => response.data)
+    .catch( error => console.log(error));
 };
 
 export const deleteOrder = (storeId, orderId) => {
   return service
     .delete(`/delete/${storeId}/${orderId}`)
-    .then((response) => response.data);
+    .then((response) => response.data)
+    .catch(error => console.log(error))
 };
