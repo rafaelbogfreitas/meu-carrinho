@@ -1,53 +1,64 @@
-import {product1, editStoreName} from '../test data/testData'
+import {email, password, product1, product2, editStoreName} from '../test data/testData'
 
-describe('Criar Novo Produto', () => {
+describe('Editar Produto', () => {
   beforeEach(() => {
     Cypress.Cookies.preserveOnce('session_id', 'remember_token', 'connect.sid')
   })
 
+  it('Faz login', () => {
+    cy.login(email, password)
+  })
+
+  it('Ir para loja', () => {
+    cy.get(`[href="/store/${editStoreName}/dashboard"]`).first().click()
+    cy.location('pathname').should('eq', `/store/${editStoreName}/dashboard`)
+  })
+
   it('Ir para Novo Produto', () => {
-    cy.get('[href="product/new"]')
+    cy.get('a').contains(`${product1.name}`)
+      .first()
       .click()
-    cy.location('pathname').should('eq', `/store/${editStoreName}/product/new`)
+    cy.location('pathname').should('contain', `/store/${editStoreName}/product/`)
+  })
+
+  it('Ir para Editar Produto', () => {
+    cy.get('button')
+      .first()
+      .click()
+    // cy.location('pathname').should('contain', `/store/${editStoreName}/product/`)
   })
 
   it('Preencher nome do produto', () => {
     cy.get('[name="name"]')
-      .type(product1.name)
-      .should('have.value', product1.name)
+      .clear()
+      .type(product2.name)
+      .should('have.value', product2.name)
   })
   it('Preencher descrição do produto', () => {
     cy.get('[name="description"]')
-      .type(product1.description)
-      .should('have.value', product1.description)
+      .clear()
+      .type(product2.description)
+      .should('have.value', product2.description)
   })
   it('Preencher preço do novo produto', () => {
     cy.get('[name="price"]')
-      .type(product1.price)
-      .should('have.value', product1.price)
+      .clear()
+      .type(product2.price)
+      .should('have.value', product2.price)
   })
   it('Preencher quantidade do novo produto', () => {
     cy.get('[name="quantity"]')
-      .type(product1.quantity)
-      .should('have.value', product1.quantity)
+      .clear()
+      .type(product2.quantity)
+      .should('have.value', product2.quantity)
   })
   it('Selecionar foto do novo produto', () => {
     cy.get('[type="file"]')
-      .attachFile(product1.image);
+      .attachFile(product2.image);
   })
 
   it('Subemeter formulário', () => {
     cy.get('button')
       .click()
   })
-
-  // it('Redirecionar para Minhas Lojas', () => {
-  //   cy.location('pathname').should('eq', `/minhaslojas`)
-  // })
-
-  // it('Ir para Nova Loja', () => {
-  //   cy.get(`[href="/store/${storeName}/dashboard"]`).click()
-  //   cy.location('pathname').should('eq', `/store/${storeName}/dashboard`)
-  // })
 })
-

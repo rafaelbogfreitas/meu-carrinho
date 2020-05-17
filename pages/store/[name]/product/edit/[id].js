@@ -8,7 +8,6 @@ import { getProduct, editProduct, deleteProduct } from '../../../../../services/
 import { handleInputChange, handleFileChange, processFormData } from '../../../../../services/helpers'
 
 const edit = ({product, storeName}) => {
-  console.log(product)
   let router = useRouter()
 
   let [ name, setName ] = useState(product.name);
@@ -63,7 +62,7 @@ const edit = ({product, storeName}) => {
 }
 
 edit.getInitialProps = async ctx => {
-  console.log(ctx.query)
+  // console.log(ctx.query)
   let { id } = ctx.query;
   let { name } = ctx.query;
   let {product} = await getProduct(id);

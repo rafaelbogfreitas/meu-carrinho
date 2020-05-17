@@ -25,3 +25,12 @@ import 'cypress-file-upload';
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+
+
+Cypress.Commands.add('login', (email, password) => {
+  cy.visit('/')
+  cy.get('.login_login__1rtGP > form > [name="name"]').type(email)
+  cy.get('.login_login__1rtGP > form > [name="password"]').type(password)
+  cy.get('.login_login__1rtGP > form > button').click()
+  cy.location('pathname').should('eq', '/minhaslojas')
+})

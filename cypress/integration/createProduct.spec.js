@@ -1,12 +1,22 @@
-import {product1, editStoreName} from '../test data/testData'
+import {email, password, product1, editStoreName} from '../test data/testData'
 
 describe('Criar Novo Produto', () => {
   beforeEach(() => {
     Cypress.Cookies.preserveOnce('session_id', 'remember_token', 'connect.sid')
   })
 
+  it('Faz login', () => {
+    cy.login(email, password)
+  })
+
+  it('Ir para loja', () => {
+    cy.get(`[href="/store/${editStoreName}/dashboard"]`).first().click()
+    cy.location('pathname').should('eq', `/store/${editStoreName}/dashboard`)
+  })
+
   it('Ir para Novo Produto', () => {
     cy.get('[href="product/new"]')
+      .first()
       .click()
     cy.location('pathname').should('eq', `/store/${editStoreName}/product/new`)
   })
@@ -40,14 +50,5 @@ describe('Criar Novo Produto', () => {
     cy.get('button')
       .click()
   })
-
-  // it('Redirecionar para Minhas Lojas', () => {
-  //   cy.location('pathname').should('eq', `/minhaslojas`)
-  // })
-
-  // it('Ir para Nova Loja', () => {
-  //   cy.get(`[href="/store/${storeName}/dashboard"]`).click()
-  //   cy.location('pathname').should('eq', `/store/${storeName}/dashboard`)
-  // })
 })
 

@@ -30,3 +30,11 @@ export const product1 = {
   quantity: '100',
   image: '../test data/heineken.jpg'
 }
+
+export const product2 = {
+  name: 'Produto Teste 2',
+  description: 'Descrição Produto Teste 2',
+  price: '25',
+  quantity: '75',
+  image: '../test data/skol.jpg'
+}
