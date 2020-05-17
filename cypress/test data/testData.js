@@ -4,9 +4,11 @@ export const name = "Teste"
 export const email = "emailteste2@teste.com"
 export const password = "senhadeteste"
 
+// Math.random().toString(36).substring(2, 15)
+
 // CREATE STORE
-export const storeName = 'BOARICKY'
-export const storeDescription = 'Descricao do rafael'
+export const storeName = 'LOJA_TESTE'
+export const storeDescription = 'LOJA_TESTE DESCRICAO'
 export const storePhone = '1111111111111'
 export const storePhoto = '../test data/carrinho-compras.png'
 export const storePrimaryColor = '#fe0090'
