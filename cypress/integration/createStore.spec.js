@@ -1,12 +1,18 @@
-import {storeName, storeDescription, storePhone, storePhoto, storePrimaryColor, storeSecondaryColor} from '../test data/testData'
+import {email, password, storeName, storeDescription, storePhone, storePhoto, storePrimaryColor, storeSecondaryColor} from '../test data/testData'
 
 // export const randStoreName = storeName
 
 describe('Criar Nova Loja', () => {
+
+  
   beforeEach(() => {
     Cypress.Cookies.preserveOnce('session_id', 'remember_token', 'connect.sid')
   })
 
+  it('Faz login', () => {
+    cy.login(email, password)
+  })
+  
   it('Ir para Criar Nova Loja', () => {
     cy.get('[href="createStore"]')
       .click()
@@ -55,14 +61,8 @@ describe('Criar Nova Loja', () => {
   })
 
   it('Ir para Nova Loja', () => {
-    cy.get(`[href="/store/${storeName}/dashboard"]`).click()
+    cy.get(`[href="/store/${storeName}/dashboard"]`).first().click()
     cy.location('pathname').should('eq', `/store/${storeName}/dashboard`)
-  })
-
-  it('Ir para editar loja', () => {
-    cy.get(`[href="/editStore/${storeName}"]`)
-      .click()
-      .then(() => cy.location('pathname').should('eq', `/editStore/${storeName}`))
   })
 })
 

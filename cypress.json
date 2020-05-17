@@ -5,6 +5,7 @@
     "login.spec.js",
     "createStore.spec.js",
     "editStore.spec.js",
-    "createProduct.spec.js"
+    "createProduct.spec.js",
+    "editProduct.spec.js"
   ]
 }
