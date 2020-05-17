@@ -3,6 +3,8 @@ import Product from '../../../components/Product/Product';
 import Cart from '../../../components/Cart/Cart';
 import { ProductsContext, CartContext, StoreContext } from '../../../contexts/UserContext';
 import Loading from '../../../components/Loading/Loading';
+import OwnerFeature from '../../../components/OwnerFeature/OwnerFeature';
+import ClientFeature from '../../../components/ClientFeature/ClientFeature';
 
 import Head from 'next/head';
 import Link from 'next/link';
@@ -115,30 +117,37 @@ export default function Store({ store }) {
             />
           );
         })}
-        <Link
-          href={'/store/[name]/paineldevendas'}
-          as={`/store/${store.name}/paineldevendas`}
-        >
-          <a>Painel de vendas</a>
-        </Link>
-        <Link href={'/editStore/[name]'} as={`/editStore/${store.name}`}>
-          <a>Editar</a>
-        </Link>
-        <Link href={'product/new'} as={`product/new`}>
-          <a name={store.name}>New Produto</a>
-        </Link>
-        <Link href="/minhaslojas">
-          <a>Ir para minhas lojas</a>
-        </Link>
+
+        <OwnerFeature>
+          <Link
+            href={'/store/[name]/paineldevendas'}
+            as={`/store/${store.name}/paineldevendas`}
+          >
+            <a>Painel de vendas</a>
+          </Link>
+          <Link href={'/editStore/[name]'} as={`/editStore/${store.name}`}>
+            <a>Editar</a>
+          </Link>
+          <Link href={'product/new'} as={`product/new`}>
+            <a name={store.name}>New Produto</a>
+          </Link>
+          <Link href="/minhaslojas">
+            <a>Ir para minhas lojas</a>
+          </Link>
+        </OwnerFeature>
+
       </div>
-      <div>
-       <Cart 
-        cart={cart} 
-        storeId={store._id} 
-        removeItemsFromCart={removeItemsFromCart}
-        setCart={setCart}
-       />
-      </div>
+
+      <ClientFeature>
+        <div>
+        <Cart 
+          cart={cart} 
+          storeId={store._id} 
+          removeItemsFromCart={removeItemsFromCart}
+          setCart={setCart}
+        />
+        </div>
+      </ClientFeature>
     </div>
   );
 }
