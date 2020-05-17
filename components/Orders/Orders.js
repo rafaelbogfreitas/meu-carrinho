@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import orderStyles from './orders.module.scss'
 
 import { deleteOrder, updateOrder } from '../../services/orderService'
@@ -7,6 +7,10 @@ import { deleteOrder, updateOrder } from '../../services/orderService'
 
 
 export default function Orders(props) {
+  
+  useEffect(() => {
+
+  }, [])
   
   const removeOrder = (storeId, orderId) => {
     deleteOrder(storeId, orderId)
@@ -30,7 +34,7 @@ export default function Orders(props) {
       })}
       <p>Order Total: {props.order.total}</p>
       <button onClick={() => removeOrder(props.storeId, props.order._id)}>Delete Order</button>
-      <button onClick={() => changeOrderStatus(props.order.id)}>Finish Order</button>
+      <button onClick={() => changeOrderStatus(props.order._id)}>Complete Order</button>
     </div>
   )
 }

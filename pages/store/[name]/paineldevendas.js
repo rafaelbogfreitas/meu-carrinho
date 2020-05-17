@@ -13,6 +13,12 @@ export default function paineldevendas({ store }) {
 
   let [ orders, setOrders ] = useState(ordersDB)
 
+  const updateOrders = order => {
+    setOrders([
+      
+    ])
+  }
+
   return ( 
     <ProtectedRoute>
     {console.log(orders)}
