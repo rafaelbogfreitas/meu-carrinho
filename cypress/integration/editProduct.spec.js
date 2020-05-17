@@ -1,6 +1,6 @@
 import {email, password, product1, product2, editStoreName} from '../test data/testData'
 
-describe('Criar Novo Produto', () => {
+describe('Editar Produto', () => {
   beforeEach(() => {
     Cypress.Cookies.preserveOnce('session_id', 'remember_token', 'connect.sid')
   })
