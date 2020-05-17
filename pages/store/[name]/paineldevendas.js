@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 import Link from 'next/link'
 import Head from 'next/head'
 
@@ -6,11 +8,13 @@ import ProtectedRoute from "../../../components/ProtectedRoute/ProtectedRoute";
 
 import { getStore } from '../../../services/storeService';
 export default function paineldevendas({ store }) {
-  let { orders, name, _id } = store[0];
-  
+  let { name, _id } = store[0];
+  let ordersDB = store[0].orders;
+
+  let [ orders, setOrders ] = useState(ordersDB)
+
   return ( 
     <ProtectedRoute>
-    {console.log(orders)}
     <Head>
       <title>Painel de vendas</title>
     </Head>
@@ -32,7 +36,11 @@ export default function paineldevendas({ store }) {
             orders
             .filter((order) => order.status === "done")
             .map((orderz, idx) => {
-              return  <Orders key={idx} order={orderz} storeId={_id}/>
+              return  <Orders 
+                        key={idx} 
+                        order={orderz} 
+                        storeId={_id} 
+                        />
             }) :
             <div>You have no finished orders</div>
             }
