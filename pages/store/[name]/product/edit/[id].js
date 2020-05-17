@@ -5,7 +5,7 @@ import Loading from  '../../../../../components/Loading/Loading'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { getProduct, editProduct, deleteProduct } from '../../../../../services/productService'
-import { handleInputChange, processFormData } from '../../../../../services/helpers'
+import { handleInputChange, handleFileChange, processFormData } from '../../../../../services/helpers'
 
 const edit = ({product, storeName}) => {
   console.log(product)
@@ -52,7 +52,7 @@ const edit = ({product, storeName}) => {
         <input  placeholder="description" onChange={(event) => handleInputChange(event, setDescription)} type="text" name="description" value={description}/>
         <input  placeholder="quantity" onChange={(event) => handleInputChange(event, setQuantity)} type="text" name="quantity" value={quantity}/>
         <input  placeholder="price" onChange={(event) => handleInputChange(event, setPrice)} type="text" name="price" value={price}/>
-        <input  placeholder="image" onChange={(event) => handleInputChange(event, setImage)} type="file" name="image" value={image}/>
+        <input  placeholder="image" onChange={(event) => handleFileChange(event, setImage)} type="file" name="image"/>
 
         <button>SAVE</button>
 

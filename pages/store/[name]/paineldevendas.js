@@ -15,7 +15,7 @@ export default function paineldevendas({ store }) {
 
   const updateOrders = order => {
     setOrders([
-      
+
     ])
   }
 

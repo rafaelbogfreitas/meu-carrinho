@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import orderStyles from './orders.module.scss'
 
 import { deleteOrder, updateOrder } from '../../services/orderService'
-
+import Moment from 'react-moment';
 
 export default function Orders(props) {
   
@@ -30,7 +30,8 @@ export default function Orders(props) {
       {props.order.products.map((product, idx) => {
         return <p key={idx}>{product.product.name} - Quantity {product.product.quantity}</p>
       })}
-      <p>Order Total: {props.order.total}</p>
+      <p>Order Total: {props.order.total}.00 R$</p>
+      <Moment format="YYYY/MM/DD">{props.order.updatedAt}</Moment >
       <button onClick={() => removeOrder(props.storeId, props.order._id)}>Delete Order</button>
       <button onClick={() => changeOrderStatus(props.order._id)}>Complete Order</button>
     </div>
