@@ -4,8 +4,6 @@ import orderStyles from './orders.module.scss'
 import { deleteOrder, updateOrder } from '../../services/orderService'
 
 
-
-
 export default function Orders(props) {
   
   useEffect(() => {
@@ -30,7 +28,7 @@ export default function Orders(props) {
     <div className={orderStyles.outline_white}>
       <p>Order ID: {props.order._id}</p>
       {props.order.products.map((product, idx) => {
-        return <p key={idx}>{product.name} - Quantity {product.quantity}</p>
+        return <p key={idx}>{product.product.name} - Quantity {product.product.quantity}</p>
       })}
       <p>Order Total: {props.order.total}</p>
       <button onClick={() => removeOrder(props.storeId, props.order._id)}>Delete Order</button>
