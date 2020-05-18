@@ -34,13 +34,16 @@ const Product = ({
       <div className="price">{price},00 R$</div>
       <ClientFeature>
         <label htmlFor="amount">Amount:</label>
-        <input 
+        { quantity ==  0 ?
+          <div>Esgotado</div> :
+          <input 
           type="number" 
           name="amount"
           value={amount}
           max={quantity}
+          min={1}
           onChange={(event) => handleInputChange(event, setAmount)}
-        />
+        />}
         <button onClick={() => handleProduct(_id, amount)}>add</button>
       </ClientFeature>
       <OwnerFeature>
