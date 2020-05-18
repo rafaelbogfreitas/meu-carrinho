@@ -16,9 +16,8 @@ describe('Ir para Dashboard', () => {
   })
 
   it('Ir para editar loja', () => {
-    cy.get(`[href="/store/${editStoreName}/paineldevendas"]`)
-      .click()
-      .then(() => cy.location('pathname').should('eq', `/store/${editStoreName}/paineldevendas`))
+    cy.get(`[href="/store/${editStoreName}/paineldevendas"]`).click().wait(1000)
+    cy.location('pathname').should('eq', `/store/${editStoreName}/paineldevendas`)
   })
 
 })
