@@ -10,6 +10,7 @@ const Product = ({
      imageUrl,
      quantity,
      handleProduct,
+     handleDelete,
      storeName,
      _id
     }) => {
@@ -27,6 +28,7 @@ const Product = ({
         <div className="quantity">{quantity}</div>
         <div className="price">{price},00 R$</div>
         <button onClick={() => handleProduct(_id)}>add</button>
+        <button onClick={() => handleDelete(_id)}>DELETE</button>
     </aside>
   )
 }

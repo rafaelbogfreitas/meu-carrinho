@@ -9,6 +9,7 @@ import ClientFeature from '../../../components/ClientFeature/ClientFeature';
 import Head from 'next/head';
 import Link from 'next/link';
 import { getStore } from '../../../services/storeService';
+import { deleteProduct } from '../../../services/productService';
 
 export default function Store({ store }) {
   const [isLoading, setIsLoading] = useState(true);
@@ -25,6 +26,18 @@ export default function Store({ store }) {
     setIsLoading(false);
     // window.localStorage.setItem('products', JSON.stringify(products))
   }, [products, cart]);
+
+  const handleDelete = async (productId) => {
+    try {
+      const response = await deleteProduct(store._id, productId);
+      console.log(response);
+      
+      const [{ products }] = await getStore(storeName);
+      setProducts(products);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const handleProduct = (id) => {
     let newProduct = {};
@@ -112,6 +125,7 @@ export default function Store({ store }) {
             <Product
               key={i}
               handleProduct={handleProduct}
+              handleDelete={handleDelete}
               {...product}
               storeName={store.name}
             />
