@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { createStore } from '../services/storeService';
 import Link from 'next/link';
 import ProtectedRoute from '../components/ProtectedRoute/ProtectedRoute';
+import PhoneCodeSelect from '../components/PhoneCodeSelect/PhoneCodeSelect';
 import {
   handleInputChange,
   handleFileChange,
@@ -16,13 +17,21 @@ const CreateStore = () => {
   const [about, setAbout] = useState('');
   const [primaryColor, setPrimaryColor] = useState('#00ff00');
   const [secondaryColor, setSecondaryColor] = useState('#0000ff');
+  const [regionCode, setRegionCode] = useState('');
   const [phone, setPhone] = useState('');
   const [image, setImage] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const data = { name, about, primaryColor, secondaryColor, phone, image };
+    const data = {
+      name,
+      about,
+      primaryColor,
+      secondaryColor,
+      phone: regionCode + phone,
+      image,
+    };
 
     createStore(processFormData(data))
       .then(() => router.push('/minhaslojas'))
@@ -63,8 +72,14 @@ const CreateStore = () => {
           onChange={(event) => handleInputChange(event, setSecondaryColor)}
         />
         <label htmlFor="phone">Telefone</label>
+        <PhoneCodeSelect
+          regionCode={regionCode}
+          setRegionCode={setRegionCode}
+        />
         <input
           type="text"
+          minLength="8"
+          maxLength="9"
           placeholder="(xx) xxxxx-xxxx"
           name="phone"
           value={phone}
