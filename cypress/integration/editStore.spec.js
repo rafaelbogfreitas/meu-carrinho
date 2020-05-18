@@ -1,6 +1,5 @@
 import {email, password, storeName, editStoreName, editStoreDescription, editStoreDDDField, editStoreDDD, editStorePhone, editStorePhoto, editStorePrimaryColor, editStoreSecondaryColor} from '../test data/testData'
 
-
 describe('Editar Loja', () => {
   beforeEach(() => {
     Cypress.Cookies.preserveOnce('session_id', 'remember_token', 'connect.sid')
@@ -19,7 +18,6 @@ describe('Editar Loja', () => {
     cy.get(`[href="/editStore/${storeName}"]`)
       .first()
       .click()
-      
       .then(() => cy.location('pathname').should('eq', `/editStore/${storeName}`))
   })
 

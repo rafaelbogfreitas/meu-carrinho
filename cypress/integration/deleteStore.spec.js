@@ -1,7 +1,5 @@
 import {email, password, deleteStoreName, deleteStoreDescription, deleteStoreDDDField, deleteStoreDDD, deleteStorePhone, deleteStorePhoto, deleteStorePrimaryColor, deleteStoreSecondaryColor} from '../test data/testData'
 
-// export const randStoreName = storeName
-
 describe('Deletar Loja', () => {
   beforeEach(() => {
     Cypress.Cookies.preserveOnce('session_id', 'remember_token', 'connect.sid')
