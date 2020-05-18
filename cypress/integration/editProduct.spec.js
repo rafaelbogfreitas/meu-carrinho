@@ -60,7 +60,7 @@ describe('Editar Produto', () => {
   })
 
   it('Subemeter formulário', () => {
-    cy.get('button')
+    cy.get('[class="saveButton"]')
       .click().wait(500)
   })
 })
