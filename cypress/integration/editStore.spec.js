@@ -1,4 +1,4 @@
-import {email, password, storeName, editStoreName, editStoreDescription, editStorePhone, editStorePhoto, editStorePrimaryColor, editStoreSecondaryColor} from '../test data/testData'
+import {email, password, storeName, editStoreName, editStoreDescription, editStoreDDDField, editStoreDDD, editStorePhone, editStorePhoto, editStorePrimaryColor, editStoreSecondaryColor} from '../test data/testData'
 
 
 describe('Editar Loja', () => {
@@ -29,28 +29,38 @@ describe('Editar Loja', () => {
       .type(editStoreName)
       .should('have.value', editStoreName)
   })
+
   it('Preencher descrição da nova loja', () => {
     cy.get('textarea')
       .clear()
       .type(editStoreDescription)
       .should('have.value', editStoreDescription)
   })
+
+  it('Preencher DDD do telefone da nova loja', () => {
+    cy.get('select')
+      .select(editStoreDDDField)
+      .should('have.value', editStoreDDD)
+  })
+
   it('Preencher telefone da nova loja', () => {
-    cy.get('[placeholder="(xx) xxxxx-xxxx"]')
-      .clear()
+    cy.get('[name="phone"]')
       .type(editStorePhone)
       .should('have.value', editStorePhone)
   })
+
   it('Selecionar foto da nova loja', () => {
     cy.get('[type="file"]')
       .attachFile(editStorePhoto);
   })
+
   it('Selecionar cor primária da nova loja', () => {
     cy.get('[name="primaryColor"]')
       .invoke('val', editStorePrimaryColor)
       .trigger('change')
       .should('have.value', editStorePrimaryColor)
   })
+
   it('Selecionar cor secundária da nova loja', () => {
     cy.get('[name="secondaryColor"]')
       .invoke('val', editStoreSecondaryColor)
