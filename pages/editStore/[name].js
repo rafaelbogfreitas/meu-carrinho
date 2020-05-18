@@ -18,10 +18,11 @@ const Name = ({ store }) => {
   const [about, setAbout] = useState(store.about);
   const [primaryColor, setPrimaryColor] = useState(store.theme.primaryColor);
   const [secondaryColor, setSecondaryColor] = useState(store.theme.secondaryColor);
-  const [phone, setPhone] = useState(store.phone.slice(2));
-  const [regionCode, setRegionCode] = useState(store.phone.slice(0, 2));
+  const [phone, setPhone] = useState(store.phone.slice(5));
+  const [regionCode, setRegionCode] = useState(store.phone.slice(3, 5));
   const [image, setImage] = useState(false);
   const [loading, setLoading] = useState(false);
+
 
   const { _id: id } = store;
 
@@ -57,6 +58,7 @@ const Name = ({ store }) => {
         setLoading(false)
         console.log('error: ', error);
       });
+      console.log('Hello')
   };
 
   return (

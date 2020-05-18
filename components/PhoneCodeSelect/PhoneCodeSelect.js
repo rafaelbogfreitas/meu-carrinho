@@ -8,7 +8,7 @@ function PhoneCodeSelect({ regionCode, setRegionCode }) {
       onChange={(event) => handleInputChange(event, setRegionCode)}
       required
     >
-      <option value="" selected disabled>DDD</option>
+      {/* <option value="" selected disabled>DDD</option> */}
       <option value="68">(68) Acre</option>
       <option value="82">(82) Alagoas</option>
       <option value="96">(96) Amapá</option>
