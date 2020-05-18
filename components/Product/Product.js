@@ -32,7 +32,7 @@ const Product = ({
       <div>{description}</div>
       <div className="quantity">{quantity}</div>
       <div className="price">{price},00 R$</div>
-      {/* <ClientFeature> */}
+      <ClientFeature>
         <label htmlFor="amount">Amount:</label>
         <input 
           type="number" 
@@ -41,10 +41,10 @@ const Product = ({
           onChange={(event) => handleInputChange(event, setAmount)}
         />
         <button onClick={() => handleProduct(_id, amount)}>add</button>
-      {/* </ClientFeature> */}
-      {/* <OwnerFeature> */}
+      </ClientFeature>
+      <OwnerFeature>
         <button onClick={() => handleDelete(_id)}>DELETE</button>
-      {/* </OwnerFeature> */}
+      </OwnerFeature>
     </aside>
   );
 };

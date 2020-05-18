@@ -132,7 +132,7 @@ export default function Store({ store }) {
           );
         })}
 
-        {/* <OwnerFeature> */}
+        <OwnerFeature>
           <Link
             href={'/store/[name]/paineldevendas'}
             as={`/store/${store.name}/paineldevendas`}
@@ -148,11 +148,11 @@ export default function Store({ store }) {
           <Link href="/minhaslojas">
             <a>Ir para minhas lojas</a>
           </Link>
-        {/* </OwnerFeature> */}
+        </OwnerFeature>
 
       </div>
 
-      {/* <ClientFeature> */}
+      <ClientFeature>
         <div>
         <Cart 
           cart={cart} 
@@ -161,7 +161,7 @@ export default function Store({ store }) {
           setCart={setCart}
         />
         </div>
-      {/* </ClientFeature> */}
+      </ClientFeature>
     </div>
   );
 }
