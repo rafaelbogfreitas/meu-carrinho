@@ -20,6 +20,7 @@ export default function Home() {
 
       <Login/>
       <Signup/>
+      <a href="http://localhost:5000/api/v1/auth/google">Google</a>
       
     </>
   )
