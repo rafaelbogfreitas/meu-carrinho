@@ -48,8 +48,8 @@ export default function Orders(props) {
       })}
       <p>Order Total: {props.order.total}.00 R$</p>
       <Moment format="DD/MM/YYYY HH:MM">{props.order.updatedAt}</Moment>
-      <button onClick={() => removeOrder(props.storeId, props.order._id)}>Delete Order</button>
-      <button onClick={() => changeOrderStatus(props.order._id)}>Complete Order</button>
+      <button onClick={() => removeOrder(props.storeId, props.order._id)} className="deleteOrder">Delete Order</button>
+      <button onClick={() => changeOrderStatus(props.order._id)} className="completeOrder">Complete Order</button>
     </div>
   )
 }

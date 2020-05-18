@@ -29,7 +29,7 @@ describe('Signup', () => {
   
   it('Submeter signup', () => {
     cy.get('.signup_login__3LVzd > form > button')
-      .click()
+      .click().wait(500)
   })
 })
 

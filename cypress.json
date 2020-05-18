@@ -8,6 +8,8 @@
     "createProduct.spec.js",
     "editProduct.spec.js",
     "userCreateOrder.spec.js",
-    "goToDashboard.spec.js"
+    "goToDashboard.spec.js",
+    "completeOrders.spec.js",
+    "deleteOrders.spec.js"
   ]
 }

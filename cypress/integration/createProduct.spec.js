@@ -10,7 +10,7 @@ describe('Criar Novo Produto', () => {
   })
 
   it('Ir para loja', () => {
-    cy.get(`[href="/store/${editStoreName}/dashboard"]`).first().click()
+    cy.get(`[href="/store/${editStoreName}/dashboard"]`).first().click().wait(500)
     cy.location('pathname').should('eq', `/store/${editStoreName}/dashboard`)
   })
 
@@ -18,6 +18,7 @@ describe('Criar Novo Produto', () => {
     cy.get('[href="product/new"]')
       .first()
       .click()
+      .wait(500)
     cy.location('pathname').should('eq', `/store/${editStoreName}/product/new`)
   })
 
@@ -48,7 +49,7 @@ describe('Criar Novo Produto', () => {
 
   it('Subemeter formulário', () => {
     cy.get('button')
-      .click()
+      .click().wait(500)
   })
 })
 

@@ -10,7 +10,7 @@ describe('Editar Produto', () => {
   })
 
   it('Ir para loja', () => {
-    cy.get(`[href="/store/${editStoreName}/dashboard"]`).first().click()
+    cy.get(`[href="/store/${editStoreName}/dashboard"]`).first().click().wait(500)
     cy.location('pathname').should('eq', `/store/${editStoreName}/dashboard`)
   })
 
@@ -18,6 +18,7 @@ describe('Editar Produto', () => {
     cy.get('a').contains(`${product1.name}`)
       .first()
       .click()
+      .wait(500)
     cy.location('pathname').should('contain', `/store/${editStoreName}/product/`)
   })
 
@@ -25,7 +26,8 @@ describe('Editar Produto', () => {
     cy.get('button')
       .first()
       .click()
-    // cy.location('pathname').should('contain', `/store/${editStoreName}/product/`)
+      .wait(500)
+    cy.location('pathname').should('contain', `/store/${editStoreName}/product/`)
   })
 
   it('Preencher nome do produto', () => {
@@ -59,6 +61,6 @@ describe('Editar Produto', () => {
 
   it('Subemeter formulário', () => {
     cy.get('button')
-      .click()
+      .click().wait(500)
   })
 })
