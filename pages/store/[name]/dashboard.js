@@ -8,6 +8,8 @@ import ClientFeature from '../../../components/ClientFeature/ClientFeature';
 
 import Head from 'next/head';
 import Link from 'next/link';
+
+import { renderMetatags } from '../../../services/helpers';
 import { getStore } from '../../../services/storeService';
 import { deleteProduct } from '../../../services/productService';
 
@@ -115,6 +117,12 @@ export default function Store({ store }) {
     <div>
       <Head>
         <title>{store.name}</title>
+        {renderMetatags(
+          'Loja ' + store.name, 
+          store.about,
+          'http://localhost:3000/store/' + store.name,
+          store.imageUrl
+        )}
       </Head>
       <h1 style={{ backgroundColor: `${store.theme.secondaryColor}` }}>
         Welcome to {store.name} store!!

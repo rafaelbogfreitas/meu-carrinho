@@ -28,6 +28,8 @@ export const handleFileChange = (e, handler) => handler(e.target.files[0]);
 export const renderMetatags = (title, description, url, imageUrl) => {
   return (
     <>
+      <title>{title}</title>
+      
       <meta name="title" content={title}/>
       <meta name="description" content={description}/>
 
