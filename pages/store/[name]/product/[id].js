@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
-
+import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Link from 'next/link';
 import { getProduct, deleteProduct } from '../../../../services/productService';
 import { getStore } from '../../../../services/storeService';
 const SingleProduct = ({ product, name }) => {
-
+  const router = useRouter();
+  const { storeName } = useContext(StoreContext);
   /**
    * Comentei o trecho abaixo provisóriamente pois parece que não
    * tem mais utilidade já que estamos controlando products e cart
