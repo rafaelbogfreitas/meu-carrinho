@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { editStore, getStore, deleteStore } from '../../services/storeService';
 import ProtectedRoute from '../../components/ProtectedRoute/ProtectedRoute';
+import PhoneCodeSelect from '../../components/PhoneCodeSelect/PhoneCodeSelect';
 import Loading from '../../components/ProtectedRoute/ProtectedRoute';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
@@ -17,7 +18,8 @@ const Name = ({ store }) => {
   const [about, setAbout] = useState(store.about);
   const [primaryColor, setPrimaryColor] = useState(store.theme.primaryColor);
   const [secondaryColor, setSecondaryColor] = useState(store.theme.secondaryColor);
-  const [phone, setPhone] = useState(store.phone);
+  const [phone, setPhone] = useState(store.phone.slice(2));
+  const [regionCode, setRegionCode] = useState(store.phone.slice(0, 2));
   const [image, setImage] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -27,7 +29,14 @@ const Name = ({ store }) => {
     event.preventDefault();
     setLoading(true);
 
-    const data = { name, about, primaryColor, secondaryColor, phone, image };
+    const data = {
+      name,
+      about,
+      primaryColor,
+      secondaryColor,
+      phone: regionCode + phone,
+      image,
+    };
 
     editStore(id, processFormData(data))
       .then((response) => router.push(`/store/${response.updatedStore.name}/dashboard`))
@@ -87,8 +96,14 @@ const Name = ({ store }) => {
           onChange={(event) => handleInputChange(event, setSecondaryColor)}
         />
         <label htmlFor="phone">Telefone</label>
+        <PhoneCodeSelect
+          regionCode={regionCode}
+          setRegionCode={setRegionCode}
+        />
         <input
-          type="tel"
+          type="text"
+          minLength="8"
+          maxLength="9"
           placeholder="(xx) xxxxx-xxxx"
           name="phone"
           value={phone}
