@@ -1,8 +1,11 @@
 import React, { useEffect, useContext } from 'react';
 import { StoreContext } from '../../../../contexts/UserContext';
 import { useRouter } from 'next/router';
+
 import Head from 'next/head';
 import Link from 'next/link';
+
+import { renderMetatags } from '../../../../services/helpers'
 import { getProduct, deleteProduct } from '../../../../services/productService';
 import { getStore } from '../../../../services/storeService';
 const SingleProduct = ({ product, name }) => {
@@ -39,7 +42,12 @@ const SingleProduct = ({ product, name }) => {
   return (
     <>
       <Head>
-        <title>{product.name}</title>
+        {renderMetatags(
+          product.name,
+          product.description,
+          `http://localhost:3000/store/${name}/product/${product._id}`,
+          product.imageUrl
+        )}
       </Head>
       <div>{product.name}</div>
       <img src={product.imageUrl} alt={product.description}/>
