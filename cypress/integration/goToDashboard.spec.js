@@ -11,12 +11,12 @@ describe('Ir para painel de vendas', () => {
   })
 
   it('Ir para loja', () => {
-    cy.get(`[href="/store/${editStoreName}/dashboard"]`).first().click().wait(500)
+    cy.get(`[href="/store/${editStoreName}/dashboard"]`).first().click()
     cy.location('pathname').should('eq', `/store/${editStoreName}/dashboard`)
   })
 
   it('Ir para painel de vendas', () => {
-    cy.get(`[href="/store/${editStoreName}/paineldevendas"]`).click().wait(2500)
+    cy.get(`[href="/store/${editStoreName}/paineldevendas"]`).click()
     cy.location('pathname').should('eq', `/store/${editStoreName}/paineldevendas`)
   })
 })

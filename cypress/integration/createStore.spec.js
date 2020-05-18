@@ -13,7 +13,7 @@ describe('Criar Nova Loja', () => {
   
   it('Ir para Criar Nova Loja', () => {
     cy.get('[href="createStore"]')
-      .click().wait(500)
+      .click()
     cy.location('pathname').should('eq', '/createStore')
   })
 
@@ -51,7 +51,7 @@ describe('Criar Nova Loja', () => {
 
   it('Subemeter formulário', () => {
     cy.get('button')
-      .click().wait(500)
+      .click()
   })
 
   it('Redirecionar para Minhas Lojas', () => {

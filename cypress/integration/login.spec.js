@@ -23,7 +23,7 @@ describe('Login', () => {
 
   it('Submeter Login', () => {
     cy.get('.login_login__1rtGP > form > button')
-      .click().wait(2500)
+      .click()
   })
 
   it('Redirecionar para Minhas Lojas', () => {

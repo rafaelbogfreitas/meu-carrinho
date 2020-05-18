@@ -11,7 +11,7 @@ describe('Editar Loja', () => {
   })
 
   it('Ir para loja', () => {
-    cy.get(`[href="/store/${storeName}/dashboard"]`).first().click().wait(500)
+    cy.get(`[href="/store/${storeName}/dashboard"]`).first().click()
     cy.location('pathname').should('eq', `/store/${storeName}/dashboard`)
   })
 
@@ -19,7 +19,7 @@ describe('Editar Loja', () => {
     cy.get(`[href="/editStore/${storeName}"]`)
       .first()
       .click()
-      .wait(500)
+      
       .then(() => cy.location('pathname').should('eq', `/editStore/${storeName}`))
   })
 
@@ -60,6 +60,6 @@ describe('Editar Loja', () => {
 
   it('Subemeter formulário', () => {
     cy.get('[class="save"]')
-      .click().wait(500)
+      .click()
   })
 })

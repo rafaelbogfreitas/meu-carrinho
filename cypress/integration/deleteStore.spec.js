@@ -13,7 +13,7 @@ describe('Deletar Loja', () => {
   
   it('Ir para Criar Nova Loja', () => {
     cy.get('[href="createStore"]')
-      .click().wait(500)
+      .click()
     cy.location('pathname').should('eq', '/createStore')
   })
 
@@ -51,25 +51,25 @@ describe('Deletar Loja', () => {
 
   it('Subemeter formulário', () => {
     cy.get('button')
-      .click().wait(500)
+      .click()
   })
 
   it('Redirecionar para Minhas Lojas', () => {
-    cy.location('pathname').should('eq', `/minhaslojas`).wait(2500)
+    cy.location('pathname').should('eq', `/minhaslojas`)
   })
 
   it('Ir para Nova Loja', () => {
-    cy.get(`[href="/store/${deleteStoreName}/dashboard"]`).first().click().wait(500)
+    cy.get(`[href="/store/${deleteStoreName}/dashboard"]`).first().click()
     cy.location('pathname').should('eq', `/store/${deleteStoreName}/dashboard`)
   })
 
   it('Ir para Editar Loja', () => {
-    cy.get(`[href="/editStore/${deleteStoreName}"]`).first().click().wait(500)
+    cy.get(`[href="/editStore/${deleteStoreName}"]`).first().click()
     cy.location('pathname').should('eq', `/editStore/${deleteStoreName}`)
   })
 
   it('Deletar loja', () => {
-    cy.get('[class="deleteButton"]').first().click().wait(500)
+    cy.get('[class="deleteButton"]').first().click()
     cy.location('pathname').should('eq', `/minhaslojas`)
   })
 })
