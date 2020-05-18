@@ -23,7 +23,7 @@ const ClientFeature = ({ children }) => {
       .catch(() => setIsLoading(false));
   }, [storeName]);
 
-  return isLoading ? <Loading /> : isOwner ? <></> : <>{children}</>;
+  return isLoading ? <></> : isOwner ? <></> : <>{children}</>;
 };
 
 export default ClientFeature;
