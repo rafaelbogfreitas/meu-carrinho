@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
+import { StoreContext } from '../../../../contexts/UserContext';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Link from 'next/link';
