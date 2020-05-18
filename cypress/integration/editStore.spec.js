@@ -59,7 +59,7 @@ describe('Editar Loja', () => {
   })
 
   it('Subemeter formulário', () => {
-    cy.get('form > button')
+    cy.get('[class="save"]')
       .click().wait(500)
   })
 })

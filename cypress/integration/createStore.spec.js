@@ -3,8 +3,6 @@ import {email, password, storeName, storeDescription, storePhone, storePhoto, st
 // export const randStoreName = storeName
 
 describe('Criar Nova Loja', () => {
-
-  
   beforeEach(() => {
     Cypress.Cookies.preserveOnce('session_id', 'remember_token', 'connect.sid')
   })

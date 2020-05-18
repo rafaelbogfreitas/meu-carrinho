@@ -46,9 +46,9 @@ const SingleProduct = ({ product, name }) => {
         href="/store/[name]/product/edit/[id]"
         as={`/store/${name}/product/edit/${product._id}`}
       >
-        <button>EDIT</button>
+        <button className="editButton">EDIT</button>
       </Link>
-      <button onClick={handleDelete}>DELETE</button>
+      <button onClick={handleDelete} className="deleteButton">DELETE</button>
     </>
   )
 };

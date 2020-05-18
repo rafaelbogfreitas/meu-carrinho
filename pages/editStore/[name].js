@@ -100,9 +100,9 @@ const Name = ({ store }) => {
           name="image"
           onChange={(event) => handleFileChange(event, setImage)}
         />
-        <button type="submit">Salvar edições</button>
+        <button type="submit" className="save">Salvar edições</button>
       </form>
-      <button onClick={handleDelete}>Apagar loja</button>
+      <button onClick={handleDelete} className="deleteButton">Apagar loja</button>
       <Link href="/minhaslojas">
         <a>Ir para minhas lojas</a>
       </Link>
