@@ -78,11 +78,11 @@ const edit = ({product, storeName}) => {
         <input  placeholder="price" onChange={(event) => handleInputChange(event, setPrice)} type="text" name="price" value={price}/>
         <input  placeholder="image" onChange={(event) => handleFileChange(event, setImage)} type="file" name="image"/>
 
-        <button>SAVE</button>
+        <button className="saveButton">SAVE</button>
 
       </form>
       
-      <button onClick={handleDelete}>Delete</button>
+      <button onClick={handleDelete} className="deleteButton">Delete</button>
     </div>
   )
 }
