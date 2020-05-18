@@ -38,6 +38,7 @@ const Product = ({
           type="number" 
           name="amount"
           value={amount}
+          max={quantity}
           onChange={(event) => handleInputChange(event, setAmount)}
         />
         <button onClick={() => handleProduct(_id, amount)}>add</button>
