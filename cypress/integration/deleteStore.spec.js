@@ -1,4 +1,4 @@
-import {email, password, deleteStoreName, deleteStoreDescription, deleteStorePhone, deleteStorePhoto, deleteStorePrimaryColor, deleteStoreSecondaryColor} from '../test data/testData'
+import {email, password, deleteStoreName, deleteStoreDescription, deleteStoreDDDField, deleteStoreDDD, deleteStorePhone, deleteStorePhoto, deleteStorePrimaryColor, deleteStoreSecondaryColor} from '../test data/testData'
 
 // export const randStoreName = storeName
 
@@ -22,26 +22,37 @@ describe('Deletar Loja', () => {
       .type(deleteStoreName)
       .should('have.value', deleteStoreName)
   })
+
   it('Preencher descrição da nova loja', () => {
     cy.get('textarea')
       .type(deleteStoreDescription)
       .should('have.value', deleteStoreDescription)
   })
+
+  it('Preencher DDD do telefone da nova loja', () => {
+    cy.get('select')
+      .select(deleteStoreDDDField)
+      .should('have.value', deleteStoreDDD)
+  })
+
   it('Preencher telefone da nova loja', () => {
-    cy.get('[placeholder="(xx) xxxxx-xxxx"]')
+    cy.get('[name="phone"]')
       .type(deleteStorePhone)
       .should('have.value', deleteStorePhone)
   })
+
   it('Selecionar foto da nova loja', () => {
     cy.get('[type="file"]')
       .attachFile(deleteStorePhoto);
   })
+
   it('Selecionar cor primária da nova loja', () => {
     cy.get('[name="primaryColor"]')
       .invoke('val', deleteStorePrimaryColor)
       .trigger('change')
       .should('have.value', deleteStorePrimaryColor)
   })
+
   it('Selecionar cor secundária da nova loja', () => {
     cy.get('[name="secondaryColor"]')
       .invoke('val', deleteStoreSecondaryColor)

@@ -1,4 +1,4 @@
-import {email, password, storeName, storeDescription, storePhone, storePhoto, storePrimaryColor, storeSecondaryColor} from '../test data/testData'
+import {email, password, storeName, storeDescription, storeDDDField, storeDDD, storePhone, storePhoto, storePrimaryColor, storeSecondaryColor} from '../test data/testData'
 
 // export const randStoreName = storeName
 
@@ -22,26 +22,37 @@ describe('Criar Nova Loja', () => {
       .type(storeName)
       .should('have.value', storeName)
   })
+
   it('Preencher descrição da nova loja', () => {
     cy.get('textarea')
       .type(storeDescription)
       .should('have.value', storeDescription)
   })
+
+  it('Preencher DDD do telefone da nova loja', () => {
+    cy.get('select')
+      .select(storeDDDField)
+      .should('have.value', storeDDD)
+  })
+
   it('Preencher telefone da nova loja', () => {
-    cy.get('[placeholder="(xx) xxxxx-xxxx"]')
+    cy.get('[name="phone"]')
       .type(storePhone)
       .should('have.value', storePhone)
   })
+
   it('Selecionar foto da nova loja', () => {
     cy.get('[type="file"]')
       .attachFile(storePhoto);
   })
+
   it('Selecionar cor primária da nova loja', () => {
     cy.get('[name="primaryColor"]')
       .invoke('val', storePrimaryColor)
       .trigger('change')
       .should('have.value', storePrimaryColor)
   })
+
   it('Selecionar cor secundária da nova loja', () => {
     cy.get('[name="secondaryColor"]')
       .invoke('val', storeSecondaryColor)
