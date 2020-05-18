@@ -2,19 +2,37 @@ import React, { useEffect } from 'react';
 
 import Head from 'next/head';
 import Link from 'next/link';
-import { getProduct } from '../../../../services/productService';
-
+import { getProduct, deleteProduct } from '../../../../services/productService';
+import { getStore } from '../../../../services/storeService';
 const SingleProduct = ({ product, name }) => {
 
+  /**
+   * Comentei o trecho abaixo provisóriamente pois parece que não
+   * tem mais utilidade já que estamos controlando products e cart
+   * pelo context. Ele também estava deixando o product undefinied e
+   * impedindo o funcionamento do handleDelete.
+   */
+  
   //check if localStorage is populated 
-  useEffect(() => {
-    let productsLocaStorage = JSON.parse(window.localStorage.getItem('products'));
-    if(productsLocaStorage != null){
-      let [productLocalStorage] = productsLocaStorage.filter(item => item._id === product._id);
-      product = productLocalStorage;
-    }
-  })
+  // useEffect(() => {
+  //   let productsLocaStorage = JSON.parse(window.localStorage.getItem('products'));
+  //   console.log()
+  //   if(productsLocaStorage != null){
+  //     let [productLocalStorage] = productsLocaStorage.filter(item => item._id === product._id);
+  //     product = productLocalStorage;
+  //   }
+  // })
 
+  const handleDelete = async () => {
+    try {
+      const [store] = await getStore(name);
+      const response = await deleteProduct(store._id, product._id);
+      console.log(response);
+      router.push(`/store/${storeName}/dashboard`);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <>
@@ -30,6 +48,7 @@ const SingleProduct = ({ product, name }) => {
       >
         <button>EDIT</button>
       </Link>
+      <button onClick={handleDelete}>DELETE</button>
     </>
   )
 };

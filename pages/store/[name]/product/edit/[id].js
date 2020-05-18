@@ -5,6 +5,7 @@ import Loading from  '../../../../../components/Loading/Loading'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { getProduct, editProduct, deleteProduct } from '../../../../../services/productService'
+import { getStore } from '../../../../../services/storeService';
 import { handleInputChange, handleFileChange, processFormData } from '../../../../../services/helpers'
 
 const edit = ({product, storeName}) => {
@@ -32,6 +33,30 @@ const edit = ({product, storeName}) => {
       });
   };
 
+  const handleDelete = async () => {
+    // async/await
+    try {
+      const [store] = await getStore(storeName);
+      const response = await deleteProduct(store._id, product._id);
+      console.log(response);
+      router.push(`/store/${storeName}/dashboard`);
+    } catch (error) {
+      console.log(error.response);
+    }
+    
+    // // then/catch
+    // getStore(storeName)
+    // .then(([store]) => {
+    //   deleteProduct(store._id, product._id)
+    //   .then((response) => {
+    //     console.log(response);
+    //     router.push(`/store/${storeName}/dashboard`);
+    //   })
+    //       .catch((error) => console.log(error.response));
+    //     })
+    //   .catch((error) => console.log(error.response));
+  };
+
   return (
     loading ?
     <>
@@ -57,6 +82,7 @@ const edit = ({product, storeName}) => {
 
       </form>
       
+      <button onClick={handleDelete}>Delete</button>
     </div>
   )
 }
