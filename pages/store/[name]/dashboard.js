@@ -23,7 +23,6 @@ export default function Store({ store }) {
     if (products === null || store.name !== storeName) {
       setStoreName(store.name);
       setProducts(store.products);
-      setCart([]);
     }
     setIsLoading(false);
     // window.localStorage.setItem('products', JSON.stringify(products))
