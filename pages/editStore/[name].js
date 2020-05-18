@@ -34,7 +34,7 @@ const Name = ({ store }) => {
       about,
       primaryColor,
       secondaryColor,
-      phone: regionCode + phone,
+      phone: '+55' + regionCode + phone,
       image,
     };
 
