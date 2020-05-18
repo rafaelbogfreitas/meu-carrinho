@@ -39,7 +39,7 @@ export default function Store({ store }) {
     }
   };
 
-  const handleProduct = (id) => {
+  const handleProduct = (id, amount) => {
     let newProduct = {};
     let cartProduct = {};
 
@@ -47,12 +47,12 @@ export default function Store({ store }) {
       if (product._id === id) {
         newProduct = {
           ...product,
-          quantity: product.quantity - 1,
+          quantity: +product.quantity - +amount,
         };
 
         cartProduct = {
           ...product,
-          quantity: 1,
+          quantity: +amount,
         };
 
         return newProduct;
@@ -74,7 +74,7 @@ export default function Store({ store }) {
       item._id == cartProduct._id
         ? {
             ...cartProduct,
-            quantity: item.quantity + 1,
+            quantity: +item.quantity + +amount,
           }
         : item
     );
@@ -99,7 +99,7 @@ export default function Store({ store }) {
       if (item._id == updatedProduct._id) {
         return {
           ...updatedProduct,
-          quantity: item.quantity + updatedProduct.quantity,
+          quantity: +item.quantity + +updatedProduct.quantity,
         };
       } else {
         return item;
@@ -132,7 +132,7 @@ export default function Store({ store }) {
           );
         })}
 
-        <OwnerFeature>
+        {/* <OwnerFeature> */}
           <Link
             href={'/store/[name]/paineldevendas'}
             as={`/store/${store.name}/paineldevendas`}
@@ -148,11 +148,11 @@ export default function Store({ store }) {
           <Link href="/minhaslojas">
             <a>Ir para minhas lojas</a>
           </Link>
-        </OwnerFeature>
+        {/* </OwnerFeature> */}
 
       </div>
 
-      <ClientFeature>
+      {/* <ClientFeature> */}
         <div>
         <Cart 
           cart={cart} 
@@ -161,7 +161,7 @@ export default function Store({ store }) {
           setCart={setCart}
         />
         </div>
-      </ClientFeature>
+      {/* </ClientFeature> */}
     </div>
   );
 }
