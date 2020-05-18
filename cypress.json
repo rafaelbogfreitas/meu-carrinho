@@ -5,10 +5,11 @@
     "login.spec.js",
     "createStore.spec.js",
     "editStore.spec.js",
+    "deleteStore.spec.js",
     "createProduct.spec.js",
     "editProduct.spec.js",
+    "deleteProduct.spec.js",
     "userCreateOrder.spec.js",
-    "goToDashboard.spec.js",
     "completeOrders.spec.js",
     "deleteOrders.spec.js"
   ]

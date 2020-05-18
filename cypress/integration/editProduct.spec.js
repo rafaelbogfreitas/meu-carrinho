@@ -23,8 +23,7 @@ describe('Editar Produto', () => {
   })
 
   it('Ir para Editar Produto', () => {
-    cy.get('button')
-      .first()
+    cy.get('[class="editButton"]')
       .click()
       .wait(500)
     cy.location('pathname').should('contain', `/store/${editStoreName}/product/`)
@@ -56,7 +55,7 @@ describe('Editar Produto', () => {
   })
   it('Selecionar foto do novo produto', () => {
     cy.get('[type="file"]')
-      .attachFile(product2.image);
+      .attachFile(product2.image).pause()
   })
 
   it('Subemeter formulário', () => {
