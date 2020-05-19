@@ -5,6 +5,8 @@ const service = axios.create({
   withCredentials: true,
 });
 
+
+
 export const getUser = (id) => {
   return service
     .get(`/${id}`)
