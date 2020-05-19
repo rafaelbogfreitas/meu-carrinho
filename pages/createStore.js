@@ -6,6 +6,7 @@ import ProtectedRoute from '../components/ProtectedRoute/ProtectedRoute';
 import PhoneCodeSelect from '../components/PhoneCodeSelect/PhoneCodeSelect';
 import Input from '../components/Input/Input';
 import PhoneInput from '../components/PhoneInput/PhoneInput';
+import Textarea from '../components/Textarea/Textarea';
 import {
   handleInputChange,
   handleFileChange,
@@ -51,7 +52,7 @@ const CreateStore = () => {
           state={name}
           setState={setName}
         />
-        <Input
+        <Textarea
           label="Sobre sua loja:"
           type="text"
           name="about"
