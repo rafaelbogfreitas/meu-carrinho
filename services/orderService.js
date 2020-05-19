@@ -12,6 +12,12 @@ export const getOrder = (orderId) => {
     .then((response) => response.data);
 };
 
+export const getOrders = (start, end) => {
+  return service
+    .get(`/${start}/${end}`)
+    .then((response) => response.data);
+};
+
 export const createOrder = (storeId, body) => {
   return service
     .post(`/${storeId}/new`, { ...body })

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import Link from 'next/link';
 import Head from 'next/head';
@@ -15,49 +15,28 @@ export default function paineldevendas({ store }) {
   let ordersDB = store[0].orders;
 
   let [orders, setOrders] = useState(ordersDB);
+  const [ordersChart, setOrdersChart] = useState(ordersMock);
+  const [start, setStart] = useState(null);
+  const [end, setEnd] = useState(null);
+  const [showClear, setShowClear] = useState(false);
 
-  const formatData = () => {
-    const chart = {
-      dates: [],
-      totals: [],
-    };
+  useEffect(() => {
+    if (start && end) {
+      setShowClear(true);
+      const startTime = new Date(start).getTime();
+      const endTime = new Date(end).getTime();
 
-    orders.forEach((order) => {
-      const [year, month, day] = order.updatedAt.split('-');
-      const date = `${day.slice(0, 2)}/${month}/${year}`;
-      
-      if (!chart.dates.includes(date)) {
-        chart.dates.push(date);
-        chart.totals.push(order.total);
-      } else {
-        chart.totals[chart.totals.length - 1] += order.total;
-      }
-    });
+      const updatedOrdersChart = ordersMock.filter((order) => {
+        const orderTime = new Date(order.updatedAt).getTime();
+        return orderTime > startTime && orderTime < endTime;
+      });
 
-    return chart;
-  };
+      setOrdersChart(updatedOrdersChart);
+      return;
+    }
 
-  const [dates, setDates] = useState(formatData().dates);
-  const [totals, setTotals] = useState(formatData().totals);
-
-  const [chartData, setChartData] = useState({
-    labels: dates,
-    datasets: [
-      {
-        label: 'Valor',
-        data: totals,
-        backgroundColor: [
-          'rgba(255, 99, 132, 0.6)',
-          'rgba(54, 162, 235, 0.6)',
-          'rgba(255, 206, 86, 0.6)',
-          'rgba(75, 192, 192, 0.6)',
-          'rgba(153, 102, 255, 0.6)',
-          'rgba(255, 159, 64, 0.6)',
-          'rgba(255, 99, 132, 0.6)',
-        ],
-      },
-    ],
-  });
+    setOrdersChart(ordersMock);
+  }, [start, end]);
 
   return (
     <ProtectedRoute>
@@ -103,8 +82,34 @@ export default function paineldevendas({ store }) {
         </div>
       </div>
 
-      
-      <Chart data={chartData} />
+      <label htmlFor="start">Start</label>
+      <input
+        type="date"
+        name="start"
+        id="start"
+        value={start || ''}
+        onChange={(event) => setStart(event.target.value)}
+      />
+      <label htmlFor="end">End</label>
+      <input
+        type="date"
+        name="end"
+        id="end"
+        value={end || ''}
+        onChange={(event) => setEnd(event.target.value)}
+      />
+      {showClear && (
+        <button
+          onClick={() => {
+            setShowClear(false);
+            setStart(null);
+            setEnd(null);
+          }}
+        >
+          Clear
+        </button>
+      )}
+      <Chart orders={ordersChart} />
 
       <Link href="/store/[name]/dashboard" as={`/store/${name}/dashboard`}>
         <button>Voltar</button>
