@@ -17,6 +17,6 @@ describe('Criar ordem (cliente)', () => {
   })
 
   it('Enviar ordem', () => {
-    cy.get('button').contains('ENVIAR').click()
+    cy.get('a').contains('Enviar').click().wait(2500)
   })
 })
