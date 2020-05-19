@@ -71,12 +71,12 @@ const Cart = ({ cart, storeId, removeItemsFromCart, setCart }) => {
         })
       }
       <strong>{total}</strong>
-      <button onClick={sendOrder}>ENVIAR</button>
       <a
+        onClick={sendOrder}
         target="_blank"
         href={`https://api.whatsapp.com/send?text=%0aEsse é o meu pedido: %0a%0a${createWhatsAppOrder(cart, storeName)}%0a&phone=${whatsApp}`}
       >
-        Send Message
+        Enviar
       </a>
     </div>
   );
