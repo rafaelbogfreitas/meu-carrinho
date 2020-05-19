@@ -6,7 +6,7 @@ import { createOrder } from '../../services/orderService';
 import cartStyles from './cart.module.scss';
 
 const Cart = ({ cart, storeId, removeItemsFromCart, setCart }) => {
-  const [whatsApp, setWhatApp] = useState('');
+  const [whatsApp, setWhatsApp] = useState('');
   const { storeName } = useContext(StoreContext);
   let [loading, setLoading] = useState(false);
 
@@ -19,7 +19,7 @@ const Cart = ({ cart, storeId, removeItemsFromCart, setCart }) => {
 
   const getWhatsApp = async () => {
     const [{ phone }] = await getStore(storeName);
-    setWhatApp(phone);
+    setWhatsApp(phone);
   };
 
   const sendOrder = () => {

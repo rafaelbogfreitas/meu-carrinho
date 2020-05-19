@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const service = axios.create({
   // baseURL: process.env.urlDev + '/api/v1/auth',
-  baseURL: 'https://projeto-3-meu-carrinho.herokuapp.com/api/v1/auth',
+  baseURL: process.env.apiUrl + '/auth',
   withCredentials: true
 });
 
