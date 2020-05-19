@@ -20,7 +20,7 @@ export default function minhaslojas() {
       <div>
         <h1 className="title">Minhas lojas: {user && user.name}</h1>
         <div className="container container--minhaslojas">
-          <div className="add">
+          <div className="plus-box">
             <Link href="createStore">
               <a className="plus">+</a>
             </Link>
@@ -43,5 +43,3 @@ export default function minhaslojas() {
     </ProtectedRoute>
   )
 }
-about
-about__header
