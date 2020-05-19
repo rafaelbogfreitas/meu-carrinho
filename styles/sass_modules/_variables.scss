@@ -1,4 +1,28 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;400;700&display=swap');
-
-$main-font: Oswald;
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 $root-size: 10px;
+
+$main-font: Quicksand;
+
+$title-size: 4.8rem;
+$title-color:#568D8C;
+
+//Buttons
+$btn-green: #79B6BF;
+$btn-brown: #4B2D12;
+$btn-red: #F3A297;
+
+$btn-color:white;
+$btn-font-size:3rem;
+
+//inputs
+$input-blue:rgba(#9BC7CB, 0.5);
+$input-size:2rem;
+$label-color:black;
+$label-size: 2.4rem;
+
+//painel
+$painel-bg-color:#79B6BF;  
+
+//single product
+$single-product-text-size:1.8rem;
+
