@@ -11,32 +11,10 @@ import { getStore } from '../../../services/storeService';
 import ordersMock from '../../../utils/ordersMock';
 
 export default function paineldevendas({ store }) {
-  let { name, _id } = store[0];
-  let ordersDB = store[0].orders;
+  const { name, _id } = store[0];
+  const ordersDB = store[0].orders;
 
-  let [orders, setOrders] = useState(ordersDB);
-  const [ordersChart, setOrdersChart] = useState(ordersMock);
-  const [start, setStart] = useState(null);
-  const [end, setEnd] = useState(null);
-  const [showClear, setShowClear] = useState(false);
-
-  useEffect(() => {
-    if (start && end) {
-      setShowClear(true);
-      const startTime = new Date(start).getTime();
-      const endTime = new Date(end).getTime();
-
-      const updatedOrdersChart = ordersMock.filter((order) => {
-        const orderTime = new Date(order.updatedAt).getTime();
-        return orderTime > startTime && orderTime < endTime;
-      });
-
-      setOrdersChart(updatedOrdersChart);
-      return;
-    }
-
-    setOrdersChart(ordersMock);
-  }, [start, end]);
+  const [orders, setOrders] = useState(ordersDB);
 
   return (
     <ProtectedRoute>
@@ -83,33 +61,8 @@ export default function paineldevendas({ store }) {
       </div>
 
       <label htmlFor="start">Start</label>
-      <input
-        type="date"
-        name="start"
-        id="start"
-        value={start || ''}
-        onChange={(event) => setStart(event.target.value)}
-      />
-      <label htmlFor="end">End</label>
-      <input
-        type="date"
-        name="end"
-        id="end"
-        value={end || ''}
-        onChange={(event) => setEnd(event.target.value)}
-      />
-      {showClear && (
-        <button
-          onClick={() => {
-            setShowClear(false);
-            setStart(null);
-            setEnd(null);
-          }}
-        >
-          Clear
-        </button>
-      )}
-      <Chart orders={ordersChart} />
+
+      <Chart orders={orders} />
 
       <Link href="/store/[name]/dashboard" as={`/store/${name}/dashboard`}>
         <button>Voltar</button>

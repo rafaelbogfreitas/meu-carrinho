@@ -4,6 +4,8 @@ import { createStore } from '../services/storeService';
 import Link from 'next/link';
 import ProtectedRoute from '../components/ProtectedRoute/ProtectedRoute';
 import PhoneCodeSelect from '../components/PhoneCodeSelect/PhoneCodeSelect';
+import Input from '../components/Input/Input';
+import PhoneInput from '../components/PhoneInput/PhoneInput';
 import {
   handleInputChange,
   handleFileChange,
@@ -41,55 +43,50 @@ const CreateStore = () => {
   return (
     <ProtectedRoute>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Nome da loja:</label>
-        <input
+        <Input
+          label="Nome da loja:"
           type="text"
-          placeholder="Minha loja"
           name="name"
-          value={name}
-          onChange={(event) => handleInputChange(event, setName)}
+          placeholder="Minha loja"
+          state={name}
+          setState={setName}
         />
-        <label htmlFor="about">Sobre sua loja:</label>
-        <textarea
+        <Input
+          label="Sobre sua loja:"
           type="text"
-          placeholder="Uma loja sobre..."
           name="about"
-          value={about}
-          onChange={(event) => handleInputChange(event, setAbout)}
+          placeholder="Uma loja sobre..."
+          state={about}
+          setState={setAbout}
         />
-        <label htmlFor="primaryColor">Cor primária:</label>
-        <input
+        <Input
+          label="Cor primária:"
           type="color"
           name="primaryColor"
-          value={primaryColor}
-          onChange={(event) => handleInputChange(event, setPrimaryColor)}
+          state={primaryColor}
+          setState={setPrimaryColor}
         />
-        <label htmlFor="secondaryColor">Cor secundária:</label>
-        <input
+        <Input
+          label="Cor secundária:"
           type="color"
           name="secondaryColor"
-          value={secondaryColor}
-          onChange={(event) => handleInputChange(event, setSecondaryColor)}
+          state={secondaryColor}
+          setState={setSecondaryColor}
         />
-        <label htmlFor="phone">Telefone</label>
-        <PhoneCodeSelect
+
+        <PhoneInput
+          label="WhatsApp"
+          phone={phone}
+          setPhone={setPhone}
           regionCode={regionCode}
           setRegionCode={setRegionCode}
         />
-        <input
-          type="text"
-          minLength="8"
-          maxLength="9"
-          placeholder="(xx) xxxxx-xxxx"
-          name="phone"
-          value={phone}
-          onChange={(event) => handleInputChange(event, setPhone)}
-        />
-        <label htmlFor="image">Sua logo:</label>
-        <input
+
+        <Input
+          label="Sua logo:"
           type="file"
           name="image"
-          onChange={(event) => handleFileChange(event, setImage)}
+          setState={setImage}
         />
         <button type="submit">Criar Loja</button>
       </form>
