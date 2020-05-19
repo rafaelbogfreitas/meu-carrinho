@@ -7,6 +7,8 @@ import { useRouter } from 'next/router'
 import { getProduct, editProduct, deleteProduct } from '../../../../../services/productService'
 import { getStore } from '../../../../../services/storeService';
 import { handleInputChange, handleFileChange, processFormData } from '../../../../../services/helpers'
+import Input from '../../../../../components/Input/Input';
+import Textarea from '../../../../../components/Textarea/Textarea';
 
 const edit = ({product, storeName}) => {
   let router = useRouter()
@@ -72,11 +74,39 @@ const edit = ({product, storeName}) => {
       <h1>Edit Product</h1>
       <form onSubmit={handleSubmit}>
 
-        <input  placeholder="name" onChange={(event) => handleInputChange(event, setName)} type="text" name="name" value={name}/>
-        <input  placeholder="description" onChange={(event) => handleInputChange(event, setDescription)} type="text" name="description" value={description}/>
-        <input  placeholder="quantity" onChange={(event) => handleInputChange(event, setQuantity)} type="text" name="quantity" value={quantity}/>
-        <input  placeholder="price" onChange={(event) => handleInputChange(event, setPrice)} type="text" name="price" value={price}/>
-        <input  placeholder="image" onChange={(event) => handleFileChange(event, setImage)} type="file" name="image"/>
+<Input
+              label="Nome:"
+              type="text"
+              name="name"
+              placeholder="Produto"
+              state={name}
+              setState={setName}
+            />
+            <Textarea
+              label="Descrição:"
+              type="text"
+              name="description"
+              placeholder="Um produto legal..."
+              state={description}
+              setState={setDescription}
+            />
+            <Input
+              label="Preço:"
+              type="number"
+              name="price"
+              placeholder="R$ 50,00"
+              state={price}
+              setState={setPrice}
+            />
+            <Input
+              label="Estoque:"
+              type="number"
+              name="quantity"
+              placeholder="30"
+              state={quantity}
+              setState={setQuantity}
+            />
+            <Input label="Foto:" type="file" name="image" setState={setImage} />
 
         <button className="saveButton">SAVE</button>
 
