@@ -1,7 +1,5 @@
 import {email, password, storeName, storeDescription, storeDDDField, storeDDD, storePhone, storePhoto, storePrimaryColor, storeSecondaryColor} from '../test data/testData'
 
-// export const randStoreName = storeName
-
 describe('Criar Nova Loja', () => {
   beforeEach(() => {
     Cypress.Cookies.preserveOnce('session_id', 'remember_token', 'connect.sid')

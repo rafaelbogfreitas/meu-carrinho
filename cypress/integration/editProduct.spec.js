@@ -55,7 +55,7 @@ describe('Editar Produto', () => {
   })
   it('Selecionar foto do novo produto', () => {
     cy.get('[type="file"]')
-      .attachFile(product2.image).pause()
+      .attachFile(product2.image)
   })
 
   it('Subemeter formulário', () => {
