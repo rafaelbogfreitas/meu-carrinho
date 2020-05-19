@@ -66,5 +66,10 @@ describe('Deletar Produto', () => {
       
     cy.location('pathname').should('contain', `/store/${editStoreName}/dashboard`)
   })
+
+  it('Limpar cookies', () => {
+    cy.clearCookies()
+  })
+
 })
 
