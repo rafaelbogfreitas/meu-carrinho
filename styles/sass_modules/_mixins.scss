@@ -1,0 +1,15 @@
+@mixin flex($property, $value){
+  #{$property}:$value;
+  -moz-#{$property}:$value;
+  -o-#{$property}:$value;
+  -ms-#{$property}:$value;
+  -webkit-#{$property}:$value;
+}
+
+@mixin grid($property, $value){
+  #{$property}:$value;
+  -moz-#{$property}:$value;
+  -o-#{$property}:$value;
+  -ms-#{$property}:$value;
+  -webkit-#{$property}:$value;
+}

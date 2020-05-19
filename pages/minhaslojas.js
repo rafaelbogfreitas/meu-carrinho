@@ -18,22 +18,30 @@ export default function minhaslojas() {
         <title>{user && user.name} | Minhas Lojas</title>
       </Head>
       <div>
-        <h1>Lojas do Usuário: {user && user.name}</h1>
-        <Link href="createStore"><a>Criar Nova Loja</a></Link>
-        {user && user.stores.map((store, idx) => {
-          return (
-            <Link key={idx} href="/store/[name]/dashboard" as={`/store/${store.name}/dashboard`}>
-              <a>
-                <div>
-                  <h1>{store.name}</h1>
-                  <img src={store.imageUrl} alt={store.name}></img>
-                </div>
-              </a>
+        <h1 className="title">Minhas lojas: {user && user.name}</h1>
+        <div className="container container--minhaslojas">
+          <div className="add">
+            <Link href="createStore">
+              <a className="plus">+</a>
             </Link>
-          )
-        })}
+          </div>
+          {user && user.stores.map((store, idx) => {
+            return (
+              <Link key={idx} href="/store/[name]/dashboard" as={`/store/${store.name}/dashboard`}>
+                <a>
+                  <div>
+                    <img src={store.imageUrl} alt={store.name}></img>
+                    <h1>{store.name}</h1>
+                  </div>
+                </a>
+              </Link>
+            )
+          })}
+        </div>
         <div onClick={() => handleLogout()}>Logout</div>
       </div>
     </ProtectedRoute>
   )
 }
+about
+about__header
