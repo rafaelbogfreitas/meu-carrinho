@@ -37,27 +37,27 @@ const Id = ({ user }) => {
     <ProtectedRoute>
       <>
         <form onSubmit={handleSubmit}>
-          <label htmlFor="name">Seu nome:</label>
-          <input
+          <Input
+            label="Seu nome:"
             type="text"
-            placeholder="Minha loja"
             name="name"
-            value={name}
-            onChange={(event) => handleInputChange(event, setName)}
+            placeholder="John Doe"
+            state={name}
+            setState={setName}
           />
-          <label htmlFor="phone">Email:</label>
-          <input
+          <Input
+            label="Email:"
             type="email"
-            placeholder="seuemail@gmail.com"
             name="email"
-            value={email}
-            onChange={(event) => handleInputChange(event, setEmail)}
+            placeholder="John Doe"
+            state={email}
+            setState={setEmail}
           />
-          <label htmlFor="image">Sua foto:</label>
-          <input
+          <Input
+            label="Sua foto:"
             type="file"
             name="image"
-            onChange={(event) => handleFileChange(event, setImage)}
+            setState={setImage}
           />
           <button type="submit">Salvar</button>
         </form>
@@ -66,8 +66,8 @@ const Id = ({ user }) => {
   );
 };
 
-Id.getInitialProps = async ({ query: { id }}) => {
-  return { user } = await getUser(id);
+Id.getInitialProps = async ({ query: { id } }) => {
+  return ({ user } = await getUser(id));
 };
 
 export default Id;

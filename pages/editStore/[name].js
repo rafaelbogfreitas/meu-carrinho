@@ -3,6 +3,10 @@ import { editStore, getStore, deleteStore } from '../../services/storeService';
 import ProtectedRoute from '../../components/ProtectedRoute/ProtectedRoute';
 import PhoneCodeSelect from '../../components/PhoneCodeSelect/PhoneCodeSelect';
 import Loading from '../../components/ProtectedRoute/ProtectedRoute';
+import Input from '../../components/Input/Input';
+import PhoneInput from '../../components/PhoneInput/PhoneInput';
+import Textarea from '../../components/Textarea/Textarea';
+
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import {
@@ -17,12 +21,13 @@ const Name = ({ store }) => {
   const [name, setName] = useState(store.name);
   const [about, setAbout] = useState(store.about);
   const [primaryColor, setPrimaryColor] = useState(store.theme.primaryColor);
-  const [secondaryColor, setSecondaryColor] = useState(store.theme.secondaryColor);
+  const [secondaryColor, setSecondaryColor] = useState(
+    store.theme.secondaryColor
+  );
   const [phone, setPhone] = useState(store.phone.slice(5));
   const [regionCode, setRegionCode] = useState(store.phone.slice(3, 5));
   const [image, setImage] = useState(false);
   const [loading, setLoading] = useState(false);
-
 
   const { _id: id } = store;
 
@@ -40,94 +45,97 @@ const Name = ({ store }) => {
     };
 
     editStore(id, processFormData(data))
-      .then((response) => router.push(`/store/${response.updatedStore.name}/dashboard`))
+      .then((response) =>
+        router.push(`/store/${response.updatedStore.name}/dashboard`)
+      )
       .catch((error) => {
         setLoading(false);
-        console.log(error)
+        console.log(error);
       });
   };
 
   const handleDelete = () => {
-    setLoading(true)
+    setLoading(true);
     deleteStore(id)
       .then((response) => {
         console.log('response: ', response);
         router.push('/minhaslojas');
       })
       .catch((error) => {
-        setLoading(false)
+        setLoading(false);
         console.log('error: ', error);
       });
-      console.log('Hello')
+    console.log('Hello');
   };
 
   return (
     <ProtectedRoute>
-    { loading ?
-      <Loading/> :
-      <>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Nome da loja:</label>
-        <input
-          type="text"
-          placeholder="Minha loja"
-          name="name"
-          value={name}
-          onChange={(event) => handleInputChange(event, setName)}
-        />
-        <label htmlFor="about">Sobre sua loja:</label>
-        <textarea
-          type="text"
-          placeholder="Uma loja sobre..."
-          name="about"
-          value={about}
-          onChange={(event) => handleInputChange(event, setAbout)}
-        />
-        <label htmlFor="primaryColor">Cor primária:</label>
-        <input
-          type="color"
-          name="primaryColor"
-          value={primaryColor}
-          onChange={(event) => handleInputChange(event, setPrimaryColor)}
-        />
-        <label htmlFor="secondaryColor">Cor secundária:</label>
-        <input
-          type="color"
-          name="secondaryColor"
-          value={secondaryColor}
-          onChange={(event) => handleInputChange(event, setSecondaryColor)}
-        />
-        <label htmlFor="phone">Telefone</label>
-        <PhoneCodeSelect
-          regionCode={regionCode}
-          setRegionCode={setRegionCode}
-        />
-        <input
-          type="text"
-          minLength="8"
-          maxLength="9"
-          placeholder="(xx) xxxxx-xxxx"
-          name="phone"
-          value={phone}
-          onChange={(event) => handleInputChange(event, setPhone)}
-        />
-        <label htmlFor="image">Sua logo:</label>
-        <input
-          type="file"
-          name="image"
-          onChange={(event) => handleFileChange(event, setImage)}
-        />
-        <button type="submit" className="save">Salvar edições</button>
-      </form>
-      <button onClick={handleDelete} className="deleteButton">Apagar loja</button>
-      <Link href="/minhaslojas">
-        <a>Ir para minhas lojas</a>
-      </Link>
-      <Link href="/store/[name]/dashboard" as={`/store/${store.name}/dashboard`}>
-        <a>Voltar</a>
-      </Link>
-      </>
-    }
+      {loading ? (
+        <Loading />
+      ) : (
+        <>
+          <form onSubmit={handleSubmit}>
+            <Input
+              label="Nome da loja:"
+              type="text"
+              name="name"
+              placeholder="Minha loja"
+              state={name}
+              setState={setName}
+            />
+            <Textarea
+              label="Sobre sua loja:"
+              type="text"
+              name="about"
+              placeholder="Uma loja sobre..."
+              state={about}
+              setState={setAbout}
+            />
+            <Input
+              label="Cor primária:"
+              type="color"
+              name="primaryColor"
+              state={primaryColor}
+              setState={setPrimaryColor}
+            />
+            <Input
+              label="Cor secundária:"
+              type="color"
+              name="secondaryColor"
+              state={secondaryColor}
+              setState={setSecondaryColor}
+            />
+
+            <PhoneInput
+              label="WhatsApp"
+              phone={phone}
+              setPhone={setPhone}
+              regionCode={regionCode}
+              setRegionCode={setRegionCode}
+            />
+
+            <Input
+              label="Sua logo:"
+              type="file"
+              name="image"
+              setState={setImage}
+            />
+            <button className="save" type="submit">Salvar</button>
+          </form>
+          <button onClick={handleDelete} className="deleteButton">
+            Apagar loja
+          </button>
+          <Link href="/minhaslojas">
+            <a>Ir para minhas lojas</a>
+          </Link>
+          <Link
+            href="/store/[name]/dashboard"
+            as={`/store/${store.name}/dashboard`}
+          >
+            <a>Voltar</a>
+          </Link>
+        </>
+      )}
     </ProtectedRoute>
   );
 };
