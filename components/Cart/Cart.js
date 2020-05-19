@@ -12,6 +12,7 @@ const Cart = ({ cart, storeId, removeItemsFromCart, setCart }) => {
 
   let total = 0;
   let products = [];
+  let message = '';
 
   useEffect(() => {
     getWhatsApp();
@@ -21,6 +22,14 @@ const Cart = ({ cart, storeId, removeItemsFromCart, setCart }) => {
     const [{ phone }] = await getStore(storeName);
     setWhatsApp(phone);
   };
+
+  const createWhatsAppOrder = (cart, name) => {
+    let message = ''
+    cart.forEach(product => {
+      message += `${product.quantity} x *${product.name}*: R$ ${product.price * product.quantity}.00%0a`
+    })
+    return message += `%0a%0atotal: R$ ${total}.00%0a%0a*Muito obrigado por enviar a sua ordem!*%0aEntraremos em contato em breve%0a%0a*${name}*<3`
+  }
 
   const sendOrder = () => {
     let order = {
@@ -59,12 +68,13 @@ const Cart = ({ cart, storeId, removeItemsFromCart, setCart }) => {
             </button>
           </div>
         );
-      })}
+        })
+      }
       <strong>{total}</strong>
       <button onClick={sendOrder}>ENVIAR</button>
       <a
         target="_blank"
-        href={`https://api.whatsapp.com/send?text=Esse é o meu pedido: link goes here&phone=${whatsApp}`}
+        href={`https://api.whatsapp.com/send?text=%0aEsse é o meu pedido: %0a%0a${createWhatsAppOrder(cart, storeName)}%0a&phone=${whatsApp}`}
       >
         Send Message
       </a>
