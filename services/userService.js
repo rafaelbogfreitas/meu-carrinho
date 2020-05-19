@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 const service = axios.create({
-  baseURL: process.env.urlDev + '/api/v1/user',
+  // baseURL: process.env.urlDev + '/api/v1/user',
+  baseURL: 'http://159.89.46.33:5000/api/v1/user',
   withCredentials: true,
 });
 
