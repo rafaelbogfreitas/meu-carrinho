@@ -111,7 +111,7 @@ export default function Store({ store }) {
   return isLoading ? (
     <Loading />
   ) : (
-    <div>
+    <>
       <Head>
         <title>{store.name}</title>
         {renderMetatags(
@@ -121,53 +121,75 @@ export default function Store({ store }) {
           store.imageUrl
         )}
       </Head>
-      <h1 style={{ backgroundColor: `${store.theme.secondaryColor}` }}>
-        Welcome to {store.name} store!!
+      <h1 className="title" style={{ color: `${store.theme.secondaryColor}` }}>
+        Bem-vindo a {store.name}!!
       </h1>
-      <div className="products">
-        {products.map((product, i) => {
-          return (
-            <Product
-              key={i}
-              handleProduct={handleProduct}
-              handleDelete={handleDelete}
-              {...product}
-              storeName={store.name}
-            />
-          );
-        })}
+      <div className="container container--store">
+
+        <div className="products container--products">
+          {products.map((product, i) => {
+            return (
+              <Product
+                key={i}
+                handleProduct={handleProduct}
+                handleDelete={handleDelete}
+                {...product}
+                storeName={store.name}
+              />
+            );
+          })}
+        </div>
 
         <OwnerFeature>
-          <Link
-            href={'/store/[name]/paineldevendas'}
-            as={`/store/${store.name}/paineldevendas`}
-          >
-            <a>Painel de vendas</a>
-          </Link>
-          <Link href={'/editStore/[name]'} as={`/editStore/${store.name}`}>
-            <a>Editar</a>
-          </Link>
-          <Link href={'product/new'} as={`product/new`}>
-            <a name={store.name}>New Produto</a>
-          </Link>
-          <Link href="/minhaslojas">
-            <a>Ir para minhas lojas</a>
-          </Link>
+          <div className="owner-panel">
+
+            <Link
+              href={'/store/[name]/paineldevendas'}
+              as={`/store/${store.name}/paineldevendas`}
+            >
+              <a>
+                <h2 style={{color:`${store.theme.primaryColor}`}} className="owner-panel__heading">
+                  Painel de vendas
+                </h2>
+              </a>
+            </Link>
+            <Link href={'/editStore/[name]'} as={`/editStore/${store.name}`}>
+              <a>
+                <h2 style={{color:`${store.theme.primaryColor}`}} className="owner-panel__heading">
+                  Editar
+                </h2>
+              </a>
+            </Link>
+            <Link href={'product/new'} as={`product/new`}>
+              <a name={store.name}>
+                <h2 style={{color:`${store.theme.primaryColor}`}} className="plus owner-panel__heading">
+                  +
+                </h2>
+              </a>
+            </Link>
+            <Link href="/minhaslojas">
+              <a>
+                <h2 style={{color:`${store.theme.primaryColor}`}} className="owner-panel__heading">
+                  Minhas Lojas
+                </h2>
+              </a>
+            </Link>
+          </div>
         </OwnerFeature>
 
-      </div>
 
-      <ClientFeature>
-        <div>
-        <Cart 
-          cart={cart} 
-          storeId={store._id} 
-          removeItemsFromCart={removeItemsFromCart}
-          setCart={setCart}
-        />
-        </div>
-      </ClientFeature>
-    </div>
+        <ClientFeature>
+          <div className=".container .container--carrinho">
+          <Cart 
+            cart={cart} 
+            storeId={store._id} 
+            removeItemsFromCart={removeItemsFromCart}
+            setCart={setCart}
+          />
+          </div>
+        </ClientFeature>
+      </div>
+    </>
   );
 }
 

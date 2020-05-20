@@ -1,0 +1,72 @@
+.container--store {
+  @include flex(display, flex);
+  padding: 20px 20px;
+}
+
+.container--products {
+  width: 60%;
+  @include grid(display, grid);
+  @include grid(grid-template-columns, repeat(2, 1fr));
+  @include grid(justify-items, center);
+  @include grid(grid-gap, 20px);
+  overflow: scroll;
+
+}
+
+//Product
+.product-content {
+  height: auto;
+  padding: 1px;
+  @include flex(display, flex);
+
+  button {
+    height: 100%;
+    margin-left: auto;
+  }
+}
+
+.product-info {
+  font-size: 1.8rem;
+
+  & > * {
+    padding: 2px;
+  }
+}
+
+.bin {
+  height: 100%;
+}
+
+.product-image {
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+  }
+}
+
+//owner panel
+.owner-panel {
+  width: 40%;
+  @include grid(display, grid);
+  @include grid(grid-template-columns, repeat(2, 1fr));
+
+  a {
+    width: 200px;
+    height: 200px;
+    @extend .flex-center;
+
+    font-weight: bold;
+    color: $title-color;
+    font-size: 2.4rem;
+
+    background-color: $plus-sign-bgcolor;
+
+    h2 {
+      width: 70%;
+      text-align: center;
+    }
+  }
+}

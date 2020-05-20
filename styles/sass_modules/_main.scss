@@ -14,10 +14,13 @@ body, html {
   }
 }
 
-// img {
-//   width: 100px;
-//   height: auto;
-// }
+button {
+  cursor: pointer;
+  background-color:transparent;
+  padding: 0;
+  margin: 0;
+  border: none;
+}
 
 a {
   color:inherit;

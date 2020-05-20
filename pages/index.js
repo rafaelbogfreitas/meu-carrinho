@@ -19,7 +19,7 @@ export default function Home() {
       <navbar className="navbar navbar-home">
         <Login/>
         <Signup/>
-        {/* <a href="http://localhost:5000/api/v1/auth/google">Google</a> */}
+        <a href="http://localhost:5000/api/v1/auth/google">Google</a>
         <a>Signup</a>
         <a>Login</a>
       </navbar>

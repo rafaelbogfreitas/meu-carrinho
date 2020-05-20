@@ -26,12 +26,24 @@ const Product = ({
         as={`/store/${storeName}/product/${_id}`}
         key={_id}
       >
-        <a key={_id}>{name}</a>
+        <a key={_id}>
+          <div className="product-image">
+            <img src={imageUrl} alt={name} />
+          </div>
+        </a>
       </Link>
-      <img src={imageUrl} alt={name} />
-      <div>{description}</div>
-      <div className="quantity">{quantity}</div>
-      <div className="price">{price},00 R$</div>
+          {/* <div className="quantity">{quantity}</div> */}
+          <div className="product-content">
+            <div className="product-info">
+              <div className="product-name">{name}</div>
+              <div className="price">{price},00 R$</div>
+            </div>
+            <OwnerFeature>
+              <button onClick={() => handleDelete(_id)}>
+                <img className="bin" src="/bin.svg" alt="bin icon"/>
+              </button>
+            </OwnerFeature>
+          </div>
       <ClientFeature>
         <label htmlFor="amount">Amount:</label>
         { quantity ==  0 ?
@@ -46,9 +58,6 @@ const Product = ({
         />}
         <button onClick={() => handleProduct(_id, amount)}>add</button>
       </ClientFeature>
-      <OwnerFeature>
-        <button onClick={() => handleDelete(_id)}>DELETE</button>
-      </OwnerFeature>
     </aside>
   );
 };
