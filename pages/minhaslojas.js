@@ -29,10 +29,8 @@ export default function minhaslojas() {
             return (
               <Link key={idx} href="/store/[name]/dashboard" as={`/store/${store.name}/dashboard`}>
                 <a>
-                  <div>
-                    <img src={store.imageUrl} alt={store.name}></img>
-                    <h1>{store.name}</h1>
-                  </div>
+                  <img src={store.imageUrl} alt={store.name}></img>
+                  <h1 className="store-name">{store.name}</h1>
                 </a>
               </Link>
             )

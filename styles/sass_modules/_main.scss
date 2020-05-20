@@ -1,12 +1,15 @@
 //provisory to improve view
 * {
-  font-size: $root_size;
   box-sizing: border-box;
 }
 
 body, html {
   font-family: $main-font;
-  font-size: $root-size;
+  font-size: $root_size;
+  
+  @media (max-width:700px) {
+    font-size: $root_size - 2;
+  }
 }
 
 img {
@@ -14,24 +17,27 @@ img {
   height: auto;
 }
 
-// provisory
-
-h1 {
-  margin: 10px;
-}
-
-button {
-  margin: 20px;
-}
-
 a {
-  padding: 10px;
   color:inherit;
   text-decoration: none;
 }
 
+.flex-center {
+  @include flex(display, flex);
+  @include flex(justify-content, center);
+  @include flex(align-items, center);
+}
+
+.box-shadow {
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.123);
+  transition: box-shadow 0.2s linear;
+}
+
 .title {
+  width: 90vw;
+  margin:20px auto;
   font-size: $title-size;
+  font-weight: $title-weight;
   color: $title-color;
 }
 
@@ -40,9 +46,25 @@ a {
   color: $title-color;
 }
 
+.plus-box {
+  background-color: $plus-sign-bgcolor;
+
+  a {
+    width: 100%;
+    height: 100%;
+    @extend .flex-center;
+  }
+}
+
 .container {
-  width: 90vw;
+  width: 80vw;
   height: 90vh;
-  padding: 20px;
+  padding: 50px 20px;
+  margin: 0 auto;
   @include grid(display, grid);
+}  
+
+.store-name {
+  font-size: 1.8rem;
+  color: $title-color;
 }
