@@ -49,7 +49,7 @@ export default function Home() {
           </div>
           <img
             className="instructions-img"
-            src="/feira livre_Prancheta 1 cópia 4.svg"
+            src="/image4.svg"
             alt="prancheta"
           ></img>
         </div>
@@ -60,7 +60,7 @@ export default function Home() {
           </div>
           <img
             className="instructions-img"
-            src="/feira livre_Prancheta 1 cópia 2.svg"
+            src="/image2.svg"
             alt="prancheta"
           ></img>
         </div>
@@ -71,7 +71,7 @@ export default function Home() {
           </div>
           <img
             className="instructions-img"
-            src="/feira livre_Prancheta 1 cópia 3.svg"
+            src="/image3.svg"
             alt="prancheta"
           ></img>
         </div>
@@ -82,7 +82,7 @@ export default function Home() {
           </div>
           <img
             className="instructions-img"
-            src="/feira livre_Prancheta 1 cópia 5.svg"
+            src="/image5.svg"
             alt="prancheta"
           ></img>
         </div>
