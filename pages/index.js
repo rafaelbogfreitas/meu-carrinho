@@ -42,7 +42,7 @@ export default function Home() {
 
       <section className="instructions">
         <h1>Como funciona?</h1>
-        <div className="container container-instructions regular">
+        <div className="container-instructions regular">
           <div>
             <h2>Crie sua loja</h2>
             <p>Crie sua loja virtual e adicione os seus produtos.</p>
@@ -53,7 +53,7 @@ export default function Home() {
             alt="prancheta"
           ></img>
         </div>
-        <div className="container container-instructions reverse">
+        <div className="container-instructions reverse">
           <div>
             <h2>Divulgue nas<br></br>redes sociais</h2>
             <p>Encontre os seus clientes aonde eles estiverem, divulgue sua loja nas redes sociais mais utilizadas.</p>
@@ -64,7 +64,7 @@ export default function Home() {
             alt="prancheta"
           ></img>
         </div>
-        <div className="container container-instructions regular">
+        <div className="container-instructions regular">
           <div>
             <h2>Receba pedidos<br></br>dos clientes</h2>
             <p>Receba pedidos facilmente através do whatsapp e notificação via email</p>
@@ -75,7 +75,7 @@ export default function Home() {
             alt="prancheta"
           ></img>
         </div>
-        <div className="container container-instructions reverse">
+        <div className="container-instructions reverse">
           <div>
             <h2>Acompanhe<br></br>os pedidos</h2>
             <p>Acompanhe o status dos pedidos no seu painel de vendas e monitore o desempenho da sua loja através de gráficos</p>
