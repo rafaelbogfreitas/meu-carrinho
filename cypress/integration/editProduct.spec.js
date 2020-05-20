@@ -60,7 +60,7 @@ describe('Editar Produto', () => {
   })
 
   it('Subemeter formulário', () => {
-    cy.get('[class="saveButton"]')
+    cy.get('[class="btn btn--green"]')
       .click()
   })
 })
