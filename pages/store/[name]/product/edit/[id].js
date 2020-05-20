@@ -77,66 +77,73 @@ const edit = ({ product, storeName }) => {
       <Loading />
     </>
   ) : (
-    <div>
-      <Head>
-        <title>Edit Product</title>
-      </Head>
-      <h1>Edit Product</h1>
-      <form onSubmit={handleSubmit}>
-        <Input
-          label="Nome:"
-          type="text"
-          name="name"
-          placeholder="Produto"
-          state={name}
-          setState={setName}
-        />
-        <Textarea
-          label="Descrição:"
-          type="text"
-          name="description"
-          placeholder="Um produto legal..."
-          state={description}
-          setState={setDescription}
-        />
-        <Input
-          label="Preço:"
-          type="number"
-          name="price"
-          placeholder="R$ 50,00"
-          state={price}
-          setState={setPrice}
-        />
-        <Input
-          label="Estoque:"
-          type="number"
-          name="quantity"
-          placeholder="30"
-          state={quantity}
-          setState={setQuantity}
-        />
-        <FileInput label="Foto:" type="file" name="image" setState={setImage} />
+    <main className="form-main">
+      <div className="container">
+        <Head>
+          <title>Editar Produto</title>
+        </Head>
+        <h1 className="title title--form">Editar Produto</h1>
+        <form className="form" onSubmit={handleSubmit}>
+          <Input
+            label="Nome:"
+            type="text"
+            name="name"
+            placeholder="Produto"
+            state={name}
+            setState={setName}
+          />
+          <Textarea
+            label="Descrição:"
+            type="text"
+            name="description"
+            placeholder="Um produto legal..."
+            state={description}
+            setState={setDescription}
+          />
+          <Input
+            label="Preço:"
+            type="number"
+            name="price"
+            placeholder="R$ 50,00"
+            state={price}
+            setState={setPrice}
+          />
+          <Input
+            label="Estoque:"
+            type="number"
+            name="quantity"
+            placeholder="30"
+            state={quantity}
+            setState={setQuantity}
+          />
+          <FileInput
+            label="Foto:"
+            type="file"
+            name="image"
+            setState={setImage}
+          />
 
-        <section className="btn-section">
-          <Button submit color="green">
-            Salvar
-          </Button>
+          <section className="btn-section">
+            <Button submit color="green">
+              Salvar
+            </Button>
 
-          <Link
-            href="/store/[name]/dashboard"
-            as={`/store/${storeName}/dashboard`}
-          >
-            <a>
-              <Button color="brown">Voltar para a loja</Button>
-            </a>
-          </Link>
+            <Link
+              href="/store/[name]/dashboard"
+              as={`/store/${storeName}/dashboard`}
+            >
+              <a>
+                <Button color="brown">Voltar para a loja</Button>
+              </a>
+            </Link>
 
-          <Button color="red" handler={handleDelete}>
-            Deletar
-          </Button>
-        </section>
-      </form>
-    </div>
+            <Button color="red" handler={handleDelete}>
+              Deletar
+            </Button>
+          </section>
+        </form>
+      </div>
+    </main>
   );
 };
 

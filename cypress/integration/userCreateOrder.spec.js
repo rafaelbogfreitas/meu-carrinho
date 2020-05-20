@@ -13,7 +13,7 @@ describe('Criar ordem (cliente)', () => {
 
   it('Adicionar produtos', () => {
     for (let i = 0; i <= Math.floor(Math.random()*10); i++) {
-      cy.get('.product > button').click({ multiple: true })
+      cy.get('[alt="cart icon"]').click({ multiple: true })
     }
   })
 

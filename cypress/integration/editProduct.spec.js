@@ -16,7 +16,7 @@ describe('Editar Produto', () => {
   })
 
   it('Ir para Novo Produto', () => {
-    cy.get('a').contains(`${product1.name}`)
+    cy.get(`[alt="${product1.name}"]`)
       .first()
       .click()
       .wait(1000)

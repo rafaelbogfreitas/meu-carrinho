@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 import { editStore, getStore, deleteStore } from '../../services/storeService';
 import ProtectedRoute from '../../components/ProtectedRoute/ProtectedRoute';
 import Loading from '../../components/ProtectedRoute/ProtectedRoute';
@@ -9,7 +10,7 @@ import FileInput from '../../components/FileInput/FileInput';
 import Textarea from '../../components/Textarea/Textarea';
 import Button from '../../components/Button/Button';
 
-import { useRouter } from 'next/router';
+import Head from 'next/head';
 import Link from 'next/link';
 import {
   handleInputChange,
@@ -74,73 +75,81 @@ const Name = ({ store }) => {
         <Loading />
       ) : (
         <>
-          <form onSubmit={handleSubmit}>
-            <Input
-              label="Nome da loja:"
-              type="text"
-              name="name"
-              placeholder="Minha loja"
-              state={name}
-              setState={setName}
-            />
-            <Textarea
-              label="Sobre sua loja:"
-              type="text"
-              name="about"
-              placeholder="Uma loja sobre..."
-              state={about}
-              setState={setAbout}
-            />
+          <Head>
+            <title>Editar loja</title>
+          </Head>
+          <main className="form-main">
+            <div className="container">
+              <h1 className="title title--form">Editar loja</h1>
+              <form className="form" onSubmit={handleSubmit}>
+                <Input
+                  label="Nome da loja:"
+                  type="text"
+                  name="name"
+                  placeholder="Minha loja"
+                  state={name}
+                  setState={setName}
+                />
+                <Textarea
+                  label="Sobre sua loja:"
+                  type="text"
+                  name="about"
+                  placeholder="Uma loja sobre..."
+                  state={about}
+                  setState={setAbout}
+                />
 
-            <div className="fieldset__section">
-              <ColorInput
-                label="Cor primária:"
-                name="primaryColor"
-                state={primaryColor}
-                setState={setPrimaryColor}
-              />
-              <ColorInput
-                label="Cor secundária:"
-                name="secondaryColor"
-                state={secondaryColor}
-                setState={setSecondaryColor}
-              />
+                <div className="fieldset__section">
+                  <ColorInput
+                    label="Cor primária:"
+                    name="primaryColor"
+                    state={primaryColor}
+                    setState={setPrimaryColor}
+                  />
+                  <ColorInput
+                    label="Cor secundária:"
+                    name="secondaryColor"
+                    state={secondaryColor}
+                    setState={setSecondaryColor}
+                  />
+                </div>
+
+                <PhoneInput
+                  label="WhatsApp"
+                  phone={phone}
+                  setPhone={setPhone}
+                  regionCode={regionCode}
+                  setRegionCode={setRegionCode}
+                />
+
+                <FileInput
+                  label="Sua logo:"
+                  type="file"
+                  name="image"
+                  setState={setImage}
+                />
+
+                <section className="btn-section">
+                  <Button submit color="green">
+                    Salvar
+                  </Button>
+
+                  <Link
+                    href="/store/[name]/dashboard"
+                    as={`/store/${store.name}/dashboard`}
+                  >
+                    <a>
+                      <Button color="brown">Voltar</Button>
+                    </a>
+                  </Link>
+
+                  <Button color="red" handler={handleDelete}>
+                    Deletar
+                  </Button>
+                </section>
+              </form>
             </div>
-
-            <PhoneInput
-              label="WhatsApp"
-              phone={phone}
-              setPhone={setPhone}
-              regionCode={regionCode}
-              setRegionCode={setRegionCode}
-            />
-
-            <FileInput
-              label="Sua logo:"
-              type="file"
-              name="image"
-              setState={setImage}
-            />
-
-            <section className="btn-section">
-              <Button submit color="green">
-                Salvar
-              </Button>
-
-              <Link
-                href="/store/[name]/dashboard"
-                as={`/store/${store.name}/dashboard`}
-              >
-                <a>
-                  <Button color="brown">Voltar</Button>
-                </a>
-              </Link>
-
-              <Button color="red" handler={handleDelete}>
-                Deletar
-              </Button>
-            </section>
-          </form>
+          </main>
         </>
       )}
     </ProtectedRoute>
