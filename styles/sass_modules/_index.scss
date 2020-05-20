@@ -16,7 +16,7 @@
   color: #4B2D12;
 
   .info {
-    margin: 30px;
+    margin: 50px;
     height: 30vh;
     display: flex;
     flex-direction: column;
@@ -24,17 +24,17 @@
   }
 
   h1 {
-    font-size: 5rem;
+    font-size: 10rem;
     font-weight: bold;
   }
 
   h2 {
-    font-size: 1.2rem;
+    font-size: 2.5rem;
     font-weight: bold;
   }
 
   p {
-    font-size: 1.2rem;
+    font-size: 2.5rem;
   }
 
   img {
@@ -49,15 +49,15 @@
   color: white;
   h1, h2 {
     font-weight: bold;
-    font-size: 3rem;
+    font-size: 8rem;
     text-align: center;
-    padding: 20px;
+    padding-top: 100px;
   }
 
   p {
-    font-size: 1.6rem;
-    margin-top: 10px;
-    width: 40vw;
+    font-size: 2.5rem;
+    margin-top: 100px;
+    width: 35vw;
     text-align: center;
   }
 }
@@ -66,18 +66,20 @@
   height: 90vh;
   padding: 30px;
   h2 {
-    font-size: 3rem;
+    font-size: 6rem;
   }
 }
 .regular {
   display: flex;
   align-items: center;
   color: white;
+  justify-content: center;
 }
 
 .reverse {
   display: flex;
   flex-direction: row-reverse;
+  justify-content: space-around;
   align-items: center;
   background-color: white;
   color: #4B2D12;
@@ -95,6 +97,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-size: 3rem;
 
   .devs {
     margin-top: 10px;
