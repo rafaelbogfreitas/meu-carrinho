@@ -4,6 +4,7 @@ import {email, password, storeName, editStoreName, editStoreDescription, editSto
 describe('Ir para painel de vendas', () => {
   beforeEach(() => {
     Cypress.Cookies.preserveOnce('session_id', 'remember_token', 'connect.sid')
+    cy.wait(200)
   })
 
   it('Fazer login', () => {

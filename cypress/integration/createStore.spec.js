@@ -3,6 +3,7 @@ import {email, password, storeName, storeDescription, storeDDDField, storeDDD, s
 describe('Criar Nova Loja', () => {
   beforeEach(() => {
     Cypress.Cookies.preserveOnce('session_id', 'remember_token', 'connect.sid')
+    cy.wait(200)
   })
 
   it('Faz login', () => {
@@ -41,7 +42,7 @@ describe('Criar Nova Loja', () => {
 
   it('Selecionar foto da nova loja', () => {
     cy.get('[type="file"]')
-      .attachFile(storePhoto);
+      .attachFile(storePhoto)
   })
 
   it('Selecionar cor primária da nova loja', () => {

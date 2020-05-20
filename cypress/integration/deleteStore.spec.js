@@ -3,6 +3,7 @@ import {email, password, deleteStoreName, deleteStoreDescription, deleteStoreDDD
 describe('Deletar Loja', () => {
   beforeEach(() => {
     Cypress.Cookies.preserveOnce('session_id', 'remember_token', 'connect.sid')
+    cy.wait(200)
   })
 
   it('Fazer login', () => {
@@ -41,7 +42,7 @@ describe('Deletar Loja', () => {
 
   it('Selecionar foto da nova loja', () => {
     cy.get('[type="file"]')
-      .attachFile(deleteStorePhoto);
+      .attachFile(deleteStorePhoto)
   })
 
   it('Selecionar cor primária da nova loja', () => {
@@ -78,7 +79,7 @@ describe('Deletar Loja', () => {
   })
 
   it('Deletar loja', () => {
-    cy.get('[class="deleteButton"]').first().click()
+    cy.get('[class="btn btn--red"]').first().click()
     cy.location('pathname').should('eq', `/minhaslojas`)
   })
 })

@@ -29,8 +29,8 @@ import 'cypress-file-upload';
 
 Cypress.Commands.add('login', (email, password) => {
   cy.visit('/')
-  cy.get('.login_login__1rtGP > form > [name="name"]').type(email)
-  cy.get('.login_login__1rtGP > form > [name="password"]').type(password)
-  cy.get('.login_login__1rtGP > form > button').click()
+  cy.get('#login-name').type(email)
+  cy.get('#login-password').type(password)
+  cy.get('#login-button').click().wait(200)
   cy.location('pathname').should('eq', '/minhaslojas')
 })
