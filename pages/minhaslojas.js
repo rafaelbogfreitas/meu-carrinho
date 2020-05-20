@@ -20,7 +20,7 @@ export default function minhaslojas() {
       <div>
         <h1 className="title">Minhas lojas: {user && user.name}</h1>
         <div className="container container--minhaslojas">
-          <div className="add">
+          <div className="plus-box">
             <Link href="createStore">
               <a className="plus">+</a>
             </Link>
@@ -29,10 +29,8 @@ export default function minhaslojas() {
             return (
               <Link key={idx} href="/store/[name]/dashboard" as={`/store/${store.name}/dashboard`}>
                 <a>
-                  <div>
-                    <img src={store.imageUrl} alt={store.name}></img>
-                    <h1>{store.name}</h1>
-                  </div>
+                  <img src={store.imageUrl} alt={store.name}></img>
+                  <h1 className="store-name">{store.name}</h1>
                 </a>
               </Link>
             )
@@ -43,5 +41,3 @@ export default function minhaslojas() {
     </ProtectedRoute>
   )
 }
-about
-about__header
