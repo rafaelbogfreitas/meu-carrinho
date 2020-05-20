@@ -34,7 +34,7 @@ export default function Home() {
         <div>
         <img
             className="main-img"
-            src="/feira livre_Prancheta 1 cópia 2.svg"
+            src="/image2.svg"
             alt="prancheta"
           ></img>
         </div>
