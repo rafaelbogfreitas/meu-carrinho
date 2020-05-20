@@ -29,6 +29,7 @@ const Product = ({
         <a key={_id}>
           <div className="product-image">
             <img src={imageUrl} alt={name} />
+            { quantity == 0 ? <div class="esgotado">esgotado</div> : null}
           </div>
         </a>
       </Link>
@@ -46,14 +47,13 @@ const Product = ({
           </div>
       <ClientFeature>
         <label htmlFor="amount">Amount:</label>
-        { quantity ==  0 ?
-          <div>Esgotado</div> :
+        { 
           <input 
           type="number" 
           name="amount"
           value={amount}
           max={quantity}
-          min={1}
+          min={0}
           onChange={(event) => handleInputChange(event, setAmount)}
         />}
         <button onClick={() => handleProduct(_id, amount)}>add</button>

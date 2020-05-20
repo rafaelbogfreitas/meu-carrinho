@@ -39,6 +39,7 @@
 }
 
 .product-image {
+  position: relative;
   width: 200px;
   height: 200px;
   overflow: hidden;
@@ -46,6 +47,19 @@
   img {
     width: 100%;
   }
+}
+
+.esgotado {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 5px 0;
+  background-color:$btn-red;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: white;
+  text-align: center;
 }
 
 //owner panel
