@@ -1,0 +1,101 @@
+.navbar-home {
+  // background-color: white;
+  width: 100vw;
+  height: auto;
+  display: flex;
+  position: fixed;
+}
+
+.main-section {
+  background-image: url('/Vector 3.svg');
+  background-size: cover;
+  display: flex;
+  height: 100vh;
+  justify-content: space-around;
+  align-items: center;
+  color: #4B2D12;
+
+  .info {
+    margin: 30px;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  h1 {
+    font-size: 3rem;
+    font-weight: bold;
+  }
+
+  h2 {
+    font-weight: bold;
+  }
+
+  p {
+    font-size: 0.8rem;
+  }
+
+  img {
+    height: auto;
+    margin-right: 10px;
+    max-width: 50vw;
+  }
+}
+
+.instructions {
+  background-color: #79B6BF;
+  color: white;
+  h1, h2 {
+    font-weight: bold;
+    font-size: 2rem;
+    text-align: center;
+    padding: 20px;
+  }
+
+  p {
+    text-align: center;
+  }
+}
+.container-instructions {
+  justify-content: center;
+  height: 90vh;
+  padding: 30px;
+  h2 {
+    font-size: 2rem;
+  }
+}
+.regular {
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.reverse {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  background-color: white;
+  color: #4B2D12;
+}
+.instructions-img {
+  height: auto;
+  width: 50vw;
+}
+
+.main-footer {
+  background-color: #79B6BF;
+  color: white;
+  height: 25vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .devs {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
+    width: 30vw;
+  }
+}

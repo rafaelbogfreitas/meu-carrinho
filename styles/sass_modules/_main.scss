@@ -2,41 +2,22 @@
 * {
   font-size: $root_size;
   box-sizing: border-box;
+  // outline: 1px solid red;
 }
 
 body {
   width: 100vw;
   height: 100vh;
-  background-color: #eee;
+  background-color: white;
 
   //provisory
-  padding: 50px;
+  // padding: 50px;
   font-family: $main-font;
   // font-size: 3rem;
 }
 
-img {
-  width: 100px;
-  height: auto;
-}
-
 // provisory
 
-input {
-  margin: 20px;
-}
-
-h1 {
-  margin: 10px
-}
-
-button {
-  margin: 20px
-}
-
-a {
-  padding: 10px
-}
 
 .title {
   font-size: $title-size;
