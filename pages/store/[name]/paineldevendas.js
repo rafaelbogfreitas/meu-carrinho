@@ -22,6 +22,7 @@ export default function paineldevendas({ store }) {
         <title>Painel de vendas</title>
       </Head>
       <div>
+        <h1 className="title">Painel de vendas</h1>
         <div>
           <h1>Pending orders</h1>
           {orders.length > 0 ? (
