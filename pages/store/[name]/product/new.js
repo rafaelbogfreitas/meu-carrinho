@@ -33,11 +33,9 @@ const newproduct = ({ store }) => {
     let body = { name, description, price, quantity, image };
 
     let uploadData = processFormData(body);
-    console.log(uploadData);
     createProduct(store._id, uploadData)
       .then((newProduct) => {
         router.push(`/store/${store.name}/dashboard`);
-        console.log(newProduct);
       })
       .catch((error) => {
         console.log(error);
@@ -116,10 +114,8 @@ const newproduct = ({ store }) => {
 
 newproduct.getInitialProps = async (ctx) => {
   let { name } = ctx.query;
-  console.log(name);
 
   const [store] = await getStore(name);
-  console.log(store);
 
   return { store };
 };

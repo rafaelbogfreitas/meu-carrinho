@@ -25,7 +25,6 @@ const Id = ({ user }) => {
 
     editUser(_id, processFormData(data))
       .then((response) => {
-        console.log(response);
         router.push('/minhaslojas');
       })
       .catch(({ response }) => {

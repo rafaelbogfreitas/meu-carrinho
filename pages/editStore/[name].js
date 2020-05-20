@@ -60,14 +60,12 @@ const Name = ({ store }) => {
     setLoading(true);
     deleteStore(id)
       .then((response) => {
-        console.log('response: ', response);
         router.push('/minhaslojas');
       })
       .catch((error) => {
         setLoading(false);
         console.log('error: ', error);
       });
-    console.log('Hello');
   };
 
   return (

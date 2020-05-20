@@ -30,9 +30,7 @@ export default function Store({ store }) {
 
   const handleDelete = async (productId) => {
     try {
-      const response = await deleteProduct(store._id, productId);
-      console.log(response);
-      
+      const response = await deleteProduct(store._id, productId);      
       const [{ products }] = await getStore(storeName);
       setProducts(products);
     } catch (error) {
