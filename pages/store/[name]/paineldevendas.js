@@ -37,7 +37,7 @@ export default function paineldevendas({ store }) {
                 />
               ))
           ) : (
-            <div>You have no pending orders</div>
+            <div>Você não tem ordens em andamento</div>
           )}
         </div>
         <div>
@@ -55,7 +55,7 @@ export default function paineldevendas({ store }) {
                 />
               ))
           ) : (
-            <div>You have no finished orders</div>
+            <div>Você não tem ordens completadas</div>
           )}
         </div>
       </div>

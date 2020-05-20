@@ -43,7 +43,7 @@ export default function Orders(props) {
     <div className={orderStyles.outline_white}>
       <p>Order ID: {props.order._id}</p>
       {props.order.products.map((product, idx) => {
-        return <p key={idx}>{product.product.name} - Quantity {product.quantity}</p>
+        return <p key={idx}>{product.name} - Quantity {product.quantity}</p>
       })}
       <p>Order Total: {props.order.total}.00 R$</p>
       <Moment format="DD/MM/YYYY HH:MM">{props.order.updatedAt}</Moment>
