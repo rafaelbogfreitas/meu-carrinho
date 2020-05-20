@@ -33,6 +33,12 @@ a {
   text-decoration: none;
 }
 
+.flex-center {
+  @include flex(display, flex);
+  @include flex(justify-content, center);
+  @include flex(align-items, center);
+}
+
 .title {
   font-size: $title-size;
   color: $title-color;
@@ -41,6 +47,16 @@ a {
 .plus {
   font-size: $plus-sign-size;
   color: $title-color;
+}
+
+.plus-box {
+  background-color: $plus-sign-bgcolor;
+
+  a {
+    width: 100%;
+    height: 100%;
+    @extend .flex-center;
+  }
 }
 
 .container {
