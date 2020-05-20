@@ -51,12 +51,12 @@ describe('Deletar Produto', () => {
   })
 
   it('Ir para Novo Produto', () => {
-    cy.get(`[alt="${product3.name}"]`).first().click().wait(1000)
+    cy.get(`[alt="${product3.name}"]`).first().click().wait(2000)
     cy.location('pathname').should('contain', `/store/${editStoreName}/product/`)
   })
 
   it('Deletar Produto', () => {
-    cy.get('[class="deleteButton"]').click().wait(1000)
+    cy.get('[class="deleteButton"]').click().wait(2000)
     cy.location('pathname').should('contain', `/store/${editStoreName}/dashboard`)
   })
 
