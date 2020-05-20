@@ -45,7 +45,7 @@ export default function Home() {
         <div className="container-instructions regular">
           <div>
             <h2>Crie sua loja</h2>
-            <p>Crie sua loja virtual e adicione os seus produtos.</p>
+            <p>Crie sua loja virtual personalizada e adicione os seus produtos.</p>
           </div>
           <img
             className="instructions-img"
