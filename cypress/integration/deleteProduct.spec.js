@@ -46,7 +46,7 @@ describe('Deletar Produto', () => {
   })
 
   it('Subemeter formulário', () => {
-    cy.get('button')
+    cy.get('[class="btn btn--green"]')
       .click()
   })
 
