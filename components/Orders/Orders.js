@@ -29,7 +29,6 @@ export default function Orders(props) {
       
       let updated = await updateOrder(orderId)
       let [updatedStore] = await getStore(props.storeName)
-      console.log(updatedStore)
       props.setOrders(updatedStore.orders)
 
     }

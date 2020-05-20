@@ -40,7 +40,6 @@ const edit = ({product, storeName}) => {
     try {
       const [store] = await getStore(storeName);
       const response = await deleteProduct(store._id, product._id);
-      console.log(response);
       router.push(`/store/${storeName}/dashboard`);
     } catch (error) {
       console.log(error.response);
@@ -118,7 +117,6 @@ const edit = ({product, storeName}) => {
 }
 
 edit.getInitialProps = async ctx => {
-  // console.log(ctx.query)
   let { id } = ctx.query;
   let { name } = ctx.query;
   let {product} = await getProduct(id);

@@ -73,7 +73,6 @@ const SingleProduct = ({ product, name }) => {
 
     //handleCart
     if (!cart.some((item) => item._id == cartProduct._id) || cart.length == 0) {
-      console.log('aqui: ', cartProduct);
       setCart([...cart, cartProduct]);
       return;
     }
@@ -95,7 +94,6 @@ const SingleProduct = ({ product, name }) => {
     try {
       const [store] = await getStore(name);
       const response = await deleteProduct(store._id, product._id);
-      console.log(response);
       router.push(`/store/${name}/dashboard`);
     } catch (error) {
       console.log(error);
