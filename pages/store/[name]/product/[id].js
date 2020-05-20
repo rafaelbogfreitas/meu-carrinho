@@ -110,45 +110,89 @@ const SingleProduct = ({ product, name }) => {
           product.imageUrl
         )}
       </Head>
-      <div>{product.name}</div>
-      <img src={product.imageUrl} alt={product.description} />
-      <p>{product.price},00 R$</p>
+      <main className="container--no-grid">
+        <h1 className="title">{product.name}</h1>
+        <div className="row">
+          <figure className="single-product-figure">
+            <img
+              className="single-product-figure__img"
+              src={product.imageUrl}
+              alt={product.description}
+            />
+          </figure>
+          <aside className="single-product-info">
+            <header className="single-product-info__header">
+              <p>{product.description}</p>
+            </header>
 
-      <label htmlFor="amount">Amount:</label>
-      {product.quantity == 0 ? (
-        <div>Esgotado</div>
-      ) : (
-        <ClientFeature>
-          <input
-            type="number"
-            name="amount"
-            value={amount}
-            max={product.quantity}
-            min={1}
-            onChange={(event) => handleInputChange(event, setAmount)}
-          />
-        </ClientFeature>
-      )}
-      <OwnerFeature>
-        <Link
-          href="/store/[name]/product/edit/[id]"
-          as={`/store/${name}/product/edit/${product._id}`}
-        >
-          <button className="editButton">EDIT</button>
-        </Link>
-      </OwnerFeature>
-      <OwnerFeature>
-        <button onClick={handleDelete} className="deleteButton">
-          DELETE
-        </button>
-      </OwnerFeature>
-      <ClientFeature>
-        <Link href={'/store/[name]/dashboard'} as={`/store/${name}/dashboard`}>
-          <button onClick={() => handleProduct(product._id, amount)}>
-            ADD
-          </button>
-        </Link>
-      </ClientFeature>
+            <footer className="single-product-info__footer">
+              <p>
+                <span>R$</span> {product.price},00
+              </p>
+
+              <ClientFeature>
+                <div className="add-btn">
+                  <input
+                    type="number"
+                    name="amount"
+                    value={amount}
+                    max={product.quantity}
+                    min={0}
+                    onChange={(event) => handleInputChange(event, setAmount)}
+                  />
+                  <Link
+                    href={'/store/[name]/dashboard'}
+                    as={`/store/${name}/dashboard`}
+                  >
+                    <button onClick={() => handleProduct(product._id, amount)}>
+                      <img src="/cart.svg" alt="cart icon" />
+                    </button>
+                  </Link>
+                </div>
+              </ClientFeature>
+
+              {/* <label htmlFor="amount">Amount:</label>
+              {product.quantity == 0 ? (
+                <div>Esgotado</div>
+              ) : (
+                <ClientFeature>
+                  <input
+                    type="number"
+                    name="amount"
+                    value={amount}
+                    max={product.quantity}
+                    min={1}
+                    onChange={(event) => handleInputChange(event, setAmount)}
+                  />
+                </ClientFeature>
+              )}
+              <OwnerFeature>
+                <Link
+                  href="/store/[name]/product/edit/[id]"
+                  as={`/store/${name}/product/edit/${product._id}`}
+                >
+                  <button className="editButton">EDIT</button>
+                </Link>
+              </OwnerFeature>
+              <OwnerFeature>
+                <button onClick={handleDelete} className="deleteButton">
+                  DELETE
+                </button>
+              </OwnerFeature>
+              <ClientFeature>
+                <Link
+                  href={'/store/[name]/dashboard'}
+                  as={`/store/${name}/dashboard`}
+                >
+                  <button onClick={() => handleProduct(product._id, amount)}>
+                    ADD
+                  </button>
+                </Link>
+              </ClientFeature> */}
+            </footer>
+          </aside>
+        </div>
+      </main>
     </>
   );
 };
