@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { editStore, getStore, deleteStore } from '../../services/storeService';
 import ProtectedRoute from '../../components/ProtectedRoute/ProtectedRoute';
-import PhoneCodeSelect from '../../components/PhoneCodeSelect/PhoneCodeSelect';
 import Loading from '../../components/ProtectedRoute/ProtectedRoute';
 import Input from '../../components/Input/Input';
 import PhoneInput from '../../components/PhoneInput/PhoneInput';

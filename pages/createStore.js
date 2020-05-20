@@ -3,9 +3,11 @@ import { useRouter } from 'next/router';
 import { createStore } from '../services/storeService';
 import Link from 'next/link';
 import ProtectedRoute from '../components/ProtectedRoute/ProtectedRoute';
-import PhoneCodeSelect from '../components/PhoneCodeSelect/PhoneCodeSelect';
 import Input from '../components/Input/Input';
 import PhoneInput from '../components/PhoneInput/PhoneInput';
+import ColorInput from '../components/ColorInput/ColorInput';
+import FileInput from '../components/FileInput/FileInput';
+import Button from '../components/Button/Button';
 import Textarea from '../components/Textarea/Textarea';
 import {
   handleInputChange,
@@ -60,20 +62,21 @@ const CreateStore = () => {
           state={about}
           setState={setAbout}
         />
-        <Input
-          label="Cor primária:"
-          type="color"
-          name="primaryColor"
-          state={primaryColor}
-          setState={setPrimaryColor}
-        />
-        <Input
-          label="Cor secundária:"
-          type="color"
-          name="secondaryColor"
-          state={secondaryColor}
-          setState={setSecondaryColor}
-        />
+
+        <div className="fieldset__section">
+          <ColorInput
+            label="Cor primária:"
+            name="primaryColor"
+            state={primaryColor}
+            setState={setPrimaryColor}
+          />
+          <ColorInput
+            label="Cor secundária:"
+            name="secondaryColor"
+            state={secondaryColor}
+            setState={setSecondaryColor}
+          />
+        </div>
 
         <PhoneInput
           label="WhatsApp"
@@ -83,17 +86,25 @@ const CreateStore = () => {
           setRegionCode={setRegionCode}
         />
 
-        <Input
+        <FileInput
           label="Sua logo:"
           type="file"
           name="image"
           setState={setImage}
         />
-        <button type="submit">Criar Loja</button>
+
+        <section className="btn-section">
+          <Button submit color="green">
+            Salvar
+          </Button>
+
+          <Link href="/minhaslojas">
+            <a>
+              <Button color="brown">Ir para minhas lojas</Button>
+            </a>
+          </Link>
+        </section>
       </form>
-      <Link href="minhaslojas">
-        <a>Ir para minhas lojas</a>
-      </Link>
     </ProtectedRoute>
   );
 };
