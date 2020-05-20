@@ -21,49 +21,53 @@ export default function paineldevendas({ store }) {
       <Head>
         <title>Painel de vendas</title>
       </Head>
-      <div>
-        <h1 className="title">Painel de vendas</h1>
-        <div>
-          <h1>Pending orders</h1>
-          {orders.length > 0 ? (
+      <h1 className="title">Painel de vendas</h1>
+      <div className="container--painel">
+
+          <div class="panel">
+            <h1 className="panel__title">Em andamento</h1>
+            {orders.length > 0 ? (
             orders
-              .filter((order) => order.status === 'pending')
-              .map((orderz, idx) => (
-                <Orders
-                  key={idx}
-                  order={orderz}
-                  storeId={_id}
-                  storeName={name}
-                  setOrders={setOrders}
-                />
-              ))
-          ) : (
+            .filter((order) => order.status === 'pending')
+            .map((orderz, idx) => (
+            <Orders
+            key={idx}
+            order={orderz}
+            storeId={_id}
+            storeName={name}
+            setOrders={setOrders}
+            />
+            ))
+            ) : (
             <div>Você não tem ordens em andamento</div>
-          )}
+            )}
         </div>
-        <div>
-          <h1>Finished orders</h1>
+
+        <div className="panel">
+          <h1 className="panel__title">Completadas</h1>
           {orders.length > 0 ? (
-            orders
-              .filter((order) => order.status === 'done')
-              .map((orderz, idx) => (
-                <Orders
-                  key={idx}
-                  order={orderz}
-                  storeId={_id}
-                  storeName={name}
-                  setOrders={setOrders}
-                />
-              ))
+          orders
+          .filter((order) => order.status === 'done')
+          .map((orderz, idx) => (
+          <Orders
+          key={idx}
+          order={orderz}
+          storeId={_id}
+          storeName={name}
+          setOrders={setOrders}
+          />
+          ))
           ) : (
-            <div>Você não tem ordens completadas</div>
+          <div>Você não tem ordens completadas</div>
           )}
         </div>
+
+        <div className="chart">
+          <label htmlFor="start">Start</label>
+          <Chart orders={orders} />
+        </div>
+
       </div>
-
-      <label htmlFor="start">Start</label>
-
-      <Chart orders={orders} />
 
       <Link href="/store/[name]/dashboard" as={`/store/${name}/dashboard`}>
         <button>Voltar</button>

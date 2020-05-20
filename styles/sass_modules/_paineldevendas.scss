@@ -1,0 +1,61 @@
+.container--painel {
+  @extend .flex-center;
+  @include flex(justify-content, space-around);
+}
+
+.panel {
+  overflow: scroll;
+  width: 30%;
+  height: 80vh;
+  padding: 10px;
+  background-color: $painel-bg-color;
+  font-size: 1.4rem;
+  color: $title-color;
+}
+
+.panel__title {
+  color: white;
+  font-size: 2.4rem;
+  font-weight: bold;
+}
+
+.order {
+  width: 100%;
+  margin: 10px auto;
+  padding: 5px;
+  background-color: #fff;
+}
+
+.order-header {
+  @include flex(display, flex);
+  @include flex(justify-content, space-between);
+  width: 100%;
+  font-weight: bold;
+}
+
+.btn-order-container {
+  width: 100%;
+  @include flex(display, flex);
+  @include flex(justify-content, flex-end);
+}
+
+.btn-order {
+  width: 70px;
+  margin-right: 5px;
+  padding: 2px 0;
+  font-size: 1.4rem;
+  color: white;
+  background-color: $painel-bg-color;
+}
+
+.btn-order--delete {
+  background-color: $btn-red;
+}
+
+.chart {
+  width: 30%;
+}
+
+.container--chart {
+  width: 100%;
+}
