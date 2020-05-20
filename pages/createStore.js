@@ -98,7 +98,7 @@ const CreateStore = () => {
             Salvar
           </Button>
 
-          <Link href="/minhaslojas">
+          <Link href="/minhaslojas" passHref>
             <a>
               <Button color="brown">Ir para minhas lojas</Button>
             </a>

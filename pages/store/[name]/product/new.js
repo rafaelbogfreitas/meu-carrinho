@@ -14,6 +14,8 @@ import ProtectedRoute from '../../../../components/ProtectedRoute/ProtectedRoute
 import Loading from '../../../../components/Loading/Loading';
 import Input from '../../../../components/Input/Input';
 import Textarea from '../../../../components/Textarea/Textarea';
+import FileInput from '../../../../components/FileInput/FileInput';
+import Button from '../../../../components/Button/Button';
 
 const newproduct = ({ store }) => {
   let router = useRouter();
@@ -86,16 +88,26 @@ const newproduct = ({ store }) => {
               state={quantity}
               setState={setQuantity}
             />
-            <Input label="Foto:" type="file" name="image" setState={setImage} />
+            <FileInput
+              label="Foto:"
+              type="file"
+              name="image"
+              setState={setImage}
+            />
 
-            <button>submit</button>
+            <Button color="green" submit>
+              Criar Produto
+            </Button>
+
+            <Link
+              href="/store/[name]/dashboard"
+              as={`/store/${store.name}/dashboard`}
+            >
+              <a>
+                <Button color="brown">Voltar</Button>
+              </a>
+            </Link>
           </form>
-          <Link
-            href="/store/[name]/dashboard"
-            as={`/store/${store.name}/dashboard`}
-          >
-            <a>Voltar</a>
-          </Link>
         </div>
       )}
     </ProtectedRoute>
