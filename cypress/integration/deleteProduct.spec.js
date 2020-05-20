@@ -11,15 +11,12 @@ describe('Deletar Produto', () => {
   })
 
   it('Ir para loja', () => {
-    cy.get(`[href="/store/${editStoreName}/dashboard"]`).first().click()
+    cy.get(`[href="/store/${editStoreName}/dashboard"]`).first().click().wait(1000)
     cy.location('pathname').should('eq', `/store/${editStoreName}/dashboard`)
   })
 
   it('Ir para Novo Produto', () => {
-    cy.get('[href="product/new"]')
-      .first()
-      .click()
-      
+    cy.get('[href="product/new"]').first().click().wait(1000)
     cy.location('pathname').should('eq', `/store/${editStoreName}/product/new`)
   })
 
@@ -54,17 +51,12 @@ describe('Deletar Produto', () => {
   })
 
   it('Ir para Novo Produto', () => {
-    cy.get('a').contains(`${product3.name}`)
-      .first()
-      .click()
-      
+    cy.get('a').contains(`${product3.name}`).first().click().wait(1000)
     cy.location('pathname').should('contain', `/store/${editStoreName}/product/`)
   })
 
   it('Deletar Produto', () => {
-    cy.get('[class="deleteButton"]')
-      .click()
-      
+    cy.get('[class="deleteButton"]').click().wait(1000)
     cy.location('pathname').should('contain', `/store/${editStoreName}/dashboard`)
   })
 

@@ -11,8 +11,7 @@ describe('Criar Nova Loja', () => {
   })
   
   it('Ir para Criar Nova Loja', () => {
-    cy.get('[href="createStore"]')
-      .click()
+    cy.get('[href="createStore"]').click().wait(1000)
     cy.location('pathname').should('eq', '/createStore')
   })
 
@@ -61,7 +60,7 @@ describe('Criar Nova Loja', () => {
 
   it('Subemeter formulário', () => {
     cy.get('[class="btn btn--green"]')
-      .click()
+      .click().wait(1000)
   })
 
   it('Redirecionar para Minhas Lojas', () => {
@@ -69,7 +68,7 @@ describe('Criar Nova Loja', () => {
   })
 
   it('Ir para Nova Loja', () => {
-    cy.get(`[href="/store/${storeName}/dashboard"]`).first().click()
+    cy.get(`[href="/store/${storeName}/dashboard"]`).first().click().wait(1000)
     cy.location('pathname').should('eq', `/store/${storeName}/dashboard`)
   })
 })

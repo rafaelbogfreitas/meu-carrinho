@@ -11,7 +11,7 @@ describe('Editar Produto', () => {
   })
 
   it('Ir para loja', () => {
-    cy.get(`[href="/store/${editStoreName}/dashboard"]`).first().click()
+    cy.get(`[href="/store/${editStoreName}/dashboard"]`).first().click().wait(1000)
     cy.location('pathname').should('eq', `/store/${editStoreName}/dashboard`)
   })
 
@@ -19,6 +19,7 @@ describe('Editar Produto', () => {
     cy.get('a').contains(`${product1.name}`)
       .first()
       .click()
+      .wait(1000)
       
     cy.location('pathname').should('contain', `/store/${editStoreName}/product/`)
   })
@@ -26,6 +27,7 @@ describe('Editar Produto', () => {
   it('Ir para Editar Produto', () => {
     cy.get('[class="editButton"]')
       .click()
+      .wait(1000)
       
     cy.location('pathname').should('contain', `/store/${editStoreName}/product/`)
   })

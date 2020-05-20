@@ -31,6 +31,6 @@ Cypress.Commands.add('login', (email, password) => {
   cy.visit('/')
   cy.get('#login-name').type(email)
   cy.get('#login-password').type(password)
-  cy.get('#login-button').click().wait(200)
+  cy.get('#login-button').click().wait(1000)
   cy.location('pathname').should('eq', '/minhaslojas')
 })
