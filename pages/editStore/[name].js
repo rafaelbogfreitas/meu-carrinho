@@ -131,7 +131,9 @@ const Name = ({ store }) => {
                 href="/store/[name]/dashboard"
                 as={`/store/${store.name}/dashboard`}
               >
-                <Button color="brown">Voltar</Button>
+                <a>
+                  <Button color="brown">Voltar</Button>
+                </a>
               </Link>
 
               <Button color="red" handler={handleDelete}>
