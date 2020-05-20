@@ -1,10 +1,85 @@
 .fieldset {
+  @include flex(display, flex);
+  @include flex(flex-direction, column);
+  @include flex(align-items, flex-start);
+  @include flex(justify-content, space-between);
+  width: 100%;
+
+  &--color {
+    width: auto;
+  }
+
+  &__section {
+    @include flex(display, flex);
+    width: 100%;
+  }
 
   &__label {
-    
+    display: block;
+    font-weight: 500;
+    font-size: 2.4rem;
+    line-height: 3rem;
+    margin: 4px 0;
+
+    &--file {
+      @extend .fieldset__input;
+      position: relative;
+    }
   }
 
   &__input {
+    border: none;
+    display: block;
+    height: 5.2rem;
+    width: 100%;
+    background-color: $input-blue;
+    font-family: $main-font;
+    font-size: $input-size;
+    padding-left: 1.4rem;
 
+    &--color {
+      @extend .fieldset__input;
+      background-color: transparent;
+      padding: 0;
+      margin-right: 6.5rem;
+      width: 13.1rem;
+    }
+
+    &--phone {
+      @extend .fieldset__input;
+      width: 70%;
+    }
+
+    &--file {
+      @extend .fieldset__input;
+      position: absolute;
+      top: 20%;
+      background-color: transparent;
+      font-size: $input-size;
+    }
+  }
+
+  &__textarea {
+    font-family: $main-font;
+    border: none;
+    display: block;
+    height: 5.2rem;
+    width: 100%;
+    resize: none;
+    background-color: $input-blue;
+    font-size: $input-size;
+    padding: 1.4rem;
+    overflow-y: hidden;
+  }
+
+  &__select {
+    border: none;
+    background-color: $input-blue;
+    font-size: $input-size;
+    padding-left: 1.4rem;
+
+    & > option {
+      font-size: $input-size;
+    }
   }
 }

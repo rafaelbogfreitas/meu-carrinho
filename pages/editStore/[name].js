@@ -5,6 +5,8 @@ import PhoneCodeSelect from '../../components/PhoneCodeSelect/PhoneCodeSelect';
 import Loading from '../../components/ProtectedRoute/ProtectedRoute';
 import Input from '../../components/Input/Input';
 import PhoneInput from '../../components/PhoneInput/PhoneInput';
+import ColorInput from '../../components/ColorInput/ColorInput';
+import FileInput from '../../components/FileInput/FileInput';
 import Textarea from '../../components/Textarea/Textarea';
 
 import { useRouter } from 'next/router';
@@ -91,20 +93,21 @@ const Name = ({ store }) => {
               state={about}
               setState={setAbout}
             />
-            <Input
-              label="Cor primária:"
-              type="color"
-              name="primaryColor"
-              state={primaryColor}
-              setState={setPrimaryColor}
-            />
-            <Input
-              label="Cor secundária:"
-              type="color"
-              name="secondaryColor"
-              state={secondaryColor}
-              setState={setSecondaryColor}
-            />
+
+            <div className="fieldset__section">
+              <ColorInput
+                label="Cor primária:"
+                name="primaryColor"
+                state={primaryColor}
+                setState={setPrimaryColor}
+              />
+              <ColorInput
+                label="Cor secundária:"
+                name="secondaryColor"
+                state={secondaryColor}
+                setState={setSecondaryColor}
+              />
+            </div>
 
             <PhoneInput
               label="WhatsApp"
@@ -114,13 +117,15 @@ const Name = ({ store }) => {
               setRegionCode={setRegionCode}
             />
 
-            <Input
+            <FileInput
               label="Sua logo:"
               type="file"
               name="image"
               setState={setImage}
             />
-            <button className="save" type="submit">Salvar</button>
+            <button className="save" type="submit">
+              Salvar
+            </button>
           </form>
           <button onClick={handleDelete} className="deleteButton">
             Apagar loja

@@ -1,10 +1,13 @@
 import React from 'react';
 
-const Textarea = ({ label, type, name, placeholder, state, setState}) => {
+const Textarea = ({ label, type, name, placeholder, state, setState }) => {
   return (
-    <>
-      <label htmlFor={name}>{label}</label>
+    <fieldset className="fieldset">
+      <label className="fieldset__label" htmlFor={name}>
+        {label}
+      </label>
       <textarea
+        className="fieldset__textarea"
         type={type}
         name={name}
         id={name}
@@ -12,7 +15,7 @@ const Textarea = ({ label, type, name, placeholder, state, setState}) => {
         value={state}
         onChange={(event) => setState(event.target.value)}
       />
-    </>
+    </fieldset>
   );
 };
 

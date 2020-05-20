@@ -4,8 +4,9 @@
   box-sizing: border-box;
 }
 
-body {
+body, html {
   font-family: $main-font;
+  font-size: $root-size;
 }
 
 img {
@@ -14,10 +15,6 @@ img {
 }
 
 // provisory
-
-input {
-  margin: 20px;
-}
 
 h1 {
   margin: 10px;

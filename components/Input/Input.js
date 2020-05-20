@@ -2,10 +2,10 @@ import React from 'react';
 
 const Input = ({ label, type, name, placeholder, state, setState}) => {
   return (
-    <fieldset>
-      <label className="label" htmlFor={name}>{label}</label>
+    <fieldset className="fieldset">
+      <label className="fieldset__label" htmlFor={name}>{label}</label>
       <input
-        className="input"
+        className="fieldset__input"
         type={type}
         name={name}
         id={name}
