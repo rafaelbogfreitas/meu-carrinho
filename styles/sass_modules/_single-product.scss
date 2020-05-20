@@ -1,0 +1,42 @@
+.container--no-grid {
+  @extend .container;
+  display: block;
+}
+
+.single-product {
+  &-figure {
+    @extend .flex-center;
+    width: 46.2rem;
+    height: 46.2rem;
+
+    &__img {
+      width: 100%;
+    }
+  }
+
+  &-info {
+    margin-left: 10rem;
+    width: 41.9rem;
+    min-height: 46.2rem;
+    @include flex(display, flex);
+    @include flex(flex-direction, column);
+    @include flex(justify-content, space-between);
+
+    &__header {
+      font-size: 1.8rem;
+      line-height: 3rem;
+    }
+
+    &__footer {
+      @include flex(display, flex);
+      @include flex(justify-content, space-between);
+      @include flex(align-items, center);
+
+      & > p {
+        font-size: 3.6rem;
+        font-weight: bold;
+        color: $title-color;
+      }
+    }
+  }
+}
