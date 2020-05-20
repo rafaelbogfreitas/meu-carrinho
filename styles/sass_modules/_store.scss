@@ -1,10 +1,11 @@
 .container--store {
+  width: 100%;
   @include flex(display, flex);
   padding: 20px 20px;
 }
 
 .container--products {
-  width: 60%;
+  width: 50%;
   @include grid(display, grid);
   @include grid(grid-template-columns, repeat(2, 1fr));
   @include grid(justify-items, center);
@@ -69,4 +70,91 @@
       text-align: center;
     }
   }
+}
+
+
+//carrinho
+
+.container--carrinho {
+  width: 50%;
+  height: 100%;
+  @extend .flex-center;
+}
+
+.carrinho {
+  position: relative;
+  width: 450px;
+  height: 80vh;
+  background-color:$painel-bg-color;
+}
+
+.carrinho__title {
+  font-size: 4.8rem;
+  font-weight: bold;
+  width: 100%;
+  height: auto;
+  text-align: center;
+  color:white;
+  background-color:$title-color;
+
+  img {
+    height: 100%;
+    margin-right: 10px;
+  }
+
+}
+
+.carrinho__item {
+  @extend .flex-center;
+  @include flex(justify-content, space-between);
+  width: 100%;
+  height: 30px;
+  margin: 5px 0;
+  padding: 0 10px;
+
+  font-size: 2.4rem;
+
+  h2 {
+    font-weight: 400;
+  }
+
+  button {
+    height: 100%;
+  }
+
+  img {
+    height: 80%;
+    margin-left: 10px;
+  }
+
+  strong {
+    font-size: 2.4rem;
+  }
+}
+
+.total-container {
+  @extend .flex-center;
+  @include flex(justify-content, space-between);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  padding: 0 10px;
+  background-color: $title-color;
+  color: white;
+  font-size: 3.6rem;
+}
+
+.total-amount {
+  @include flex(display, flex);
+  h2 {
+    margin-right: 10px;
+  }
+}
+
+.enviar-btn {
+  padding: 5px;
+  background-color: $painel-bg-color;
+  font-size: 2.4rem;
 }

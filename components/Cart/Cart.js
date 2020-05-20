@@ -51,8 +51,11 @@ const Cart = ({ cart, storeId, removeItemsFromCart, setCart }) => {
   return loading ? (
     <Loading />
   ) : (
-    <div>
-      <h1>Carrinho</h1>
+    <div className="carrinho">
+      <h1 className="carrinho__title">
+        <img src="/cart.svg" alt="cart icon"/>
+        Carrinho
+      </h1>
       {cart.map((product, i) => {
         total += product.quantity * product.price;
         products.push({
@@ -60,24 +63,31 @@ const Cart = ({ cart, storeId, removeItemsFromCart, setCart }) => {
           quantity: product.quantity,
         });
         return (
-          <div key={i}>
-            <h2>{product.name}</h2>
-            <h2>{product.quantity}</h2>
+          <div className="carrinho__item" key={i}>
+            <h2>{product.quantity} x {product.name}</h2>
             <button onClick={() => removeItemsFromCart(product._id)}>
-              remove
+              <strong>R$ {product.price}.00</strong>
+              <img src="/bin-nobg.svg" alt="bin"/>
             </button>
+
           </div>
         );
         })
       }
-      <strong>{total}</strong>
-      <a
+      <div className="total-container">
+        <div className="total-amount">
+          <h2>Total:</h2>
+          <strong>R$ {total}.00</strong>
+        </div>
+        <a
+        className="enviar-btn"
         onClick={sendOrder}
         target="_blank"
         href={`https://api.whatsapp.com/send?text=%0aEsse é o meu pedido: %0a%0a${createWhatsAppOrder(cart, storeName)}%0a&phone=${whatsApp}`}
-      >
-        Enviar
-      </a>
+        >
+          Enviar
+        </a>
+      </div>
     </div>
   );
 };

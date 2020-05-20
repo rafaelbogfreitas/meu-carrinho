@@ -179,7 +179,7 @@ export default function Store({ store }) {
 
 
         <ClientFeature>
-          <div className=".container .container--carrinho">
+          <div className="container container--carrinho">
           <Cart 
             cart={cart} 
             storeId={store._id} 
