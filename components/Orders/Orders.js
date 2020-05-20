@@ -49,7 +49,7 @@ export default function Orders(props) {
         console.log(product)
         return <p key={idx}>{product.quantity} x {product.product && product.product.name }</p>
       })}
-      <p>Order Total: {props.order.total}.00 R$</p>
+      <p className="order-total">Order Total: {props.order.total}.00 R$</p>
       {
         props.order.status == 'pending' ?
         <div className="btn-order-container">

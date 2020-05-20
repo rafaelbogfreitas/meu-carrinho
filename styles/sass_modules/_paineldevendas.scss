@@ -33,6 +33,10 @@
   font-weight: bold;
 }
 
+.order-total {
+  font-weight: bold;
+}
+
 .btn-order-container {
   width: 100%;
   @include flex(display, flex);
@@ -52,10 +56,10 @@
   background-color: $btn-red;
 }
 
-.chart {
-  width: 30%;
-}
+// .chart {
+//   width: 30%;
+// }
 
-.container--chart {
-  width: 100%;
-}
+// .container--chart {
+//   width: 100%;
+// }

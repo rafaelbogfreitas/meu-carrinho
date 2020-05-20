@@ -51,7 +51,8 @@ function Chart({ orders }) {
   };
 
   return (
-    <aside className="container--chart">
+    // <aside className="container--chart">
+    <>
      <label htmlFor="start">Start</label>
       <input
         type="date"
@@ -79,7 +80,7 @@ function Chart({ orders }) {
           Clear
         </button>
       )}
-      <div style={{ width: '200px', height: '200px' }}>
+      <div style={{ width: '400px', height: '600px' }}>
         <Bar
           data={{
             labels: formatData(orders).dates,
@@ -113,7 +114,8 @@ function Chart({ orders }) {
           }}
         />
       </div>
-    </aside>
+    {/* // </aside> */}
+    </>
   );
 }
 
