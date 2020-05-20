@@ -48,65 +48,71 @@ const newproduct = ({ store }) => {
       {loading ? (
         <Loading />
       ) : (
-        <div>
-          <Head>
-            <title>New Product</title>
-          </Head>
-          <h1>{store.name}</h1>
-          <form onSubmit={(e) => handleSubmit(e, store.name)}>
-            <Input
-              label="Nome:"
-              type="text"
-              name="name"
-              placeholder="Produto"
-              state={name}
-              setState={setName}
-            />
-            <Textarea
-              label="Descrição:"
-              type="text"
-              name="description"
-              placeholder="Um produto legal..."
-              state={description}
-              setState={setDescription}
-            />
-            <Input
-              label="Preço:"
-              type="number"
-              name="price"
-              placeholder="R$ 50,00"
-              state={price}
-              setState={setPrice}
-            />
-            <Input
-              label="Estoque:"
-              type="number"
-              name="quantity"
-              placeholder="30"
-              state={quantity}
-              setState={setQuantity}
-            />
-            <FileInput
-              label="Foto:"
-              type="file"
-              name="image"
-              setState={setImage}
-            />
-
-            <Button color="green" submit>
-              Criar Produto
-            </Button>
-
-            <Link
-              href="/store/[name]/dashboard"
-              as={`/store/${store.name}/dashboard`}
+        <main className="form-main">
+          <div className="container">
+            <Head>
+              <title>Criar Produto</title>
+            </Head>
+            <h1 className="title title--form">Criar Produto</h1>
+            <form
+              className="form"
+              onSubmit={(e) => handleSubmit(e, store.name)}
             >
-              <a>
-                <Button color="brown">Voltar</Button>
-              </a>
-            </Link>
-          </form>
-        </div>
+              <Input
+                label="Nome:"
+                type="text"
+                name="name"
+                placeholder="Produto"
+                state={name}
+                setState={setName}
+              />
+              <Textarea
+                label="Descrição:"
+                type="text"
+                name="description"
+                placeholder="Um produto legal..."
+                state={description}
+                setState={setDescription}
+              />
+              <Input
+                label="Preço:"
+                type="number"
+                name="price"
+                placeholder="R$ 50,00"
+                state={price}
+                setState={setPrice}
+              />
+              <Input
+                label="Estoque:"
+                type="number"
+                name="quantity"
+                placeholder="30"
+                state={quantity}
+                setState={setQuantity}
+              />
+              <FileInput
+                label="Foto:"
+                type="file"
+                name="image"
+                setState={setImage}
+              />
+
+              <section className="btn-section">
+                <Button color="green" submit>
+                  Criar Produto
+                </Button>
+                <Link
+                  href="/store/[name]/dashboard"
+                  as={`/store/${store.name}/dashboard`}
+                >
+                  <a>
+                    <Button color="brown">Voltar</Button>
+                  </a>
+                </Link>
+              </section>
+            </form>
+          </div>
+        </main>
       )}
     </ProtectedRoute>
   );

@@ -1,0 +1,14 @@
+.form {
+  width: 40%;
+}
+
+.form-main{
+  width: 100vw;
+  height: 100vh;
+
+  overflow-x: hidden;
+  background-image: url('/form-bg.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
