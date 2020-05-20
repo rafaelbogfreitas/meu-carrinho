@@ -4,6 +4,12 @@
   height: auto;
   display: flex;
   position: fixed;
+  color: #4B2D12;
+
+  a {
+    font-size: 3rem;
+    margin: 30px;
+  }
 }
 
 .main-section {
@@ -56,7 +62,7 @@
   h1 {
     padding-top: 100px;
   }
-  
+
   p {
     font-size: 2.5rem;
     margin-top: 100px;
