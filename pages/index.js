@@ -34,7 +34,7 @@ export default function Home() {
         <div>
         <img
             className="main-img"
-            src="/feira livre_Prancheta 1 cópia 2.png"
+            src="./feira livre_Prancheta 1 cópia 2.png"
             alt="prancheta"
           ></img>
         </div>
@@ -49,7 +49,7 @@ export default function Home() {
           </div>
           <img
             className="instructions-img"
-            src="/feira livre_Prancheta 1 cópia 4.png"
+            src="./feira livre_Prancheta 1 cópia 4.png"
             alt="prancheta"
           ></img>
         </div>
@@ -60,7 +60,7 @@ export default function Home() {
           </div>
           <img
             className="instructions-img"
-            src="/feira livre_Prancheta 1 cópia 2.png"
+            src="./feira livre_Prancheta 1 cópia 2.png"
             alt="prancheta"
           ></img>
         </div>
@@ -71,7 +71,7 @@ export default function Home() {
           </div>
           <img
             className="instructions-img"
-            src="/feira livre_Prancheta 1 cópia 3.png"
+            src="./feira livre_Prancheta 1 cópia 3.png"
             alt="prancheta"
           ></img>
         </div>
@@ -82,7 +82,7 @@ export default function Home() {
           </div>
           <img
             className="instructions-img"
-            src="/feira livre_Prancheta 1 cópia 5.png"
+            src="./feira livre_Prancheta 1 cópia 5.png"
             alt="prancheta"
           ></img>
         </div>
