@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { createStore } from '../services/storeService';
+import Head from 'next/head';
 import Link from 'next/link';
 import ProtectedRoute from '../components/ProtectedRoute/ProtectedRoute';
 import Input from '../components/Input/Input';
@@ -45,66 +46,75 @@ const CreateStore = () => {
 
   return (
     <ProtectedRoute>
-      <form onSubmit={handleSubmit}>
-        <Input
-          label="Nome da loja:"
-          type="text"
-          name="name"
-          placeholder="Minha loja"
-          state={name}
-          setState={setName}
-        />
-        <Textarea
-          label="Sobre sua loja:"
-          type="text"
-          name="about"
-          placeholder="Uma loja sobre..."
-          state={about}
-          setState={setAbout}
-        />
+      <Head>
+        <title>Crie sua loja</title>
+      </Head>
 
-        <div className="fieldset__section">
-          <ColorInput
-            label="Cor primária:"
-            name="primaryColor"
-            state={primaryColor}
-            setState={setPrimaryColor}
-          />
-          <ColorInput
-            label="Cor secundária:"
-            name="secondaryColor"
-            state={secondaryColor}
-            setState={setSecondaryColor}
-          />
+      <main className="form-main">
+        <div className="container">
+          <h1 className="title title--form">Crie sua loja</h1>
+          <form className="form" onSubmit={handleSubmit}>
+            <Input
+              label="Nome da loja:"
+              type="text"
+              name="name"
+              placeholder="Minha loja"
+              state={name}
+              setState={setName}
+            />
+            <Textarea
+              label="Sobre sua loja:"
+              type="text"
+              name="about"
+              placeholder="Uma loja sobre..."
+              state={about}
+              setState={setAbout}
+            />
+
+            <div className="fieldset__section">
+              <ColorInput
+                label="Cor primária:"
+                name="primaryColor"
+                state={primaryColor}
+                setState={setPrimaryColor}
+              />
+              <ColorInput
+                label="Cor secundária:"
+                name="secondaryColor"
+                state={secondaryColor}
+                setState={setSecondaryColor}
+              />
+            </div>
+
+            <PhoneInput
+              label="WhatsApp"
+              phone={phone}
+              setPhone={setPhone}
+              regionCode={regionCode}
+              setRegionCode={setRegionCode}
+            />
+
+            <FileInput
+              label="Sua logo:"
+              type="file"
+              name="image"
+              setState={setImage}
+            />
+
+            <section className="btn-section">
+              <Button submit color="green">
+                Salvar
+              </Button>
+
+              <Link href="/minhaslojas" passHref>
+                <a>
+                  <Button color="brown">Ir para minhas lojas</Button>
+                </a>
+              </Link>
+            </section>
+          </form>
         </div>
-
-        <PhoneInput
-          label="WhatsApp"
-          phone={phone}
-          setPhone={setPhone}
-          regionCode={regionCode}
-          setRegionCode={setRegionCode}
-        />
-
-        <FileInput
-          label="Sua logo:"
-          type="file"
-          name="image"
-          setState={setImage}
-        />
-
-        <section className="btn-section">
-          <Button submit color="green">
-            Salvar
-          </Button>
-
-          <Link href="/minhaslojas" passHref>
-            <a>
-              <Button color="brown">Ir para minhas lojas</Button>
-            </a>
-          </Link>
-        </section>
-      </form>
+      </main>
     </ProtectedRoute>
   );
 };
