@@ -4,6 +4,7 @@ import {email, password, storeName, editStoreName, editStoreDescription, editSto
 describe('Criar ordem (cliente)', () => {
   it('Limpar cookies', () => {
     cy.clearCookies()
+    cy.wait(200)
   })
 
   it('Ir para loja', () => {

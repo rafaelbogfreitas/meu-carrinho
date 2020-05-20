@@ -3,6 +3,7 @@ import {email, password} from '../test data/testData'
 describe('Login', () => {
   beforeEach(() => {
     Cypress.Cookies.preserveOnce('session_id', 'remember_token', 'connect.sid')
+    cy.wait(200)
   })
   
   it('visits the app', () => {
@@ -10,19 +11,19 @@ describe('Login', () => {
   })
 
   it('Realizar input de Email', () => {
-    cy.get('.login_login__1rtGP > form > [name="name"]')
+    cy.get('#login-name')
       .type(email)
       .should('have.value', email)
   })
 
   it('Realizar input de Senha', () => {
-    cy.get('.login_login__1rtGP > form > [name="password"]')
+    cy.get('#login-password')
       .type(password)
       .should('have.value', password)
   })
 
   it('Submeter Login', () => {
-    cy.get('.login_login__1rtGP > form > button')
+    cy.get('#login-button')
       .click()
   })
 

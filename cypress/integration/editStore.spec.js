@@ -3,6 +3,7 @@ import {email, password, storeName, editStoreName, editStoreDescription, editSto
 describe('Editar Loja', () => {
   beforeEach(() => {
     Cypress.Cookies.preserveOnce('session_id', 'remember_token', 'connect.sid')
+    cy.wait(200)
   })
 
   it('Faz login', () => {
@@ -43,13 +44,14 @@ describe('Editar Loja', () => {
 
   it('Preencher telefone da nova loja', () => {
     cy.get('[name="phone"]')
+      .clear()
       .type(editStorePhone)
       .should('have.value', editStorePhone)
   })
 
   it('Selecionar foto da nova loja', () => {
     cy.get('[type="file"]')
-      .attachFile(editStorePhoto);
+      .attachFile(editStorePhoto)
   })
 
   it('Selecionar cor primária da nova loja', () => {
@@ -67,7 +69,7 @@ describe('Editar Loja', () => {
   })
 
   it('Subemeter formulário', () => {
-    cy.get('[class="save"]')
+    cy.get('[class="btn btn--green"]')
       .click()
   })
 })

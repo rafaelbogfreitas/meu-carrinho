@@ -3,6 +3,7 @@ import {email, password, product1, editStoreName} from '../test data/testData'
 describe('Criar Novo Produto', () => {
   beforeEach(() => {
     Cypress.Cookies.preserveOnce('session_id', 'remember_token', 'connect.sid')
+    cy.wait(200)
   })
 
   it('Faz login', () => {

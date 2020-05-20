@@ -28,14 +28,16 @@ const Login = () => {
           name="name"
           type="text"
           className="text"
+          id="login-name"
         />
         <input
           onChange={(e) => handlePasswordChange(e)}
           name="password"
           type="text"
           className="text"
+          id="login-password"
         />
-        <button>Login</button>
+        <button id="login-button">Login</button>
       </form>
     </div>
   );

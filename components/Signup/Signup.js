@@ -30,20 +30,23 @@ const Signup = () => {
           name="name"
           type="text"
           className="text"
+          id="signup-name"
         />
         <input
           onChange={(e) => handleEmailChange(e)}
           name="email"
           type="text"
           className="text"
+          id="signup-email"
         />
         <input
           onChange={(e) => handlePasswordChange(e)}
           name="password"
           type="text"
           className="text"
+          id="signup-password"
         />
-        <button>Signup</button>
+        <button id="signup-button">Signup</button>
       </form>
     </div>
   );
