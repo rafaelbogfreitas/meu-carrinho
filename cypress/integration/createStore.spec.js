@@ -60,7 +60,7 @@ describe('Criar Nova Loja', () => {
   })
 
   it('Subemeter formulário', () => {
-    cy.get('button')
+    cy.get('[class="btn btn--green"]')
       .click()
   })
 
