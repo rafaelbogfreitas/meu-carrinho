@@ -11,7 +11,7 @@ describe('Editar Loja', () => {
   })
 
   it('Ir para loja', () => {
-    cy.get(`[href="/store/${storeName}/dashboard"]`).first().click().wait(1000)
+    cy.get(`[href="/store/${storeName}/dashboard"]`).first().click().wait(2000)
     cy.location('pathname').should('eq', `/store/${storeName}/dashboard`)
   })
 
@@ -19,7 +19,7 @@ describe('Editar Loja', () => {
     cy.get(`[href="/editStore/${storeName}"]`)
       .first()
       .click()
-      .wait(1000)
+      .wait(2000)
     cy.location('pathname').should('eq', `/editStore/${storeName}`)
   })
 

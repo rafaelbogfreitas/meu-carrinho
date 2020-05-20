@@ -24,7 +24,7 @@ describe('Login', () => {
 
   it('Submeter Login', () => {
     cy.get('#login-button')
-      .click().wait(1000)
+      .click().wait(2000)
   })
 
   it('Redirecionar para Minhas Lojas', () => {
