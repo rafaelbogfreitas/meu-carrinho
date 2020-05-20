@@ -44,20 +44,27 @@ const Product = ({
                 <img className="bin" src="/bin.svg" alt="bin icon"/>
               </button>
             </OwnerFeature>
+
+            <ClientFeature>
+            <div className="add-btn">
+              {/* <label htmlFor="amount">Amount:</label> */}
+                { 
+                  <input 
+                    type="number" 
+                    name="amount"
+                    value={amount}
+                    max={quantity}
+                    min={0}
+                    onChange={(event) => handleInputChange(event, setAmount)}
+                  />
+                }
+              <button onClick={() => handleProduct(_id, amount)}>
+                <img src="/cart.svg" alt="cart icon"/>
+              </button>
+            </div>
+            </ClientFeature>
           </div>
-      <ClientFeature>
-        <label htmlFor="amount">Amount:</label>
-        { 
-          <input 
-          type="number" 
-          name="amount"
-          value={amount}
-          max={quantity}
-          min={0}
-          onChange={(event) => handleInputChange(event, setAmount)}
-        />}
-        <button onClick={() => handleProduct(_id, amount)}>add</button>
-      </ClientFeature>
+      
     </aside>
   );
 };

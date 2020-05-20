@@ -1,6 +1,7 @@
 .container--store {
   width: 100%;
   @include flex(display, flex);
+  @include flex(justify-content, space-around);
   padding: 20px 20px;
 }
 
@@ -60,6 +61,25 @@
   font-weight: bold;
   color: white;
   text-align: center;
+}
+
+.add-btn {
+  @extend .flex-center;
+  height: 100%;
+  padding: 5px;
+  background-color: $title-color;
+  margin-left: auto;
+  input {
+    background-color:transparent;
+    height: 100%;
+    border: none;
+    color: white;
+    font-size: 1.8rem;
+  }
+
+  img {
+    height: 80%;
+  }
 }
 
 //owner panel
