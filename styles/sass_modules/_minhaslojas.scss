@@ -1,12 +1,37 @@
-* {
-  outline:1px solid red;
-}
-
 .container--minhaslojas {
   @include grid(grid-template-columns, repeat(4, 1fr));
+  
+  @media (max-width:1000px) {
+    @include grid(grid-template-columns, repeat(3, 1fr));
+  }
+  
+  @media (max-width:700px) {
+    @include grid(grid-template-columns, repeat(2, 1fr));
+  }
+  
+  @media (max-width:500px) {
+    @include grid(grid-template-columns, repeat(1, 1fr));
+  }
 
   & > * {
     width: 200px;
     height: 200px;
+  }
+
+  a {
+    overflow: hidden;
+    transition: box-shadow 0.2s linear;
+    &:hover {
+      @extend .box-shadow;
+    }
+  }
+
+  img {
+    height: 170px;
+    width: auto;
+  }
+
+  h1 {
+    height: 30px;
   }
 }
