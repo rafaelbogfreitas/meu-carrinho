@@ -19,6 +19,7 @@ export default function minhaslojas() {
       </Head>
       <div>
         <h1 className="title">Minhas lojas: {user && user.name}</h1>
+        <div className="btn--logout" onClick={() => handleLogout()}>Logout</div>
         <div className="container container--minhaslojas">
           <div className="plus-box">
             <Link href="createStore">
@@ -36,7 +37,6 @@ export default function minhaslojas() {
             )
           })}
         </div>
-        <div onClick={() => handleLogout()}>Logout</div>
       </div>
     </ProtectedRoute>
   )
