@@ -8,6 +8,7 @@ import PhoneInput from '../../components/PhoneInput/PhoneInput';
 import ColorInput from '../../components/ColorInput/ColorInput';
 import FileInput from '../../components/FileInput/FileInput';
 import Textarea from '../../components/Textarea/Textarea';
+import Button from '../../components/Button/Button';
 
 import { useRouter } from 'next/router';
 import Link from 'next/link';
@@ -123,22 +124,24 @@ const Name = ({ store }) => {
               name="image"
               setState={setImage}
             />
-            <button className="save" type="submit">
-              Salvar
-            </button>
+
+            <section className="btn-section">
+              <Button submit color="green">
+                Salvar
+              </Button>
+
+              <Link
+                href="/store/[name]/dashboard"
+                as={`/store/${store.name}/dashboard`}
+              >
+                <Button color="brown">Voltar</Button>
+              </Link>
+
+              <Button color="red" handler={handleDelete}>
+                Deletar
+              </Button>
+            </section>
           </form>
-          <button onClick={handleDelete} className="deleteButton">
-            Apagar loja
-          </button>
-          <Link href="/minhaslojas">
-            <a>Ir para minhas lojas</a>
-          </Link>
-          <Link
-            href="/store/[name]/dashboard"
-            as={`/store/${store.name}/dashboard`}
-          >
-            <a>Voltar</a>
-          </Link>
         </>
       )}
     </ProtectedRoute>

@@ -1,0 +1,42 @@
+.btn {
+  all: unset;
+  display: block;
+  height: $btn-height;
+  width: 100%;
+  margin: 1.5rem 0;
+  font-size: $btn-font-size;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  transition: background-color 200ms linear;
+
+  &-section {
+    width: 100%;
+    margin: 3rem 0;
+  }
+
+  &--green {
+    background-color: $btn-green;
+    
+    &:hover {
+      background-color: darken($btn-green, 10%);
+    }
+  }
+
+  &--red {
+    background-color: $btn-red;
+    
+    &:hover {
+      background-color: darken($btn-red, 10%);
+    }
+  }
+
+  &--brown {
+    background-color: $btn-brown;
+    
+    &:hover {
+      background-color: darken($btn-brown, 5%);
+    }
+  }
+
+}
