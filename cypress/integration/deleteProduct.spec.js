@@ -51,7 +51,7 @@ describe('Deletar Produto', () => {
   })
 
   it('Ir para Novo Produto', () => {
-    cy.get('a').contains(`${product3.name}`).first().click().wait(1000)
+    cy.get(`[alt="${product3.name}"]`).first().click().wait(1000)
     cy.location('pathname').should('contain', `/store/${editStoreName}/product/`)
   })
 
