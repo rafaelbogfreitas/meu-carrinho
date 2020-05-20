@@ -23,7 +23,6 @@
 
     &--file {
       @extend .fieldset__input;
-      position: relative;
     }
   }
 
@@ -51,10 +50,7 @@
 
     &--file {
       @extend .fieldset__input;
-      position: absolute;
-      top: 20%;
-      background-color: transparent;
-      font-size: $input-size;
+      visibility: hidden;
     }
   }
 
