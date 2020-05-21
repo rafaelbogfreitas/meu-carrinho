@@ -78,13 +78,6 @@ a {
   // @include grid(display, grid);
 }
 
-.row {
-  @include flex(display, flex);
-  @include flex(justify-content, flex-start);
-  @include flex(align-items, flex-start);
-  margin: 8rem auto;
-}
-
 .store-name {
   font-size: 1.8rem;
   color: $title-color;
