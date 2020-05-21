@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import loginStyles from './login.module.scss';
 import { login } from '../../services/authService';
+import Input from '../Input/Input';
 
 const Login = () => {
   let router = useRouter();
@@ -18,18 +19,31 @@ const Login = () => {
     login(email, password) // <== adicionei then e catch aqui por ser uma função async
       .then(() => router.push('/minhaslojas'))
       .catch((error) => {
-        console.log(error)
+        console.log(error);
       });
-      
+
     setEmail('');
     setPassword('');
-      
   };
 
   return (
     <div className={loginStyles.login}>
       <form onSubmit={(e) => handleLogin(e)}>
         <h1>Login</h1>
+        {/* <Input
+          type="email"
+          name="login-email"
+          placeholder="email@email.com"
+          state={email}
+          setState={setEmail}
+        />
+        <Input
+          type="password"
+          name="login-password"
+          placeholder="Pelo menos 6 dígitos"
+          state={password}
+          setState={setPassword}
+        /> */}
         <input
           onChange={(e) => handleEmailChange(e)}
           name="name"
