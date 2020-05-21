@@ -1,43 +1,12 @@
-<!-- This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/zeit/next.js/tree/canary/packages/create-next-app).
+# Meu Carrinho - Client
 
-## Getting Started
+#### TLDR: https://projeto-3.now.sh
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/zeit/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details. -->
-
-# Projeto 3 - Client
-
-#### TLDR: PLACEHOLDER DO ENDEREÇO DO PROJETO DEPLOYADO
-
-![PLACEHOLDER NOME DO PROJETO](PLACEHOLDER FOTO DO PROJETO)
+![Meu Carrinho](/public/feira livre_Prancheta 1 cópia 4.png)
 
 ## About The Project
 
-PLACEHOLDER DESCRICAO DO PROJETO
+During the Covid-19 pandemic many physical stores had to close to comply with social distancing orders and the world has seen a rapid shift to Ecommerce. Most of the small businesses had no time or money to build their own Ecommerce. Given those circunstances we build Meu carrinho, a digital shopping cart made to make it easier for small shops to sell online and on social media and to manage their small businessess.
 
 ### Built With:
 
@@ -57,8 +26,6 @@ PLACEHOLDER DESCRICAO DO PROJETO
 * [Heroku](https://www.heroku.com/) - Cloud platform where the project server is deployed.
 * [Vercel](https://vercel.com/) - Cloud platform where the project client is deployed.
 
-
-
 <!-- GETTING STARTED -->
 ## Getting Started
 
@@ -66,19 +33,22 @@ PLACEHOLDER FOR PROJECT OVERVIEW
 
 ### Prerequisites
 
+This project consists in two different repositories:
+
+* NextJS Application.
+* Rest API - https://github.com/danielcspaiva/Projeto-3.
+
 In order to run this project locally you will need to:
 
-* Setup Google API keys for Google Maps and OAuth.
-* Setup Cloudinary API keys.
-* Setup MongoDB locally or in the cloud.
-* Install Node.js.
+* Clone and install the Rest API repository - https://github.com/danielcspaiva/Projeto-3.
+* Clone and install this repository.
 
 
 ### Installation
 
 1. Clone the repo
 ```sh
-git clone PROJECT GITHUB REPO
+git clone https://github.com/rafaelbogfreitas/Projeto-3-client.git
 ```
 2. Install NPM packages
 ```sh
@@ -88,7 +58,7 @@ npm install
 ```sh
 npm start
 ```
-Or run with Nodemon
+Or
 ```sh
 npm run dev
 ```
@@ -96,7 +66,7 @@ npm run dev
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-The project is deployed and can be accessed at PLACEHOLDER ENDERECO DA APLICACAO DEPLOYADA
+The project is deployed and can be accessed at https://projeto-3.now.sh.
 
 
 <!-- CONTRIBUTING -->
