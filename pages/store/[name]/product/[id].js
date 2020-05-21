@@ -116,7 +116,7 @@ const SingleProduct = ({ product, name }) => {
       </Head>
       <main className="container--no-grid">
         <h1 className="title">{product.name}</h1>
-        <div className="row">
+        <div className="single-product">
           <figure className="single-product-figure">
             <img
               className="single-product-figure__img"
@@ -156,7 +156,7 @@ const SingleProduct = ({ product, name }) => {
               </footer>
             </ClientFeature>
             <OwnerFeature>
-              <footer>
+              <footer className="single-product-info__footer">
                 <Link
                   href="/store/[name]/product/edit/[id]"
                   as={`/store/${name}/product/edit/${product._id}`}
