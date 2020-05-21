@@ -19,13 +19,13 @@ import {
 const CreateStore = () => {
   const router = useRouter();
 
-  const [name, setName] = useState('');
-  const [about, setAbout] = useState('');
+  const [name, setName] = useState(null);
+  const [about, setAbout] = useState(null);
   const [primaryColor, setPrimaryColor] = useState('#00ff00');
   const [secondaryColor, setSecondaryColor] = useState('#0000ff');
-  const [regionCode, setRegionCode] = useState('');
-  const [phone, setPhone] = useState('');
-  const [image, setImage] = useState('');
+  const [regionCode, setRegionCode] = useState(null);
+  const [phone, setPhone] = useState(null);
+  const [image, setImage] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -35,7 +35,7 @@ const CreateStore = () => {
       about,
       primaryColor,
       secondaryColor,
-      phone: '+55' + regionCode + phone,
+      phone: '+55' + regionCode + String(phone),
       image,
     };
 
@@ -73,13 +73,13 @@ const CreateStore = () => {
 
             <div className="fieldset__section">
               <ColorInput
-                label="Cor primária:"
+                label="Cor 1:"
                 name="primaryColor"
                 state={primaryColor}
                 setState={setPrimaryColor}
               />
               <ColorInput
-                label="Cor secundária:"
+                label="Cor 2:"
                 name="secondaryColor"
                 state={secondaryColor}
                 setState={setSecondaryColor}
@@ -98,6 +98,7 @@ const CreateStore = () => {
               label="Sua logo:"
               type="file"
               name="image"
+              image={image}
               setState={setImage}
             />
 

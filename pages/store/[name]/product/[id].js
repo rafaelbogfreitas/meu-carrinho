@@ -21,8 +21,11 @@ import { getStore } from '../../../../services/storeService';
 const SingleProduct = ({ product, name }) => {
   const router = useRouter();
   const { products, setProducts } = useContext(ProductsContext);
+  const { setStoreName } = useContext(StoreContext);
   const { cart, setCart } = useContext(CartContext);
   const [amount, setAmount] = useState(1);
+  
+  setStoreName(name);
   /**
    * Comentei o trecho abaixo provisóriamente pois parece que não
    * tem mais utilidade já que estamos controlando products e cart
