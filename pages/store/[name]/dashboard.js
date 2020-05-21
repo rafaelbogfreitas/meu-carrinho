@@ -216,8 +216,17 @@ export default function Store({ store }) {
 
 Store.getInitialProps = async (context) => {
   const { name } = context.query;
+  
   const [store] = await getStore(name);
+
+  if(store === undefined){
+    context.res.writeHead(302, {Location: '/404'})
+    context.res.end()
+
+    return {}
+  }
+
   return {
     store,
-  };
+  }
 };
