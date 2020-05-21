@@ -28,7 +28,7 @@ const edit = ({ product, storeName }) => {
   let [description, setDescription] = useState(product.description);
   let [price, setPrice] = useState(product.price);
   let [quantity, setQuantity] = useState(product.quantity);
-  let [image, setImage] = useState();
+  let [image, setImage] = useState('');
 
   let [loading, setLoading] = useState(false);
 
@@ -120,6 +120,7 @@ const edit = ({ product, storeName }) => {
             label="Foto:"
             type="file"
             name="image"
+            image={image}
             setState={setImage}
           />
 

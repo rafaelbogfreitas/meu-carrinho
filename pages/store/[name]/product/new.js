@@ -94,6 +94,7 @@ const newproduct = ({ store }) => {
                 label="Foto:"
                 type="file"
                 name="image"
+                image={image}
                 setState={setImage}
               />
 

@@ -98,6 +98,7 @@ const CreateStore = () => {
               label="Sua logo:"
               type="file"
               name="image"
+              image={image}
               setState={setImage}
             />
 

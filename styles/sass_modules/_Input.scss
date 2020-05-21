@@ -23,6 +23,8 @@
 
     &--file {
       @extend .fieldset__input;
+      padding-top: 1.1rem;
+      color: #777;
     }
   }
 

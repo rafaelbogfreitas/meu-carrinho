@@ -10,33 +10,33 @@ function PhoneCodeSelect({ regionCode, setRegionCode }) {
       required
     >
       {/* <option value="" selected disabled>DDD</option> */}
-      <option value="68">Acre (68)</option>
-      <option value="82">Alagoas (82)</option>
-      <option value="96">Amapá (96)</option>
-      <option value="92">Amazonas (92)</option>
-      <option value="71">Bahia (71)</option>
-      <option value="88">Ceará (88)</option>
-      <option value="61">Distrito Federal (61)</option>
-      <option value="27">Espírito Santo (27)</option>
-      <option value="62">Goiás (62)</option>
-      <option value="98">Maranhão (98)</option>
-      <option value="65">Mato Grosso (65)</option>
-      <option value="84">Mato Grosso do Sul (84)</option>
-      <option value="31">Minas Gerais (31)</option>
-      <option value="91">Pará (91)</option>
-      <option value="83">Paraíba (83)</option>
-      <option value="41">Paraná (41)</option>
-      <option value="81">Pernambuco (81)</option>
-      <option value="86">Piauí (86)</option>
-      <option value="21">Rio de Janeiro (21)</option>
-      <option value="84">Rio Grande do Norte (84)</option>
-      <option value="51">Rio Grande do Sul (51)</option>
-      <option value="69">Rondônia (69)</option>
-      <option value="95">Roraima (95)</option>
-      <option value="48">Santa Catarina (48)</option>
-      <option value="11">São Paulo (11)</option>
-      <option value="79">Sergipe (79)</option>
-      <option value="63">Tocantins (63)</option>
+      <option value="68">AC (68)</option>
+      <option value="82">AL (82)</option>
+      <option value="96">AP (96)</option>
+      <option value="92">AM (92)</option>
+      <option value="71">BA (71)</option>
+      <option value="88">CE (88)</option>
+      <option value="61">DF (61)</option>
+      <option value="27">ES (27)</option>
+      <option value="62">GO (62)</option>
+      <option value="98">MA (98)</option>
+      <option value="65">MT (65)</option>
+      <option value="84">MS (84)</option>
+      <option value="31">MG (31)</option>
+      <option value="91">PA (91)</option>
+      <option value="83">PB (83)</option>
+      <option value="41">PR (41)</option>
+      <option value="81">PE (81)</option>
+      <option value="86">PI (86)</option>
+      <option value="21">RJ (21)</option>
+      <option value="84">RN (84)</option>
+      <option value="51">RS (51)</option>
+      <option value="69">RO (69)</option>
+      <option value="95">RR (95)</option>
+      <option value="48">SC (48)</option>
+      <option value="11">SP (11)</option>
+      <option value="79">SE (79)</option>
+      <option value="63">TO (63)</option>
     </select>
   );
 }
