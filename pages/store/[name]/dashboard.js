@@ -131,9 +131,11 @@ export default function Store({ store }) {
             <img  onClick={() => setShowing(!isShowing)} className="cart-trigger" src="/cart.svg" alt="cart icon"/>
           </div>
         </ClientFeature>
+        <OwnerFeature>
+          <img  className="menu-trigger" onClick={() => setShowing(!isShowing)}  src="/menu.svg" alt="cart icon"/>
+        </OwnerFeature>
       </h1>
-      <div className="container container--store">
-
+        <div className="container container--store">
         <div className="products container--products">
           {products.map((product, i) => {
             return (
@@ -149,8 +151,14 @@ export default function Store({ store }) {
         </div>
 
         <OwnerFeature>
-          <div className="owner-panel">
-
+            <div className={isShowing ? "owner-panel offScreen" : "owner-panel"}>
+            <div 
+              className="close-panel" 
+              onClick={() => setShowing(!isShowing)}
+              style={{color:`${store.theme.primaryColor}`}}
+            >
+              X
+            </div>
             <Link
               href={'/store/[name]/paineldevendas'}
               as={`/store/${store.name}/paineldevendas`}
