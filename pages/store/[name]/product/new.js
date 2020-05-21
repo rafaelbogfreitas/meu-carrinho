@@ -20,11 +20,11 @@ import Button from '../../../../components/Button/Button';
 const newproduct = ({ store }) => {
   let router = useRouter();
 
-  let [name, setName] = useState('');
-  let [description, setDescription] = useState('');
-  let [quantity, setQuantity] = useState('');
-  let [price, setPrice] = useState('');
-  let [image, setImage] = useState('');
+  let [name, setName] = useState(null);
+  let [description, setDescription] = useState(null);
+  let [quantity, setQuantity] = useState(null);
+  let [price, setPrice] = useState(null);
+  let [image, setImage] = useState(false);
   let [loading, setLoading] = useState(false);
 
   const handleSubmit = (e) => {

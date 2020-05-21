@@ -1,9 +1,12 @@
 import React from 'react';
 
-const Input = ({ label, type, name, placeholder, state, setState}) => {
+const Input = ({ label, type, name, placeholder, state, setState }) => {
+
   return (
     <fieldset className="fieldset">
-      <label className="fieldset__label" htmlFor={name}>{label}</label>
+      <label className="fieldset__label" htmlFor={name}>
+        {label}
+      </label>
       <input
         className="fieldset__input"
         type={type}
@@ -11,7 +14,9 @@ const Input = ({ label, type, name, placeholder, state, setState}) => {
         id={name}
         placeholder={placeholder || ''}
         value={state || ''}
-        onChange={(event) => setState(type === 'file' ? event.target.files[0] : event.target.value)}
+        onChange={(event) => setState(event.target.value)}
+        style={state === '' ? { border: '1px solid red' } : null}
+        required
       />
     </fieldset>
   );

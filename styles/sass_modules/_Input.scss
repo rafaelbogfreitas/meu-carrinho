@@ -29,7 +29,7 @@
   }
 
   &__input {
-    border: none;
+    border: transparent;
     display: block;
     height: 4.5rem;
     width: 100%;
@@ -37,6 +37,14 @@
     font-family: $main-font;
     font-size: $input-size;
     padding-left: 1.4rem;
+    outline: none;
+    transition: all 500ms ease-in-out;
+
+    &:focus {
+      transition: all 500ms ease-in-out;
+      background-color: lighten($input-blue, 10%);
+      border: 1px solid $input-blue;
+    }
 
     &--color {
       @extend .fieldset__input;
@@ -58,7 +66,7 @@
 
   &__textarea {
     font-family: $main-font;
-    border: none;
+    border: transparent;
     display: block;
     height: 4.5rem;
     width: 100%;
@@ -67,11 +75,16 @@
     font-size: $input-size;
     padding: 1rem 1.4rem;
     overflow-y: hidden;
-    transition: height 400ms ease-in-out;
+    outline: none;
+
+    transition: all 500ms ease-in-out;
 
     &:focus {
       height: 15.6rem;
-      transition: height 400ms ease-in-out;
+      background-color: lighten($input-blue, 10%);
+      border: 1px solid $input-blue;
+
+      transition: all 500ms ease-in-out;
     }
   }
 

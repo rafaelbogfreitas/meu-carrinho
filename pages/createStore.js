@@ -19,13 +19,13 @@ import {
 const CreateStore = () => {
   const router = useRouter();
 
-  const [name, setName] = useState('');
-  const [about, setAbout] = useState('');
+  const [name, setName] = useState(null);
+  const [about, setAbout] = useState(null);
   const [primaryColor, setPrimaryColor] = useState('#00ff00');
   const [secondaryColor, setSecondaryColor] = useState('#0000ff');
-  const [regionCode, setRegionCode] = useState('');
-  const [phone, setPhone] = useState('');
-  const [image, setImage] = useState('');
+  const [regionCode, setRegionCode] = useState(null);
+  const [phone, setPhone] = useState(null);
+  const [image, setImage] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();

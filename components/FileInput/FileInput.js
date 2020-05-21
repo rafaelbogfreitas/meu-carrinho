@@ -6,7 +6,11 @@ const FileInput = ({ label, name, image, setState }) => {
       <label className="fieldset__label" htmlFor={name}>
         {label}
       </label>
-      <label className="fieldset__label--file" htmlFor={name}>
+      <label
+        className="fieldset__label--file"
+        htmlFor={name}
+        style={image.name ? { color: '#000000' } : null}
+      >
         {image.name || 'Procurar'}
 
         <input
