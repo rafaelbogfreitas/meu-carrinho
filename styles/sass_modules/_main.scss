@@ -72,6 +72,11 @@ a {
   padding: 20px;
   margin: 0 auto;
   // @include grid(display, grid);
+
+  &--row {
+    @include flex(display, flex);
+    @include flex(justify-content, space-between);
+  }
 }
 
 .store-name {

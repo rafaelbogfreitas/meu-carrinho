@@ -1,7 +1,7 @@
 .navbar-home {
   // background-color: white;
   width: 100vw;
-  height: auto;
+  height: $navbar-height;
   display: flex;
   position: fixed;
   color: #4B2D12;
@@ -15,38 +15,48 @@
 .main-section {
   background-image: url('/vector3.svg');
   background-size: cover;
-  display: flex;
+
   height: 100vh;
-  justify-content: space-around;
-  align-items: center;
+  padding-top: $navbar-height;
+  
   color: #4B2D12;
 
-  .info {
-    margin: 50px;
+  &__info {
+    // margin: 50px;
     height: 30vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    @include flex(display, flex);
+    @include flex(flex-direction, column);
+    @include flex(align-items, flex-start);
   }
 
   h1 {
     font-size: 10rem;
     font-weight: bold;
+    margin-bottom: 2rem;
   }
 
   h2 {
     font-size: 2.5rem;
     font-weight: bold;
+    margin-bottom: 4rem;
   }
 
   p {
     font-size: 2.5rem;
+    line-height: 3rem;
   }
 
-  img {
-    height: auto;
-    margin-right: 10px;
-    max-width: 50vw;
+  &__figure {
+    @include flex(display, flex);
+    @include flex(justify-content, flex-end);
+    @include flex(align-items, flex-start);
+    min-width: 41.6rem;
+    min-height: 41.6rem;
+
+    &__img {
+      width: 100%;
+      height: auto;
+    }
   }
 }
 
