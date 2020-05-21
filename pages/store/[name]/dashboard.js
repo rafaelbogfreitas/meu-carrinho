@@ -15,6 +15,7 @@ import { deleteProduct } from '../../../services/productService';
 
 export default function Store({ store }) {
   const [isLoading, setIsLoading] = useState(true);
+  const [isShowing, setShowing] = useState(false);
   const { products, setProducts } = useContext(ProductsContext);
   const { cart, setCart } = useContext(CartContext);
   const { storeName, setStoreName } = useContext(StoreContext);
@@ -122,7 +123,12 @@ export default function Store({ store }) {
         )}
       </Head>
       <h1 className="title" style={{ color: `${store.theme.secondaryColor}` }}>
-        Bem-vindo a {store.name}!!
+        {store.name}
+        <div className="cart-mobile">
+          <h2>R$ {cart.map(product => product.quantity * product.price)
+                .reduce((a, b) => a + b, 0 )}</h2>
+          <img  onClick={() => setShowing(!isShowing)} className="cart-trigger" src="/cart.svg" alt="cart icon"/>
+        </div>
       </h1>
       <div className="container container--store">
 
@@ -179,12 +185,13 @@ export default function Store({ store }) {
 
 
         <ClientFeature>
-          <div className="container container--carrinho">
+          <div className={isShowing ? "container container--carrinho offScreen" :"container container--carrinho"}>
           <Cart 
             cart={cart} 
             storeId={store._id} 
             removeItemsFromCart={removeItemsFromCart}
             setCart={setCart}
+            setShowing={setShowing}
           />
           </div>
         </ClientFeature>
