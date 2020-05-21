@@ -22,6 +22,6 @@ describe('Completar todas as ordens', () => {
   })
 
   it('Completar ordens', () => {
-    cy.get('[class="completeOrder"]').each((button) => button.click())
+    cy.get('[class="btn-order"]').each((button) => button.click())
   })
 })
