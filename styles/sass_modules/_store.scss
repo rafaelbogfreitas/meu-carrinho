@@ -124,6 +124,18 @@
       width: 70%;
       text-align: center;
     }
+
+    @media (max-width: 1000px){
+      height: 25vh;
+    }
+  }
+
+  @media (max-width: 1000px) {
+    display: inline-block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 200px;
   }
 }
 
