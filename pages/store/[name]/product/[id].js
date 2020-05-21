@@ -26,22 +26,7 @@ const SingleProduct = ({ product, name }) => {
   const [amount, setAmount] = useState(1);
   
   setStoreName(name);
-  /**
-   * Comentei o trecho abaixo provisóriamente pois parece que não
-   * tem mais utilidade já que estamos controlando products e cart
-   * pelo context. Ele também estava deixando o product undefinied e
-   * impedindo o funcionamento do handleDelete.
-   */
-
-  //check if localStorage is populated
-  // useEffect(() => {
-  //   let productsLocaStorage = JSON.parse(window.localStorage.getItem('products'));
-  //   console.log()
-  //   if(productsLocaStorage != null){
-  //     let [productLocalStorage] = productsLocaStorage.filter(item => item._id === product._id);
-  //     product = productLocalStorage;
-  //   }
-  // })
+  
   useEffect(() => {
     if (!products) {
       getStore(name)
@@ -183,44 +168,6 @@ const SingleProduct = ({ product, name }) => {
               </footer>
             </OwnerFeature>
 
-            {/* <label htmlFor="amount">Amount:</label>
-              {product.quantity == 0 ? (
-                <div>Esgotado</div>
-              ) : (
-                <ClientFeature>
-                  <input
-                    type="number"
-                    name="amount"
-                    value={amount}
-                    max={product.quantity}
-                    min={1}
-                    onChange={(event) => handleInputChange(event, setAmount)}
-                  />
-                </ClientFeature>
-              )}
-              <OwnerFeature>
-                <Link
-                  href="/store/[name]/product/edit/[id]"
-                  as={`/store/${name}/product/edit/${product._id}`}
-                >
-                  <button className="editButton">EDIT</button>
-                </Link>
-              </OwnerFeature>
-              <OwnerFeature>
-                <button onClick={handleDelete} className="deleteButton">
-                  DELETE
-                </button>
-              </OwnerFeature>
-              <ClientFeature>
-                <Link
-                  href={'/store/[name]/dashboard'}
-                  as={`/store/${name}/dashboard`}
-                >
-                  <button onClick={() => handleProduct(product._id, amount)}>
-                    ADD
-                  </button>
-                </Link>
-              </ClientFeature> */}
           </aside>
         </div>
       </main>
@@ -228,15 +175,24 @@ const SingleProduct = ({ product, name }) => {
   );
 };
 
-SingleProduct.getInitialProps = async ({ query }) => {
-  let { id } = query;
-  let { name } = query;
-  let { product } = await getProduct(id);
+SingleProduct.getInitialProps = async (ctx) => {
+  let { id } = ctx.query;
+  let { name } = ctx.query;
+  
+  try {
+    let { product } = await getProduct(id);
+    return {
+      product,
+      name,
+    };
+  }
 
-  return {
-    product,
-    name,
-  };
+  catch(error) {
+      ctx.res.writeHead(302, {Location: '/404'})
+      ctx.res.end()
+      return {};
+  }
+  
 };
 
 export default SingleProduct;
