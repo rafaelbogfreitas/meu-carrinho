@@ -27,23 +27,28 @@ export default function Home() {
       </navbar>
 
       <section className="main-section">
-        <div className="container container--hero">
-          <div className="main-section__row">
+        <div className="container container--row">
+          <article className="main-section__info">
             <h1>Meu Carrinho</h1>
             <h2>O carrinho virtual para a sua loja</h2>
             <p>
               98% dos consumidores estão nas redes sociais, crie seu carrinho
               virtual e chegue até eles mais facilmente
             </p>
-          </div>
+          </article>
           <figure className="main-section__figure">
-            <img className="main-section__figure__img" src="/image2.svg" alt="prancheta"></img>
+            <img
+              className="main-section__figure__img"
+              src="/image2.svg"
+              alt="prancheta"
+            ></img>
           </figure>
         </div>
       </section>
 
       <section className="instructions">
         <h1>Como funciona?</h1>
+
         <div className="container-instructions regular">
           <div>
             <h2>Crie sua loja</h2>
@@ -57,6 +62,7 @@ export default function Home() {
             alt="prancheta"
           ></img>
         </div>
+
         <div className="container-instructions reverse">
           <div>
             <h2>

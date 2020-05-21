@@ -73,7 +73,7 @@ a {
   margin: 0 auto;
   // @include grid(display, grid);
 
-  &--hero {
+  &--row {
     @include flex(display, flex);
     @include flex(justify-content, space-between);
   }
