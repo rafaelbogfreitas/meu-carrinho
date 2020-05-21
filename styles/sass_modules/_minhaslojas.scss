@@ -41,9 +41,9 @@
 
 .btn--logout {
   cursor: pointer;
-  position: absolute;
+  position: fixed;
   top:20px;
-  right: 80px;
+  right: 5%;
   padding: 10px 20px;
   border:1px solid $title-color;
   font-size: 2.4rem;
