@@ -12,6 +12,7 @@ import Link from 'next/link';
 
 import OwnerFeature from '../../../../components/OwnerFeature/OwnerFeature';
 import ClientFeature from '../../../../components/ClientFeature/ClientFeature';
+import Button from '../../../../components/Button/Button';
 
 import { renderMetatags } from '../../../../services/helpers';
 import { getProduct, deleteProduct } from '../../../../services/productService';
@@ -125,12 +126,12 @@ const SingleProduct = ({ product, name }) => {
               <p>{product.description}</p>
             </header>
 
-            <footer className="single-product-info__footer">
-              <p>
-                <span>R$</span> {product.price},00
-              </p>
+            <ClientFeature>
+              <footer className="single-product-info__footer">
+                <p>
+                  <span>R$</span> {product.price},00
+                </p>
 
-              <ClientFeature>
                 <div className="add-btn">
                   <input
                     type="number"
@@ -149,9 +150,37 @@ const SingleProduct = ({ product, name }) => {
                     </button>
                   </Link>
                 </div>
-              </ClientFeature>
+              </footer>
+            </ClientFeature>
+            <OwnerFeature>
+              <footer>
+                <Link
+                  href="/store/[name]/product/edit/[id]"
+                  as={`/store/${name}/product/edit/${product._id}`}
+                >
+                  <a>
+                    <Button submit color="green">
+                      Editar
+                    </Button>
+                  </a>
+                </Link>
 
-              {/* <label htmlFor="amount">Amount:</label>
+                <Button color="red" handler={handleDelete}>
+                  Deletar
+                </Button>
+
+                <Link
+                  href="/store/[name]/dashboard"
+                  as={`/store/${name}/dashboard`}
+                >
+                  <a>
+                    <Button color="brown">Voltar</Button>
+                  </a>
+                </Link>
+              </footer>
+            </OwnerFeature>
+
+            {/* <label htmlFor="amount">Amount:</label>
               {product.quantity == 0 ? (
                 <div>Esgotado</div>
               ) : (
@@ -189,7 +218,6 @@ const SingleProduct = ({ product, name }) => {
                   </button>
                 </Link>
               </ClientFeature> */}
-            </footer>
           </aside>
         </div>
       </main>
