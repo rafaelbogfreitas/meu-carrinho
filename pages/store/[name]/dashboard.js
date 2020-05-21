@@ -6,6 +6,7 @@ import { ProductsContext, CartContext, StoreContext } from '../../../contexts/Us
 import Loading from '../../../components/Loading/Loading';
 import OwnerFeature from '../../../components/OwnerFeature/OwnerFeature';
 import ClientFeature from '../../../components/ClientFeature/ClientFeature';
+import { FiMenu } from 'react-icons/fi'
 
 import Head from 'next/head';
 import Link from 'next/link';
@@ -136,7 +137,9 @@ export default function Store({ store }) {
           </div>
         </ClientFeature>
         <OwnerFeature>
-          <img  className="menu-trigger" onClick={() => setShowing(!isShowing)}  src="/menu.svg" alt="cart icon"/>
+          <div className="menu-trigger" onClick={() => setShowing(!isShowing)}>
+              <FiMenu size="40" color={store.theme.primaryColor} />
+          </div>
         </OwnerFeature>
       </h1>
         <div className="container container--store">
