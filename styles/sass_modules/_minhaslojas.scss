@@ -54,4 +54,11 @@
     @extend .box-shadow;
   }
 
+  @media (max-width: 500px){
+    position: static;
+    width: 80vw;
+    margin: 0 auto;
+    text-align: center;
+  }
+
 }
