@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Input = ({ label, type, name, placeholder, state, setState }) => {
-
   return (
     <fieldset className="fieldset">
       <label className="fieldset__label" htmlFor={name}>
@@ -18,6 +17,9 @@ const Input = ({ label, type, name, placeholder, state, setState }) => {
         style={state === '' ? { border: '1px solid red' } : null}
         required
       />
+      {state === '' && (
+        <small className="fieldset__small">Este campo é obrigatório</small>
+      )}
     </fieldset>
   );
 };

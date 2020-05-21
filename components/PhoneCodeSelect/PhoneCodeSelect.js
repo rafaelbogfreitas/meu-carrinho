@@ -9,7 +9,6 @@ function PhoneCodeSelect({ regionCode, setRegionCode }) {
       onChange={(event) => handleInputChange(event, setRegionCode)}
       required
     >
-      {/* <option value="" selected disabled>DDD</option> */}
       <option value="68">AC (68)</option>
       <option value="82">AL (82)</option>
       <option value="96">AP (96)</option>
