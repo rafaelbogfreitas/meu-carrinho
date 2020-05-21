@@ -1,6 +1,10 @@
 .container--painel {
   @extend .flex-center;
   @include flex(justify-content, space-around);
+  
+  @media (max-width: 1000px){
+    @include flex(flex-direction, column);
+  }
 }
 
 .panel {
@@ -11,6 +15,16 @@
   background-color: $painel-bg-color;
   font-size: 1.4rem;
   color: $title-color;
+  
+  @media (max-width: 1000px){
+    margin-top: 20px;
+    width: 60%;
+  }
+  
+  @media (max-width: 500px){
+    margin-top: 20px;
+    width: 90%;
+  }
 }
 
 .panel__title {
