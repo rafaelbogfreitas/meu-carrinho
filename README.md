@@ -2,7 +2,7 @@
 
 #### TLDR: https://projeto-3.now.sh
 
-![Meu Carrinho](/public/feira livre_Prancheta 1 cópia 4.png)
+![Meu Carrinho](/public/feiralivre_Prancheta1cópia4.png)
 
 ## About The Project
 
