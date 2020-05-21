@@ -2,11 +2,11 @@
 
 #### TLDR: https://projeto-3.now.sh
 
-![Meu Carrinho](/public/feira livre_Prancheta 1 cópia 4.png)
+![Meu Carrinho](/public/feiralivre_Prancheta1cópia4.png)
 
 ## About The Project
 
-During the Covid-19 pandemic many physical stores had to close to comply with social distancing orders and the world has seen a rapid shift to Ecommerce. Most of the small businesses had no time or money to build their own Ecommerce. Given those circunstances we build Meu carrinho, a digital shopping cart made to make it easier for small shops to sell online and on social media and to manage their small businessess.
+During the Covid-19 pandemic many physical stores had to close to comply with social distancing orders and the world has seen a rapid shift to Ecommerce. Most of the small businesses had no time or money to build their own Ecommerce. Given those circunstances we build Meu carrinho, a digital shopping cart made to make it easier for small shops to sell online and on social media and to manage their small businesses.
 
 ### Built With:
 
