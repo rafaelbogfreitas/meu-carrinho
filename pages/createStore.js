@@ -35,7 +35,7 @@ const CreateStore = () => {
       about,
       primaryColor,
       secondaryColor,
-      phone: '+55' + regionCode + phone,
+      phone: '+55' + regionCode + String(phone),
       image,
     };
 

@@ -2,10 +2,6 @@ import React from 'react';
 import PhoneCodeSelect from '../PhoneCodeSelect/PhoneCodeSelect';
 
 const PhoneInput = ({ label, phone, regionCode, setPhone, setRegionCode }) => {
-  const handleNumber = ({ target: value }) => {
-    /^[0-9]+$/.test(value) || value === '' ? setPhone(value) : null;
-  };
-
   return (
     <fieldset className="fieldset">
       <label className="fieldset__label" htmlFor="phone">
@@ -18,14 +14,14 @@ const PhoneInput = ({ label, phone, regionCode, setPhone, setRegionCode }) => {
         />
         <input
           className="fieldset__input--phone"
-          type="text"
+          type="number"
           name="phone"
           id="phone"
           placeholder="xxxxx-xxxx"
           minLength="8"
           maxLength="9"
           value={phone}
-          onChange={handleNumber}
+          onChange={(event) => setPhone(event.target.value)}
           style={phone === '' ? { border: '1px solid red' } : null}
           required
         />
