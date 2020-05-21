@@ -156,7 +156,7 @@ const SingleProduct = ({ product, name }) => {
               </footer>
             </ClientFeature>
             <OwnerFeature>
-              <footer className="single-product-info__footer">
+              <footer>
                 <Link
                   href="/store/[name]/product/edit/[id]"
                   as={`/store/${name}/product/edit/${product._id}`}
