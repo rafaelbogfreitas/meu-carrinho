@@ -124,11 +124,13 @@ export default function Store({ store }) {
       </Head>
       <h1 className="title" style={{ color: `${store.theme.secondaryColor}` }}>
         {store.name}
-        <div className="cart-mobile">
-          <h2>R$ {cart.map(product => product.quantity * product.price)
-                .reduce((a, b) => a + b, 0 )}</h2>
-          <img  onClick={() => setShowing(!isShowing)} className="cart-trigger" src="/cart.svg" alt="cart icon"/>
-        </div>
+        <ClientFeature>
+          <div className="cart-mobile">
+            <h2>R$ {cart.map(product => product.quantity * product.price)
+                  .reduce((a, b) => a + b, 0 )}</h2>
+            <img  onClick={() => setShowing(!isShowing)} className="cart-trigger" src="/cart.svg" alt="cart icon"/>
+          </div>
+        </ClientFeature>
       </h1>
       <div className="container container--store">
 

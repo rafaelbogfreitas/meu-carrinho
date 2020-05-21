@@ -73,13 +73,13 @@ const CreateStore = () => {
 
             <div className="fieldset__section">
               <ColorInput
-                label="Cor primária:"
+                label="Cor 1:"
                 name="primaryColor"
                 state={primaryColor}
                 setState={setPrimaryColor}
               />
               <ColorInput
-                label="Cor secundária:"
+                label="Cor 2:"
                 name="secondaryColor"
                 state={secondaryColor}
                 setState={setSecondaryColor}
