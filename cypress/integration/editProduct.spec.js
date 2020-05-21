@@ -25,7 +25,7 @@ describe('Editar Produto', () => {
   })
 
   it('Ir para Editar Produto', () => {
-    cy.get('[class="editButton"]')
+    cy.get('[class="btn btn--green"]')
       .click()
       .wait(2000)
       

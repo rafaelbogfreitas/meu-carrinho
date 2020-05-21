@@ -56,7 +56,7 @@ describe('Deletar Produto', () => {
   })
 
   it('Deletar Produto', () => {
-    cy.get('[class="deleteButton"]').click().wait(2000)
+    cy.get('[class="btn btn--red"]').click().wait(2000)
     cy.location('pathname').should('contain', `/store/${editStoreName}/dashboard`)
   })
 

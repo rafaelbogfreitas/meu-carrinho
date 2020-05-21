@@ -12,6 +12,7 @@ import Link from 'next/link';
 
 import OwnerFeature from '../../../../components/OwnerFeature/OwnerFeature';
 import ClientFeature from '../../../../components/ClientFeature/ClientFeature';
+import Button from '../../../../components/Button/Button';
 
 import { renderMetatags } from '../../../../services/helpers';
 import { getProduct, deleteProduct } from '../../../../services/productService';
@@ -20,8 +21,11 @@ import { getStore } from '../../../../services/storeService';
 const SingleProduct = ({ product, name }) => {
   const router = useRouter();
   const { products, setProducts } = useContext(ProductsContext);
+  const { setStoreName } = useContext(StoreContext);
   const { cart, setCart } = useContext(CartContext);
   const [amount, setAmount] = useState(1);
+  
+  setStoreName(name);
   /**
    * Comentei o trecho abaixo provisóriamente pois parece que não
    * tem mais utilidade já que estamos controlando products e cart
@@ -110,45 +114,116 @@ const SingleProduct = ({ product, name }) => {
           product.imageUrl
         )}
       </Head>
-      <div>{product.name}</div>
-      <img src={product.imageUrl} alt={product.description} />
-      <p>{product.price},00 R$</p>
+      <main className="container--no-grid">
+        <h1 className="title">{product.name}</h1>
+        <div className="row">
+          <figure className="single-product-figure">
+            <img
+              className="single-product-figure__img"
+              src={product.imageUrl}
+              alt={product.description}
+            />
+          </figure>
+          <aside className="single-product-info">
+            <header className="single-product-info__header">
+              <p>{product.description}</p>
+            </header>
 
-      <label htmlFor="amount">Amount:</label>
-      {product.quantity == 0 ? (
-        <div>Esgotado</div>
-      ) : (
-        <ClientFeature>
-          <input
-            type="number"
-            name="amount"
-            value={amount}
-            max={product.quantity}
-            min={1}
-            onChange={(event) => handleInputChange(event, setAmount)}
-          />
-        </ClientFeature>
-      )}
-      <OwnerFeature>
-        <Link
-          href="/store/[name]/product/edit/[id]"
-          as={`/store/${name}/product/edit/${product._id}`}
-        >
-          <button className="editButton">EDIT</button>
-        </Link>
-      </OwnerFeature>
-      <OwnerFeature>
-        <button onClick={handleDelete} className="deleteButton">
-          DELETE
-        </button>
-      </OwnerFeature>
-      <ClientFeature>
-        <Link href={'/store/[name]/dashboard'} as={`/store/${name}/dashboard`}>
-          <button onClick={() => handleProduct(product._id, amount)}>
-            ADD
-          </button>
-        </Link>
-      </ClientFeature>
+            <ClientFeature>
+              <footer className="single-product-info__footer">
+                <p>
+                  <span>R$</span> {product.price},00
+                </p>
+
+                <div className="add-btn">
+                  <input
+                    type="number"
+                    name="amount"
+                    value={amount}
+                    max={product.quantity}
+                    min={0}
+                    onChange={(event) => handleInputChange(event, setAmount)}
+                  />
+                  <Link
+                    href={'/store/[name]/dashboard'}
+                    as={`/store/${name}/dashboard`}
+                  >
+                    <button onClick={() => handleProduct(product._id, amount)}>
+                      <img src="/cart.svg" alt="cart icon" />
+                    </button>
+                  </Link>
+                </div>
+              </footer>
+            </ClientFeature>
+            <OwnerFeature>
+              <footer>
+                <Link
+                  href="/store/[name]/product/edit/[id]"
+                  as={`/store/${name}/product/edit/${product._id}`}
+                >
+                  <a>
+                    <Button submit color="green">
+                      Editar
+                    </Button>
+                  </a>
+                </Link>
+
+                <Button color="red" handler={handleDelete}>
+                  Deletar
+                </Button>
+
+                <Link
+                  href="/store/[name]/dashboard"
+                  as={`/store/${name}/dashboard`}
+                >
+                  <a>
+                    <Button color="brown">Voltar</Button>
+                  </a>
+                </Link>
+              </footer>
+            </OwnerFeature>
+
+            {/* <label htmlFor="amount">Amount:</label>
+              {product.quantity == 0 ? (
+                <div>Esgotado</div>
+              ) : (
+                <ClientFeature>
+                  <input
+                    type="number"
+                    name="amount"
+                    value={amount}
+                    max={product.quantity}
+                    min={1}
+                    onChange={(event) => handleInputChange(event, setAmount)}
+                  />
+                </ClientFeature>
+              )}
+              <OwnerFeature>
+                <Link
+                  href="/store/[name]/product/edit/[id]"
+                  as={`/store/${name}/product/edit/${product._id}`}
+                >
+                  <button className="editButton">EDIT</button>
+                </Link>
+              </OwnerFeature>
+              <OwnerFeature>
+                <button onClick={handleDelete} className="deleteButton">
+                  DELETE
+                </button>
+              </OwnerFeature>
+              <ClientFeature>
+                <Link
+                  href={'/store/[name]/dashboard'}
+                  as={`/store/${name}/dashboard`}
+                >
+                  <button onClick={() => handleProduct(product._id, amount)}>
+                    ADD
+                  </button>
+                </Link>
+              </ClientFeature> */}
+          </aside>
+        </div>
+      </main>
     </>
   );
 };

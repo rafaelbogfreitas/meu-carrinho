@@ -7,7 +7,7 @@ import { getStore } from '../../services/storeService'
 import Moment from 'react-moment';
 
 export default function Orders(props) {
-  
+  console.log(props.order.products[0].product.name)
   const removeOrder =  async (storeId, orderId) => {
     try {
 
@@ -40,15 +40,24 @@ export default function Orders(props) {
   }
 
   return (
-    <div className={orderStyles.outline_white}>
-      <p>Order ID: {props.order._id}</p>
+    <div className="order">
+      <div className="order-header">
+        <p>Order ID: {props.order._id}</p>
+        <Moment format="DD/MM/YYYY HH:MM">{props.order.updatedAt}</Moment>
+      </div>
       {props.order.products.map((product, idx) => {
-        return <p key={idx}>{product.name} - Quantity {product.quantity}</p>
+        console.log(product)
+        return <p key={idx}>{product.quantity} x {product.product && product.product.name }</p>
       })}
-      <p>Order Total: {props.order.total}.00 R$</p>
-      <Moment format="DD/MM/YYYY HH:MM">{props.order.updatedAt}</Moment>
-      <button onClick={() => removeOrder(props.storeId, props.order._id)} className="deleteOrder">Delete Order</button>
-      <button onClick={() => changeOrderStatus(props.order._id)} className="completeOrder">Complete Order</button>
+      <p className="order-total">Order Total: {props.order.total}.00 R$</p>
+      {
+        props.order.status == 'pending' ?
+        <div className="btn-order-container">
+          <button onClick={() => changeOrderStatus(props.order._id)} className="btn-order">Concluir</button>
+          <button onClick={() => removeOrder(props.storeId, props.order._id)} className="btn-order btn-order--delete">Cancelar</button>
+        </div> :
+        null
+      }
     </div>
   )
 }

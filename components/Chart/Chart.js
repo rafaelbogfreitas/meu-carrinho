@@ -51,6 +51,7 @@ function Chart({ orders }) {
   };
 
   return (
+    // <aside className="container--chart">
     <>
      <label htmlFor="start">Start</label>
       <input
@@ -79,7 +80,7 @@ function Chart({ orders }) {
           Clear
         </button>
       )}
-      <div style={{ width: '600px', height: '600px' }}>
+      <div style={{ width: '400px', height: '600px' }}>
         <Bar
           data={{
             labels: formatData(orders).dates,
@@ -88,13 +89,14 @@ function Chart({ orders }) {
                 label: 'Valor',
                 data: formatData(orders).totals,
                 backgroundColor: [
-                  'rgba(255, 99, 132, 0.6)',
-                  'rgba(54, 162, 235, 0.6)',
-                  'rgba(255, 206, 86, 0.6)',
-                  'rgba(75, 192, 192, 0.6)',
-                  'rgba(153, 102, 255, 0.6)',
-                  'rgba(255, 159, 64, 0.6)',
-                  'rgba(255, 99, 132, 0.6)',
+                  '#79B6BF',
+                  // 'rgba(255, 99, 132, 0.6)',
+                  // 'rgba(54, 162, 235, 0.6)',
+                  // 'rgba(255, 206, 86, 0.6)',
+                  // 'rgba(75, 192, 192, 0.6)',
+                  // 'rgba(153, 102, 255, 0.6)',
+                  // 'rgba(255, 159, 64, 0.6)',
+                  // 'rgba(255, 99, 132, 0.6)',
                 ],
               },
             ],
@@ -112,6 +114,7 @@ function Chart({ orders }) {
           }}
         />
       </div>
+    {/* // </aside> */}
     </>
   );
 }
