@@ -62,7 +62,7 @@
       margin-right: 3rem;
       width: 13.1rem;
 
-      &:focus {
+      &:focus, &:hover {
         transition: none;
         background-color: transparent;
         border: none;
