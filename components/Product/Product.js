@@ -58,7 +58,7 @@ const Product = ({
                     onChange={(event) => handleInputChange(event, setAmount)}
                   />
                 }
-              <button onClick={() => handleProduct(_id, amount)}>
+              <button onClick={() => handleProduct(_id, amount)} className="btn--addToCart">
                 <img src="/cart.svg" alt="cart icon"/>
               </button>
             </div>

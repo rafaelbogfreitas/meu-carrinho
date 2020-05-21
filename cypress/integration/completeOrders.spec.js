@@ -12,13 +12,13 @@ describe('Completar todas as ordens', () => {
   })
 
   it('Ir para loja', () => {
-    cy.get(`[href="/store/${editStoreName}/dashboard"]`).first().click().wait(2000)
-    cy.location('pathname').should('eq', `/store/${editStoreName}/dashboard`)
+    cy.get(`[href="/store/${editStoreName}/dashboard"]`).first().click().wait(2500)
+    cy.location('pathname').should('eq', `/store/${editStoreName}/dashboard`).wait(2500)
   })
 
   it('Ir para editar loja', () => {
-    cy.get(`[href="/store/${editStoreName}/paineldevendas"]`).click().wait(2000)
-    cy.location('pathname').should('eq', `/store/${editStoreName}/paineldevendas`)
+    cy.get(`[href="/store/${editStoreName}/paineldevendas"]`).click().wait(2500)
+    cy.location('pathname').should('eq', `/store/${editStoreName}/paineldevendas`).wait(2500)
   })
 
   it('Completar ordens', () => {
