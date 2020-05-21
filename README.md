@@ -1,8 +1,8 @@
-# Meu Carrinho - Client
+# Meu Carrinho
 
 #### TLDR: https://projeto-3.now.sh
 
-![Meu Carrinho](/public/feiralivre_Prancheta1cópia4.png)
+![Meu Carrinho](/media/feiralivre_Prancheta1cópia4.png)
 
 ## About The Project
 
@@ -29,26 +29,26 @@ During the Covid-19 pandemic many physical stores had to close to comply with so
 <!-- GETTING STARTED -->
 ## Getting Started
 
-PLACEHOLDER FOR PROJECT OVERVIEW
+<!-- PLACEHOLDER FOR PROJECT OVERVIEW -->
 
 ### Prerequisites
 
 This project consists in two different repositories:
 
 * NextJS Application.
-* Rest API - https://github.com/danielcspaiva/Projeto-3.
+* Rest API server.
 
 In order to run this project locally you will need to:
 
-* Clone and install the Rest API repository - https://github.com/danielcspaiva/Projeto-3.
-* Clone and install this repository.
+* Clone and install the NextJS Application - https://github.com/rafaelbogfreitas/Projeto-3-client.
+* Clone and install this repository - https://github.com/danielcspaiva/Projeto-3.
 
 
 ### Installation
 
 1. Clone the repo
 ```sh
-git clone https://github.com/rafaelbogfreitas/Projeto-3-client.git
+git clone (repository url address)
 ```
 2. Install NPM packages
 ```sh
