@@ -16,9 +16,16 @@ const Signup = () => {
 
   const handleSignup = (e) => {
     e.preventDefault();
+
+    setName('');
+    setEmail('');
+    setPassword('');
+
     signup(name, email, password) // <== adicionei then e catch aqui por ser uma função async
       .then(() => router.push('/createStore'))
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.log(error)
+      });
   };
 
   return (
@@ -31,6 +38,7 @@ const Signup = () => {
           type="text"
           className="text"
           id="signup-name"
+          value={name}
         />
         <input
           onChange={(e) => handleEmailChange(e)}
@@ -38,13 +46,15 @@ const Signup = () => {
           type="text"
           className="text"
           id="signup-email"
+          value={email}
         />
         <input
           onChange={(e) => handlePasswordChange(e)}
           name="password"
-          type="text"
+          type="password"
           className="text"
           id="signup-password"
+          value={password}
         />
         <button id="signup-button">Signup</button>
       </form>
