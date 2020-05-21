@@ -29,7 +29,7 @@
   &__input {
     border: none;
     display: block;
-    height: 5.2rem;
+    height: 4.5rem;
     width: 100%;
     background-color: $input-blue;
     font-family: $main-font;
@@ -58,13 +58,19 @@
     font-family: $main-font;
     border: none;
     display: block;
-    height: 5.2rem;
+    height: 4.5rem;
     width: 100%;
     resize: none;
     background-color: $input-blue;
     font-size: $input-size;
-    padding: 1.4rem;
+    padding: 1rem 1.4rem;
     overflow-y: hidden;
+    transition: height 400ms ease-in-out;
+
+    &:focus {
+      height: 15.6rem;
+      transition: height 400ms ease-in-out;
+    }
   }
 
   &__select {
