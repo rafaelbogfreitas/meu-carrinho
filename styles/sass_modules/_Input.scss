@@ -25,6 +25,15 @@
       @extend .fieldset__input;
       padding-top: 1.1rem;
       color: #777;
+      cursor: pointer;
+
+      transition: all 500ms ease-in-out;
+
+      &:hover {
+        transition: all 500ms ease-in-out;
+        background-color: lighten($input-blue, 10%);
+        border: 1px solid $input-blue;
+      }
     }
   }
 
@@ -40,7 +49,7 @@
     outline: none;
     transition: all 500ms ease-in-out;
 
-    &:focus {
+    &:focus, &:hover {
       transition: all 500ms ease-in-out;
       background-color: lighten($input-blue, 10%);
       border: 1px solid $input-blue;
