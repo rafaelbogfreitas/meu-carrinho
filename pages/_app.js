@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import '../styles/index.scss';
 import {
   UserContext,
@@ -8,12 +8,28 @@ import {
 } from '../contexts/UserContext';
 
 import Head from 'next/head';
+import Router from 'next/router'
+import * as gtag from '../lib/gtag'
+
+
+  
 
 export default function App({ Component, pageProps }) {
   const [user, setUser] = useState(null);
   const [products, setProducts] = useState(null);
   const [storeName, setStoreName] = useState('');
   const [cart, setCart] = useState([]);
+
+  useEffect(() => {
+    const handleRouteChange = (url) => {
+      gtag.pageview(url)
+    }
+    Router.events.on('routeChangeComplete', handleRouteChange)
+    return () => {
+      Router.events.off('routeChangeComplete', handleRouteChange)
+    }
+  }, [])
+
   return (
     <>
     <Head>
@@ -25,7 +41,7 @@ export default function App({ Component, pageProps }) {
           function gtag(){dataLayer.push(arguments)}
           gtag('js', new Date());
 
-          gtag('config', 'UA-167359157-1');
+          gtag('config', ${gtag.GA_TRACKING_ID});
         `
         }}>
         
