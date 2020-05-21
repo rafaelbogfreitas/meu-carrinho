@@ -11,12 +11,12 @@ describe('Criar Novo Produto', () => {
   })
 
   it('Ir para loja', () => {
-    cy.get(`[href="/store/${editStoreName}/dashboard"]`).first().click().wait(1000)
+    cy.get(`[href="/store/${editStoreName}/dashboard"]`).first().click().wait(2000)
     cy.location('pathname').should('eq', `/store/${editStoreName}/dashboard`)
   })
 
   it('Ir para Novo Produto', () => {
-    cy.get('[href="product/new"]').first().click().wait(1000)
+    cy.get('[href="product/new"]').first().click().wait(2000)
     cy.location('pathname').should('eq', `/store/${editStoreName}/product/new`)
   })
 

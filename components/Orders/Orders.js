@@ -7,7 +7,6 @@ import { getStore } from '../../services/storeService'
 import Moment from 'react-moment';
 
 export default function Orders(props) {
-  console.log(props.order.products[0].product.name)
   const removeOrder =  async (storeId, orderId) => {
     try {
 

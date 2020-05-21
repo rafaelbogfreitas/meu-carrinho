@@ -22,6 +22,6 @@ describe('Deletar todas as ordens', () => {
   })
 
   it('Deletar ordens', () => {
-    cy.get('[class="deleteOrder"]').each((button) => button.click())
+    cy.get('[class="btn-order btn-order--delete"]').each((button) => button.click())
   })
 })
