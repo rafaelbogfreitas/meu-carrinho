@@ -14,7 +14,7 @@ const PhoneInput = ({ label, phone, regionCode, setPhone, setRegionCode }) => {
         />
         <input
           className="fieldset__input--phone"
-          type="text"
+          type="number"
           name="phone"
           id="phone"
           placeholder="xxxxx-xxxx"
@@ -22,8 +22,13 @@ const PhoneInput = ({ label, phone, regionCode, setPhone, setRegionCode }) => {
           maxLength="9"
           value={phone}
           onChange={(event) => setPhone(event.target.value)}
+          style={phone === '' ? { border: '1px solid red' } : null}
+          required
         />
       </div>
+      {phone === '' && (
+        <small className="fieldset__small">Este campo é obrigatório</small>
+      )}
     </fieldset>
   );
 };

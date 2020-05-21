@@ -1,12 +1,18 @@
 import React from 'react';
 
-const FileInput = ({ label, name, setState }) => {
+const FileInput = ({ label, name, image, setState }) => {
   return (
     <fieldset className="fieldset">
       <label className="fieldset__label" htmlFor={name}>
         {label}
       </label>
-      <label className="fieldset__label--file" htmlFor={name}>
+      <label
+        className="fieldset__label--file"
+        htmlFor={name}
+        style={image.name ? { color: '#000000' } : null}
+      >
+        {image.name || 'Procurar'}
+
         <input
           className="fieldset__input--file"
           type="file"

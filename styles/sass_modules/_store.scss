@@ -105,6 +105,7 @@
 
 //owner panel
 .owner-panel {
+  position: relative;
   width: 40%;
   @include grid(display, grid);
   @include grid(grid-template-columns, repeat(2, 1fr));
@@ -124,9 +125,45 @@
       width: 70%;
       text-align: center;
     }
+
+    @media (max-width: 1000px){
+      height: 25vh;
+    }
+  }
+
+  @media (max-width: 1000px) {
+    display: inline-block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 200px;
+    transform: translateX(200px);
+    transition:transform 0.2s linear;
   }
 }
 
+.close-panel {
+  display: none;
+  width: 100%;
+  padding: 5px;
+  margin-left: auto;
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-align: right;
+  background-color:$plus-sign-bgcolor;
+
+  @media (max-width: 1000px) {
+    display: inline-block;
+  }
+}
+
+.menu-trigger {
+  display: none;
+  margin-left: auto;
+  @media (max-width:1000px){
+    display: inline-block;
+  }
+}
 
 //carrinho
 

@@ -14,7 +14,12 @@ const Textarea = ({ label, type, name, placeholder, state, setState }) => {
         placeholder={placeholder || ''}
         value={state}
         onChange={(event) => setState(event.target.value)}
+        style={state === '' ? { border: '1px solid red' } : null}
+        required
       />
+      {state === '' && (
+        <small className="fieldset__small">Este campo é obrigatório</small>
+      )}
     </fieldset>
   );
 };

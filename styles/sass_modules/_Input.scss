@@ -23,11 +23,22 @@
 
     &--file {
       @extend .fieldset__input;
+      padding-top: 1.1rem;
+      color: #777;
+      cursor: pointer;
+
+      transition: all 500ms ease-in-out;
+
+      &:hover {
+        transition: all 500ms ease-in-out;
+        background-color: lighten($input-blue, 10%);
+        border: 1px solid $input-blue;
+      }
     }
   }
 
   &__input {
-    border: none;
+    border: transparent;
     display: block;
     height: 4.5rem;
     width: 100%;
@@ -35,17 +46,36 @@
     font-family: $main-font;
     font-size: $input-size;
     padding-left: 1.4rem;
+    outline: none;
+    transition: all 500ms ease-in-out;
+
+    &:focus, &:hover {
+      transition: all 500ms ease-in-out;
+      background-color: lighten($input-blue, 10%);
+      border: 1px solid $input-blue;
+    }
 
     &--color {
       @extend .fieldset__input;
       background-color: transparent;
       padding: 0;
-      margin-right: 6.5rem;
+      margin-right: 3rem;
       width: 13.1rem;
+
+      &:focus {
+        transition: none;
+        background-color: transparent;
+        border: none;
+      }
     }
 
     &--phone {
       @extend .fieldset__input;
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
     }
 
     &--file {
@@ -56,7 +86,7 @@
 
   &__textarea {
     font-family: $main-font;
-    border: none;
+    border: transparent;
     display: block;
     height: 4.5rem;
     width: 100%;
@@ -65,11 +95,16 @@
     font-size: $input-size;
     padding: 1rem 1.4rem;
     overflow-y: hidden;
-    transition: height 400ms ease-in-out;
+    outline: none;
+
+    transition: all 500ms ease-in-out;
 
     &:focus {
       height: 15.6rem;
-      transition: height 400ms ease-in-out;
+      background-color: lighten($input-blue, 10%);
+      border: 1px solid $input-blue;
+
+      transition: all 500ms ease-in-out;
     }
   }
 
@@ -82,5 +117,11 @@
     & > option {
       font-size: $input-size;
     }
+  }
+
+  &__small {
+    color: #ff0000;
+    margin-top: 0.5rem;
+    font-size: 1.2rem;
   }
 }

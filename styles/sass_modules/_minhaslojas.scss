@@ -1,4 +1,7 @@
 .container--minhaslojas {
+  @include grid(display, grid);
+  @include grid(justify-items, center);
+  @include grid(grid-gap, 20px);
   @include grid(grid-template-columns, repeat(4, 1fr));
   
   @media (max-width:1000px) {
@@ -50,4 +53,5 @@
   &:hover {
     @extend .box-shadow;
   }
+
 }

@@ -116,7 +116,7 @@ const SingleProduct = ({ product, name }) => {
       </Head>
       <main className="container--no-grid">
         <h1 className="title">{product.name}</h1>
-        <div className="row">
+        <div className="single-product">
           <figure className="single-product-figure">
             <img
               className="single-product-figure__img"

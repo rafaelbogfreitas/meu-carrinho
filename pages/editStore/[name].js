@@ -43,7 +43,7 @@ const Name = ({ store }) => {
       about,
       primaryColor,
       secondaryColor,
-      phone: '+55' + regionCode + phone,
+      phone: '+55' + regionCode + String(phone),
       image,
     };
 
@@ -101,13 +101,13 @@ const Name = ({ store }) => {
 
                 <div className="fieldset__section">
                   <ColorInput
-                    label="Cor primária:"
+                    label="Cor 1:"
                     name="primaryColor"
                     state={primaryColor}
                     setState={setPrimaryColor}
                   />
                   <ColorInput
-                    label="Cor secundária:"
+                    label="Cor 2:"
                     name="secondaryColor"
                     state={secondaryColor}
                     setState={setSecondaryColor}
@@ -126,6 +126,7 @@ const Name = ({ store }) => {
                   label="Sua logo:"
                   type="file"
                   name="image"
+                  image={image}
                   setState={setImage}
                 />
 
