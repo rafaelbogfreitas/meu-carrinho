@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
+import { useRouter } from 'next/router';
 import Product from '../../../components/Product/Product';
 import Cart from '../../../components/Cart/Cart';
 import { ProductsContext, CartContext, StoreContext } from '../../../contexts/UserContext';
@@ -20,7 +21,10 @@ export default function Store({ store }) {
   const { cart, setCart } = useContext(CartContext);
   const { storeName, setStoreName } = useContext(StoreContext);
 
+  const router = useRouter();
+
   useEffect(() => {
+    // if(store == undefined ) router.push('/404')
     if (products === null || store.name !== storeName) {
       setStoreName(store.name);
       setProducts(store.products);
