@@ -39,6 +39,7 @@ a {
 }
 
 .title {
+  display:flex;
   width: 90vw;
   margin:20px auto;
   font-size: $title-size;
@@ -70,7 +71,7 @@ a {
   height: 90vh;
   padding: 20px;
   margin: 0 auto;
-  @include grid(display, grid);
+  // @include grid(display, grid);
 }
 
 .row {
@@ -83,4 +84,9 @@ a {
 .store-name {
   font-size: 1.8rem;
   color: $title-color;
+}
+
+.offScreen {
+  transform:translateX(0) !important;
+  transition: transform 0.2s linear;
 }

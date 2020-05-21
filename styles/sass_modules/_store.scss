@@ -12,6 +12,23 @@
   @include grid(justify-items, center);
   @include grid(grid-gap, 20px);
   overflow: scroll;
+  
+  @media (max-width:1000px){
+    width: 100%;
+    @include grid(grid-template-columns, repeat(4, 1fr));
+  }
+  @media (max-width:800px){
+    width: 100%;
+    @include grid(grid-template-columns, repeat(3, 1fr));
+  }
+  @media (max-width:500px){
+    width: 100%;
+    @include grid(grid-template-columns, repeat(2, 1fr));
+  }
+  @media (max-width:400px){
+    width: 100%;
+    @include grid(grid-template-columns, repeat(1, 1fr));
+  }
 
 }
 
@@ -117,6 +134,17 @@
   width: 50%;
   height: 100%;
   @extend .flex-center;
+
+  @media (max-width:1000px){
+    position:fixed;
+    top:0px;
+    right:0px;
+    padding:0;
+    width: 350px;
+    height: 100vh;
+    transform:translateX(400px);
+    transition:transform 0.2s linear;
+  }
 }
 
 .carrinho {
@@ -124,12 +152,23 @@
   width: 450px;
   height: 80vh;
   background-color:$painel-bg-color;
+  
+  @media (max-width:1000px){
+    width: 100%;
+    height: 100%;
+    font-size: 1.4rem;
+  }
 }
 
 .carrinho__title {
+  @include flex(display, flex);
+  @include flex(align-items, center);
+  @include flex(justify-content, center);
+  
   height: 50px;
   font-size: 4rem;
   font-weight: bold;
+  padding: 0 10px;
   width: 100%;
   height: auto;
   text-align: center;
@@ -139,6 +178,10 @@
   img {
     height: 100%;
     margin-right: 10px;
+  }
+
+  @media (max-width:1000px){
+    font-size: 3rem;
   }
 
 }
@@ -168,6 +211,13 @@
 
   strong {
     font-size: 2.4rem;
+    @media (max-width:1000px){
+      font-size: 1.8rem;
+    }
+  }
+
+  @media (max-width:1000px){
+    font-size: 1.8rem;
   }
 }
 
@@ -183,6 +233,10 @@
   background-color: $title-color;
   color: white;
   font-size: 3.6rem;
+
+  @media (max-width:1000px){
+    font-size: 3rem;
+  }
 }
 
 .total-amount {
@@ -196,4 +250,29 @@
   padding: 5px;
   background-color: $painel-bg-color;
   font-size: 2.4rem;
+}
+
+//carrinho mobile
+.cart-mobile {
+  margin-left: auto;
+  width: 90px;
+  display: none;
+  color: white;
+  background-color:$title-color;
+  font-size: 1.4rem;
+
+  @media (max-width: 1000px){
+    @include flex(display, flex);
+    @include flex(align-items, center);
+    @include flex(justify-content, space-around);
+  }
+}
+
+.close-cart {
+  cursor: pointer;
+  margin-left: auto;
+  display: none;
+  @media (max-width:1000px) {
+    display: inline-block;
+  }
 }

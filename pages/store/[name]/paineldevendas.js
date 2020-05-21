@@ -70,7 +70,7 @@ export default function paineldevendas({ store }) {
       </div>
 
       <Link href="/store/[name]/dashboard" as={`/store/${name}/dashboard`}>
-        <button>Voltar</button>
+        <button className="btn--logout">Voltar</button>
       </Link>
     </ProtectedRoute>
   );

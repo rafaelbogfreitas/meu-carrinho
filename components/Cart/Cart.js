@@ -3,9 +3,8 @@ import Loading from '../Loading/Loading';
 import { StoreContext } from '../../contexts/UserContext';
 import { getStore } from '../../services/storeService';
 import { createOrder } from '../../services/orderService';
-import cartStyles from './cart.module.scss';
 
-const Cart = ({ cart, storeId, removeItemsFromCart, setCart }) => {
+const Cart = ({ cart, storeId, removeItemsFromCart, setCart, setShowing }) => {
   const [whatsApp, setWhatsApp] = useState('');
   const { storeName } = useContext(StoreContext);
   let [loading, setLoading] = useState(false);
@@ -55,6 +54,9 @@ const Cart = ({ cart, storeId, removeItemsFromCart, setCart }) => {
       <h1 className="carrinho__title">
         <img src="/cart.svg" alt="cart icon"/>
         Carrinho
+        <div className="close-cart" onClick={() => setShowing(false)}>
+          x
+        </div>
       </h1>
       {cart.map((product, i) => {
         total += product.quantity * product.price;
