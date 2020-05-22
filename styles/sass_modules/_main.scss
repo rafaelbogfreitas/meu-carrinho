@@ -73,8 +73,17 @@ a {
   margin: 0 auto;
   // @include grid(display, grid);
 
+  &--home {
+    height: auto;
+  }
+
   &--row {
     @include flex(display, flex);
+    @include flex(justify-content, space-between);
+  }
+  &--row-reverse {
+    @include flex(display, flex);
+    @include flex(flex-direction, row-reverse);
     @include flex(justify-content, space-between);
   }
 }
