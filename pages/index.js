@@ -3,7 +3,12 @@ import { useState } from  'react';
 import Head from 'next/head';
 import Login from '../components/Login/Login';
 import Signup from '../components/Signup/Signup';
+<<<<<<< HEAD
 import Loading from '../components/Loading/Loading';
+=======
+import { FiLinkedin, FiGithub } from 'react-icons/fi';
+import { IoIosClose } from 'react-icons/io';
+>>>>>>> 45e902018788906f4c22f9d8cf2f90a6c233a3e6
 
 import { renderMetatags } from '../services/helpers';
 
@@ -28,8 +33,8 @@ export default function Home() {
       {/* Navbar placeholder */}
       <nav className="navbar navbar-home">
         <div className={ modal ? "container--modal offScreen" : "container--modal"}>
-          <div onClick={() => setModal(!modal)}>Fechar</div>
           <div className="container--auth">
+            <div className="closeButton" onClick={() => setModal(!modal)}><IoIosClose size={75} color="#193747"/></div>
             <div className={flip ? "container--rotate turn-modal" : "container--rotate"}>
               <Login 
                 setFlip={setFlip}  
@@ -46,11 +51,11 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <a onClick={() => setModal(!modal)}>Entrar</a>
+        <a id="entrar" onClick={() => setModal(!modal)}>Entrar</a>
       </nav>
 
       <section className="main-section">
-        <div className="container">
+        <div className="container container--home">
           <figure className="main-section__figure">
             <img
               className="main-section__figure__img"
@@ -61,7 +66,7 @@ export default function Home() {
           <article className="main-section__info">
             <h2>O carrinho virtual para a sua loja</h2>
             <p>
-              Mais de 90% estão nas redes sociais, crie seu carrinho
+              Mais de 90% dos consumidores estão nas redes sociais, crie seu carrinho
               virtual e chegue até eles mais facilmente
             </p>
           </article>
@@ -154,11 +159,41 @@ export default function Home() {
       </section>
 
       <footer className="main-footer">
-        <p>Built by:</p>
+        <p>Desenvolvido por:</p>
         <div className="devs">
-          <div className="dev">Daniel</div>
-          <div className="dev">Rafael</div>
-          <div className="dev">Ricky</div>
+          <div className="dev">
+            <p>Daniel Paiva</p>
+            <div className="icons">
+              <a href="https://www.linkedin.com/in/danielcspaiva/" target="_blank">
+                <FiLinkedin size={30} color={'#fff'}/>
+              </a>
+              <a href="https://github.com/danielcspaiva" target="_blank">
+                <FiGithub size={30} color={'#fff'}/>
+              </a>
+            </div>
+          </div>
+          <div className="dev">
+            <p>Rafael Freitas</p>
+            <div className="icons">
+              <a href="https://www.linkedin.com/in/rafaelborgesfreitas/" target="_blank">
+                <FiLinkedin size={30} color={'#fff'}/>
+              </a>
+              <a href="https://github.com/rafaelbogfreitas" target="_blank">
+                <FiGithub size={30} color={'#fff'}/>
+              </a>
+            </div>
+          </div>
+          <div className="dev">
+            <p>Ricky Almeida</p>
+            <div className="icons">
+              <a href="https://www.linkedin.com/in/rickyalmeidadev/" target="_blank">
+                <FiLinkedin size={30} color={'#fff'}/>
+              </a>
+              <a href="https://github.com/rickyalmeidadev" target="_blank">
+                <FiGithub size={30} color={'#fff'}/>
+              </a>
+            </div>
+          </div>
         </div>
       </footer>
     </>

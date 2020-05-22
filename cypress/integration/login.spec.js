@@ -10,6 +10,10 @@ describe('Login', () => {
     cy.visit('/')
   })
 
+  it('Clicar em Entrar', () => {
+    cy.get('#entrar').click().wait(1000)
+  })
+
   it('Realizar input de Email', () => {
     cy.get('#login-name')
       .type(email)
@@ -23,7 +27,7 @@ describe('Login', () => {
   })
 
   it('Submeter Login', () => {
-    cy.get('#login-button')
+    cy.get('.btn--login')
       .click().wait(2000)
   })
 

@@ -6,7 +6,11 @@ import { ProductsContext, CartContext, StoreContext } from '../../../contexts/Us
 import Loading from '../../../components/Loading/Loading';
 import OwnerFeature from '../../../components/OwnerFeature/OwnerFeature';
 import ClientFeature from '../../../components/ClientFeature/ClientFeature';
-import { FiMenu } from 'react-icons/fi'
+import { FiMenu, fiexit } from 'react-icons/fi'
+
+import { IoIosClose } from 'react-icons/io'
+
+
 
 import Head from 'next/head';
 import Link from 'next/link';
@@ -164,7 +168,7 @@ export default function Store({ store }) {
               onClick={() => setShowing(!isShowing)}
               style={{color:`${store.theme.primaryColor}`}}
             >
-              X
+            <IoIosClose size={75} color={store.theme.primaryColor}/>
             </div>
             <Link
               href={'/store/[name]/paineldevendas'}

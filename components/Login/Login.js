@@ -39,6 +39,7 @@ const Login = ({ flip, setFlip, loading, setLoading }) => {
           type="text"
           className="text"
           id="login-name"
+          placeholder="email"
           value={email}
         />
         <input
@@ -48,11 +49,12 @@ const Login = ({ flip, setFlip, loading, setLoading }) => {
           className="text"
           id="login-password"
           value={password}
+          placeholder="senha"
         />
         <button className="btn--login">Entrar</button>
-        <button type="button" id="login-button" onClick={() => setFlip(!flip)}> Ir para o registro</button>
-        <a type="button" href="https://meu-carrinho.herokuapp.com/api/v1/auth/google">
-          Google
+        <button id="btn--goToRegister" onClick={() => setFlip(!flip)}> Ir para o registro</button>
+        <a href="https://meu-carrinho.herokuapp.com/api/v1/auth/google">
+          Entrar com o Google
         </a>
       </form>
 

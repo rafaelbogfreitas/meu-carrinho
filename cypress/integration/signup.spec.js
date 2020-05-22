@@ -10,27 +10,35 @@ describe('Signup', () => {
     cy.visit('/')
   })
 
+  it('Clicar em Entrar', () => {
+    cy.get('#entrar').click().wait(1000)
+  })
+
+  it('Ir para signup', () => {
+    cy.get('#btn--goToRegister').click().wait(1000)
+  })
+
   it('Realizar input de nome', () => {
     cy.get('#signup-name')
-      .type(name)
+      .type(name, {force: true})
       .should('have.value', name)
   })
 
   it('Realizar input de Email', () => {
     cy.get('#signup-email')
-      .type(email)
+      .type(email, {force: true})
       .should('have.value', email)
   })
 
   it('Realizar input de Senha', () => {
     cy.get('#signup-password')
-    .type(password)
+    .type(password, {force: true})
     .should('have.value', password)
   })
   
   it('Submeter signup', () => {
-    cy.get('#signup-button')
-      .click()
+    cy.get('.btn-signup')
+      .click({force: true})
   })
 })
 

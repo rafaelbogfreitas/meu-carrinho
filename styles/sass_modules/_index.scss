@@ -4,7 +4,7 @@
   height: $navbar-height;
   display: flex;
   position: fixed;
-  color: #4b2d12;
+  color: #193747;
 
   a {
     font-size: 3rem;
@@ -32,7 +32,6 @@
 
   &__info {
     min-height: 30vh;
-    // width: 50%;
     padding: 0 2rem;
     @include flex(display, flex);
     @include flex(flex-direction, column);
@@ -41,6 +40,10 @@
     @media (max-width: 1024px) {
       width: 100%;
       text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      padding: 5rem;
     }
   }
 
@@ -65,6 +68,11 @@
     font-size: 2.5rem;
     line-height: 3rem;
     width: 40%;
+
+    @media (max-width: 1024px) {
+      text-align: center;
+      width: 100%;
+    }
   }
 
   &__figure {
@@ -77,6 +85,10 @@
     
     @media (max-width: 1024px) {
       width: 100%;
+    }
+
+    @media (max-width: 768px) {
+      padding: 5rem;
     }
 
     &__img {
@@ -168,9 +180,10 @@
 }
 
 .main-footer {
+  padding: 5rem 0;
   background-color: #79b6bf;
   color: white;
-  height: 25vh;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -181,6 +194,26 @@
     margin-top: 10px;
     display: flex;
     justify-content: space-around;
-    width: 30vw;
+    width: 85vw;
+    max-width: 800px;
+    text-align: center;
+
+    @media (max-width: 650px) {
+      flex-direction: column;
+    }
+
+    .icons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    p {
+      margin: 1.5rem;
+    }
+
+    a {
+      margin: 1rem;
+    }
   }
 }
