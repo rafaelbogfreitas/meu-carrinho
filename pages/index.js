@@ -46,72 +46,91 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="instructions">
-        <h1>Como funciona?</h1>
+      <section className="instructions-section">
+        <div className="container container--home">
+          <h2 className="instructions-section__title">Como funciona?</h2>
 
-        <div className="container-instructions regular">
-          <div>
-            <h2>Crie sua loja</h2>
-            <p>
-              Crie sua loja virtual personalizada e adicione os seus produtos.
-            </p>
-          </div>
-          <img
-            className="instructions-img"
-            src="/image4.svg"
-            alt="prancheta"
-          ></img>
-        </div>
-
-        <div className="container-instructions reverse">
-          <div>
-            <h2>
-              Divulgue nas<br></br>redes sociais
-            </h2>
-            <p>
-              Encontre os seus clientes aonde eles estiverem, divulgue sua loja
-              nas redes sociais mais utilizadas.
-            </p>
-          </div>
-          <img
-            className="instructions-img"
-            src="/image2.svg"
-            alt="prancheta"
-          ></img>
-        </div>
-        <div className="container-instructions regular">
-          <div>
-            <h2>
-              Receba pedidos<br></br>dos clientes
-            </h2>
-            <p>
-              Receba pedidos facilmente através do whatsapp e notificação via
-              email
-            </p>
-          </div>
-          <img
-            className="instructions-img"
-            src="/image3.svg"
-            alt="prancheta"
-          ></img>
-        </div>
-        <div className="container-instructions reverse">
-          <div>
-            <h2>
-              Acompanhe<br></br>os pedidos
-            </h2>
-            <p>
-              Acompanhe o status dos pedidos no seu painel de vendas e monitore
-              o desempenho da sua loja através de gráficos
-            </p>
-          </div>
-          <img
-            className="instructions-img"
-            src="/image5.svg"
-            alt="prancheta"
-          ></img>
+          <section className="container--row">
+            <article className="instructions-section__info">
+              <h3>Crie sua loja</h3>
+              <p>
+                Crie sua loja virtual personalizada e adicione os seus produtos.
+              </p>
+            </article>
+            <figure className="instructions-section__figure">
+              <img
+                className="instructions-section__figure__img"
+                src="/image4.svg"
+                alt="prancheta"
+              ></img>
+            </figure>
+          </section>
         </div>
       </section>
+
+      <section className="instructions-section instructions-section--light">
+        <div className="container container--home">
+          <section className="container--row-reverse">
+            <article className="instructions-section__info">
+              <h3>Divulgue nas redes sociais</h3>
+              <p>
+                Encontre os seus clientes aonde eles estiverem, divulgue sua
+                loja nas redes sociais mais utilizadas.
+              </p>
+            </article>
+            <figure className="instructions-section__figure">
+              <img
+                className="instructions-section__figure__img"
+                src="/image2.svg"
+                alt="prancheta"
+              ></img>
+            </figure>
+          </section>
+        </div>
+      </section>
+
+      <section className="instructions-section">
+        <div className="container container--home">
+          <section className="container--row">
+            <article className="instructions-section__info">
+              <h3>Receba pedidos dos clientes</h3>
+              <p>
+                Receba pedidos facilmente através do whatsapp e notificação via
+                email.
+              </p>
+            </article>
+            <figure className="instructions-section__figure">
+              <img
+                className="instructions-section__figure__img"
+                src="/image3.svg"
+                alt="prancheta"
+              ></img>
+            </figure>
+          </section>
+        </div>
+      </section>
+
+      <section className="instructions-section instructions-section--light">
+        <div className="container container--home">
+          <section className="container--row-reverse">
+            <article className="instructions-section__info">
+              <h3>Acompanhe os pedidos</h3>
+              <p>
+                Acompanhe o status dos pedidos no seu painel de vendas e
+                monitore o desempenho da sua loja através de gráficos.
+              </p>
+            </article>
+            <figure className="instructions-section__figure">
+              <img
+                className="instructions-section__figure__img"
+                src="/image5.svg"
+                alt="prancheta"
+              ></img>
+            </figure>
+          </section>
+        </div>
+      </section>
+
       <footer className="main-footer">
         <p>Built by:</p>
         <div className="devs">

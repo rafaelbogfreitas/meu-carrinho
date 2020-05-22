@@ -4,7 +4,7 @@
   height: $navbar-height;
   display: flex;
   position: fixed;
-  color: #4B2D12;
+  color: #4b2d12;
 
   a {
     font-size: 3rem;
@@ -12,18 +12,21 @@
   }
 }
 
+// MAIN SECTION
+
 .main-section {
   background-image: url('/vector3.svg');
   background-size: cover;
 
   height: 100vh;
   padding-top: $navbar-height;
-  
-  color: #4B2D12;
+
+  color: #4b2d12;
 
   &__info {
-    // margin: 50px;
-    height: 30vh;
+    min-height: 30vh;
+    width: 50%;
+    padding: 2rem;
     @include flex(display, flex);
     @include flex(flex-direction, column);
     @include flex(align-items, flex-start);
@@ -50,8 +53,66 @@
     @include flex(display, flex);
     @include flex(justify-content, flex-end);
     @include flex(align-items, flex-start);
-    min-width: 41.6rem;
-    min-height: 41.6rem;
+    width: 50%;
+    padding: 2rem;
+
+    &__img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+// INSTRUCTION SECTION
+
+.instructions-section {
+  background-color: #79b6bf;
+  color: #ffffff;
+  padding: 4rem 0;
+
+  width: 100vw;
+  max-width: 100%;
+
+  &--light {
+    background-color: white;
+    color: #4b2d12;
+  }
+
+  &__title {
+    font-size: 8rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  &__info {
+    margin-top: 10rem;
+    min-height: 30vh;
+    width: 50%;
+    padding: 2rem;
+
+    @include flex(display, flex);
+    @include flex(flex-direction, column);
+    @include flex(align-items, flex-start);
+
+    h3 {
+      font-size: 6rem;
+      font-weight: bold;
+      margin-bottom: 4rem;
+    }
+
+    p {
+      font-size: 2.5rem;
+      line-height: 3rem;
+    }
+  }
+
+  &__figure {
+    @include flex(display, flex);
+    @include flex(justify-content, flex-end);
+    @include flex(align-items, flex-start);
+    width: 50%;
+    padding: 2rem;
 
     &__img {
       width: 100%;
@@ -61,9 +122,10 @@
 }
 
 .instructions {
-  background-color: #79B6BF;
+  background-color: #79b6bf;
   color: white;
-  h1, h2 {
+  h1,
+  h2 {
     font-weight: bold;
     font-size: 8rem;
     text-align: center;
@@ -101,7 +163,7 @@
   justify-content: space-around;
   align-items: center;
   background-color: white;
-  color: #4B2D12;
+  color: #4b2d12;
 }
 .instructions-img {
   height: auto;
@@ -109,7 +171,7 @@
 }
 
 .main-footer {
-  background-color: #79B6BF;
+  background-color: #79b6bf;
   color: white;
   height: 25vh;
   display: flex;
