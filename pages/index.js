@@ -146,10 +146,10 @@ export default function Home() {
             <p>Daniel Paiva</p>
             <div className="icons">
               <a href="https://www.linkedin.com/in/danielcspaiva/" target="_blank">
-                <FiLinkedin size={35} color={'#fff'}/>
+                <FiLinkedin size={30} color={'#fff'}/>
               </a>
               <a href="https://github.com/danielcspaiva" target="_blank">
-                <FiGithub size={35} color={'#fff'}/>
+                <FiGithub size={30} color={'#fff'}/>
               </a>
             </div>
           </div>
@@ -157,10 +157,10 @@ export default function Home() {
             <p>Rafael Freitas</p>
             <div className="icons">
               <a href="https://www.linkedin.com/in/rafaelborgesfreitas/" target="_blank">
-                <FiLinkedin size={35} color={'#fff'}/>
+                <FiLinkedin size={30} color={'#fff'}/>
               </a>
               <a href="https://github.com/rafaelbogfreitas" target="_blank">
-                <FiGithub size={35} color={'#fff'}/>
+                <FiGithub size={30} color={'#fff'}/>
               </a>
             </div>
           </div>
@@ -168,10 +168,10 @@ export default function Home() {
             <p>Ricky Almeida</p>
             <div className="icons">
               <a href="https://www.linkedin.com/in/rickyalmeidadev/" target="_blank">
-                <FiLinkedin size={35} color={'#fff'}/>
+                <FiLinkedin size={30} color={'#fff'}/>
               </a>
               <a href="https://github.com/rickyalmeidadev" target="_blank">
-                <FiGithub size={35} color={'#fff'}/>
+                <FiGithub size={30} color={'#fff'}/>
               </a>
             </div>
           </div>

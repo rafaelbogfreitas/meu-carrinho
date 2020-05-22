@@ -4,7 +4,7 @@
   height: $navbar-height;
   display: flex;
   position: fixed;
-  color: #4b2d12;
+  color: #193747;
 
   a {
     font-size: 3rem;
@@ -180,9 +180,10 @@
 }
 
 .main-footer {
+  padding: 5rem 0;
   background-color: #79b6bf;
   color: white;
-  height: 25vh;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -196,6 +197,10 @@
     width: 85vw;
     max-width: 800px;
     text-align: center;
+
+    @media (max-width: 650px) {
+      flex-direction: column;
+    }
 
     .icons {
       display: flex;
