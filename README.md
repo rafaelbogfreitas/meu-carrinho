@@ -1,12 +1,12 @@
 # Meu Carrinho
 
-#### TLDR: https://projeto-3.now.sh
+#### TLDR: https://meu-carrinho.now.sh
 
-![Meu Carrinho](/media/feiralivre_Prancheta1cópia4.png)
+![Meu Carrinho](/media/meucarrinho_banner_2.png)
 
 ## About The Project
 
-During the Covid-19 pandemic many physical stores had to close to comply with social distancing orders and the world has seen a rapid shift to Ecommerce. Most of the small businesses had no time or money to build their own Ecommerce. Given those circunstances we build Meu carrinho, a digital shopping cart made to make it easier for small shops to sell online and on social media and to manage their small businesses.
+During the Covid-19 pandemic many physical stores had to close in order to comply with social distancing orders. Since then the world has seen a rapid shift to Ecommerce, but most of the small businesses had no time or money to build their own Ecommerce infrastructure. Given those circunstances we build Meu carrinho, a digital shopping cart made to make it easier for small shops to sell online and on social media and to manage their small businesses.
 
 ### Built With:
 
@@ -40,8 +40,8 @@ This project consists in two different repositories:
 
 In order to run this project locally you will need to:
 
-* Clone and install the NextJS Application - https://github.com/rafaelbogfreitas/Projeto-3-client.
-* Clone and install this repository - https://github.com/danielcspaiva/Projeto-3.
+* Clone and install the NextJS Application - https://github.com/rafaelbogfreitas/meu-carrinho.
+* Clone and install this repository - https://github.com/danielcspaiva/meu-carrinho-api.
 
 
 ### Installation
@@ -66,7 +66,7 @@ npm run dev
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-The project is deployed and can be accessed at https://projeto-3.now.sh.
+The project is deployed and can be accessed at https://meu-carrinho.now.sh.
 
 
 <!-- CONTRIBUTING -->
