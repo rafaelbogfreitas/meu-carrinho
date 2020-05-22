@@ -15,7 +15,13 @@ export const signup = (name, email, password) => {
 export const login = (email, password) => {
   return service
     .post('/login', { email, password })
-    .then((response) => response.data);
+    .then((response) => {
+      response.data
+      console.log(response.data)
+    })
+    .catch( error => {
+      console.log(error)
+    });
 };
 
 export const loggedin = () => {

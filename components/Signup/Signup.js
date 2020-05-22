@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
-import Loading from '../Loading/Loading'
 import { useRouter } from 'next/router';
 import { signup } from '../../services/authService';
 
 
-const Signup = ({ flip, setFlip, loading, setLoading }) => {
+const Signup = ({ flip, setFlip }) => {
   let router = useRouter();
 
   let [name, setName] = useState('');
   let [email, setEmail] = useState('');
-  let [password, setPassword] = useState('');
+  let [password, setPassword] = useState(''); 
 
   const handleNameChange = (e) => setName(e.target.value);
   const handleEmailChange = (e) => setEmail(e.target.value);
@@ -18,25 +17,20 @@ const Signup = ({ flip, setFlip, loading, setLoading }) => {
   const handleSignup = (e) => {
     e.preventDefault();
     
-    setLoading(!loading);
     setName('');
     setEmail('');
     setPassword('');
 
     signup(name, email, password) // <== adicionei then e catch aqui por ser uma função async
       .then(() => {
-        setLoading(false)
         router.push('/createStore')
       })
       .catch((error) => {
-        setLoading(false)
         console.log(error)
       });
   };
 
   return (
-    loading ?
-    <Loading/> :
       <form onSubmit={(e) => handleSignup(e)}>
         <h1>Registrar</h1>
         <input
@@ -67,12 +61,11 @@ const Signup = ({ flip, setFlip, loading, setLoading }) => {
           value={password}
         />
         <button className="btn-signup">Registrar</button>
-        <button id="btn--goToLogin" onClick={() => setFlip(!flip)}>Ir para o login</button>
-        <a href="https://meu-carrinho.herokuapp.com/api/v1/auth/google">
+        <button type="button" id="btn--goToLogin" onClick={() => setFlip(!flip)}>Ir para o login</button>
+        <a  type="button" href="https://meu-carrinho.herokuapp.com/api/v1/auth/google">
           Entrar com o Google
         </a>
       </form>
-
   );
 };
 

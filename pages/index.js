@@ -3,12 +3,8 @@ import { useState } from  'react';
 import Head from 'next/head';
 import Login from '../components/Login/Login';
 import Signup from '../components/Signup/Signup';
-<<<<<<< HEAD
-import Loading from '../components/Loading/Loading';
-=======
 import { FiLinkedin, FiGithub } from 'react-icons/fi';
 import { IoIosClose } from 'react-icons/io';
->>>>>>> 45e902018788906f4c22f9d8cf2f90a6c233a3e6
 
 import { renderMetatags } from '../services/helpers';
 
@@ -33,8 +29,8 @@ export default function Home() {
       {/* Navbar placeholder */}
       <nav className="navbar navbar-home">
         <div className={ modal ? "container--modal offScreen" : "container--modal"}>
+          <div className="close-button" onClick={() => setModal(!modal)}><IoIosClose size={75} color="#193747"/></div>
           <div className="container--auth">
-            <div className="closeButton" onClick={() => setModal(!modal)}><IoIosClose size={75} color="#193747"/></div>
             <div className={flip ? "container--rotate turn-modal" : "container--rotate"}>
               <Login 
                 setFlip={setFlip}  
