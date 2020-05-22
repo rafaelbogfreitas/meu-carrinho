@@ -20,10 +20,10 @@ export default function Home() {
     <>
       <Head>
         {renderMetatags(
-          'Minha Loja',
+          'Meu Carrinho',
           'Crie sua loja e administre suas vendas',
-          'http://localhost:3000',
-          'http://nossologo.svg'
+          'https://meu-carrinho.now.sh',
+          'https://raw.githubusercontent.com/rafaelbogfreitas/meu-carrinho/master/media/meucarrinho_banner_2.png'
         )}
       </Head>
       {/* Navbar placeholder */}
