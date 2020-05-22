@@ -1,0 +1,95 @@
+.container--modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.591);
+  transform:translateX(100%);
+  transition: transform 0.2s ease-in;
+
+  @extend .flex-center;
+}
+
+.container--auth {
+  width: 50vw;
+  height: 80vh;
+  position: relative;
+
+  @media (max-width: 600px){
+    width: 90vw
+  }
+}
+
+.container--rotate {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  perspective: 300px;
+  transition: transform 0.5s linear;
+  
+  form {
+    @extend .flex-center;
+    @include flex(flex-direction, column);
+    background-color: $painel-bg-color;
+    color: white;
+    font-size: 2.4rem;
+
+    input {
+      width: 80%;
+      height: 50px;
+      padding: 0 20px;
+      border: none;
+      font-size: 2.4rem;
+      outline: none;
+      transition: box-shadow 0.3s linear;
+
+      &:focus {
+        box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.68);
+        transition: box-shadow 0.3s linear;
+      }
+
+    }
+    
+    h1 {
+      width: 80%;
+    }
+
+    & > * {
+      margin: 20px 0;
+    }
+
+    button {
+      color: white;
+      width: 80%;
+      height: 50px;
+      background:$title-color;
+      box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.639);
+      outline: none;
+      &:active {
+        box-shadow: none;
+      }
+    }
+  }
+  
+  form:nth-child(1){
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+  }
+
+  form:nth-child(2){
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    transform:rotateY(180deg);
+  }
+}
+
+.turn-modal {
+  transform: rotateY(180deg) !important;
+  transition: transform 0.5s linear;
+}

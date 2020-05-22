@@ -1,3 +1,5 @@
+import { useState } from  'react';
+
 import Head from 'next/head';
 import Login from '../components/Login/Login';
 import Signup from '../components/Signup/Signup';
@@ -5,6 +7,9 @@ import Signup from '../components/Signup/Signup';
 import { renderMetatags } from '../services/helpers';
 
 export default function Home() {
+
+  let [ modal, setModal ] = useState(false);
+  let [ flip, setFlip ] = useState(false);
   return (
     <>
       <Head>
@@ -17,15 +22,16 @@ export default function Home() {
       </Head>
       {/* Navbar placeholder */}
       <nav className="navbar navbar-home">
-        <div className="container--auth">
-          <Login />
-          <Signup />
+        <div className={ modal ? "container--modal offScreen" : "container--modal"}>
+          <div onClick={() => setModal(!modal)}>Fechar</div>
+          <div className="container--auth">
+            <div className={flip ? "container--rotate turn-modal" : "container--rotate"}>
+              <Login setFlip={setFlip}  flip={flip}/>
+              <Signup setFlip={setFlip} flip={flip}/>
+            </div>
+          </div>
         </div>
-        <a href="https://meu-carrinho.herokuapp.com/api/v1/auth/google">
-          Google
-        </a>
-        <a>Signup</a>
-        <a>Login</a>
+        <a onClick={() => setModal(!modal)}>Entrar</a>
       </nav>
 
       <section className="main-section">
