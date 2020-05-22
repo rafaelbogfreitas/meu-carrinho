@@ -29,7 +29,7 @@ export default function Home() {
       </nav>
 
       <section className="main-section">
-        <div className="container">
+        <div className="container container--home">
           <figure className="main-section__figure">
             <img
               className="main-section__figure__img"
@@ -40,7 +40,7 @@ export default function Home() {
           <article className="main-section__info">
             <h2>O carrinho virtual para a sua loja</h2>
             <p>
-              Mais de 90% estão nas redes sociais, crie seu carrinho
+              Mais de 90% dos consumidores estão nas redes sociais, crie seu carrinho
               virtual e chegue até eles mais facilmente
             </p>
           </article>
