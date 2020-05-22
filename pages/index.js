@@ -16,7 +16,7 @@ export default function Home() {
         )}
       </Head>
       {/* Navbar placeholder */}
-      <navbar className="navbar navbar-home">
+      <nav className="navbar navbar-home">
         <Login />
         <Signup />
         <a href="https://meu-carrinho.herokuapp.com/api/v1/auth/google">
@@ -24,7 +24,7 @@ export default function Home() {
         </a>
         <a>Signup</a>
         <a>Login</a>
-      </navbar>
+      </nav>
 
       <section className="main-section">
         <div className="container container--row">
