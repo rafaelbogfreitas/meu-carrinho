@@ -48,7 +48,7 @@ const Login = ({ flip, setFlip }) => {
           placeholder="senha"
         />
         <button className="btn--login">Entrar</button>
-        <button id="login-button" onClick={() => setFlip(!flip)}> Ir para o registro</button>
+        <button id="btn--goToRegister" onClick={() => setFlip(!flip)}> Ir para o registro</button>
         <a href="https://meu-carrinho.herokuapp.com/api/v1/auth/google">
           Entrar com o Google
         </a>

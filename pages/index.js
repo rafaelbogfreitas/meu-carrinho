@@ -33,7 +33,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <a onClick={() => setModal(!modal)}>Entrar</a>
+        <a id="entrar" onClick={() => setModal(!modal)}>Entrar</a>
       </nav>
 
       <section className="main-section">

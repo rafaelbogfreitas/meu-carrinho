@@ -1,5 +1,5 @@
   {
-  "baseUrl": "https://meu-carrinho.now.sh",
+  "baseUrl": "http://localhost:3000/",
   "viewportWidth": 1366,
   "viewportHeight": 768,
   "video": false,

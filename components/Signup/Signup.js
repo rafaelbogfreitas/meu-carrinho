@@ -60,7 +60,7 @@ const Signup = ({ flip, setFlip }) => {
           value={password}
         />
         <button className="btn-signup">Registrar</button>
-        <button onClick={() => setFlip(!flip)}>Ir para o login</button>
+        <button id="btn--goToLogin" onClick={() => setFlip(!flip)}>Ir para o login</button>
         <a href="https://meu-carrinho.herokuapp.com/api/v1/auth/google">
           Entrar com o Google
         </a>
