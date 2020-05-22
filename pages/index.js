@@ -16,15 +16,17 @@ export default function Home() {
         )}
       </Head>
       {/* Navbar placeholder */}
-      <navbar className="navbar navbar-home">
-        <Login />
-        <Signup />
+      <nav className="navbar navbar-home">
+        <div className="container--auth">
+          <Login />
+          <Signup />
+        </div>
         <a href="https://meu-carrinho.herokuapp.com/api/v1/auth/google">
           Google
         </a>
         <a>Signup</a>
         <a>Login</a>
-      </navbar>
+      </nav>
 
       <section className="main-section">
         <div className="container container--row">
