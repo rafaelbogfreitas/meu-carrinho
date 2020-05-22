@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
-import loginStyles from './login.module.scss';
 import { login } from '../../services/authService';
 import Input from '../Input/Input';
 
-const Login = () => {
+const Login = ({ flip, setFlip }) => {
   let router = useRouter();
 
   let [email, setEmail] = useState('');
@@ -27,23 +26,9 @@ const Login = () => {
   };
 
   return (
-    <div className={loginStyles.login}>
+
       <form onSubmit={(e) => handleLogin(e)}>
-        <h1>Login</h1>
-        {/* <Input
-          type="email"
-          name="login-email"
-          placeholder="email@email.com"
-          state={email}
-          setState={setEmail}
-        />
-        <Input
-          type="password"
-          name="login-password"
-          placeholder="Pelo menos 6 dígitos"
-          state={password}
-          setState={setPassword}
-        /> */}
+        <h1>Entrar</h1>
         <input
           onChange={(e) => handleEmailChange(e)}
           name="name"
@@ -60,9 +45,13 @@ const Login = () => {
           id="login-password"
           value={password}
         />
-        <button id="login-button">Login</button>
+        <button className="btn--login">Entrar</button>
+        <button id="login-button" onClick={() => setFlip(!flip)}> Ir para o registro</button>
+        <a href="https://meu-carrinho.herokuapp.com/api/v1/auth/google">
+          Google
+        </a>
       </form>
-    </div>
+
   );
 };
 

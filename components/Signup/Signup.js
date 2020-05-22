@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import { signup } from '../../services/authService';
-import signupStyles from './signup.module.scss';
 
-const Signup = () => {
+
+const Signup = ({ flip, setFlip }) => {
   let router = useRouter();
 
   let [name, setName] = useState('');
@@ -29,9 +29,9 @@ const Signup = () => {
   };
 
   return (
-    <div className={signupStyles.login}>
+    
       <form onSubmit={(e) => handleSignup(e)}>
-        <h1>Signup</h1>
+        <h1>Registrar</h1>
         <input
           onChange={(e) => handleNameChange(e)}
           name="name"
@@ -56,9 +56,13 @@ const Signup = () => {
           id="signup-password"
           value={password}
         />
-        <button id="signup-button">Signup</button>
+        <button className="btn-signup">Registrar</button>
+        <button onClick={() => setFlip(!flip)}>Ir para o login</button>
+        <a href="https://meu-carrinho.herokuapp.com/api/v1/auth/google">
+          Google
+        </a>
       </form>
-    </div>
+
   );
 };
 
