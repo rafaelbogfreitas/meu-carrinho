@@ -3,6 +3,7 @@ import { useState } from  'react';
 import Head from 'next/head';
 import Login from '../components/Login/Login';
 import Signup from '../components/Signup/Signup';
+import { FiLinkedin, FiGithub } from 'react-icons/fi';
 
 import { renderMetatags } from '../services/helpers';
 
@@ -139,11 +140,41 @@ export default function Home() {
       </section>
 
       <footer className="main-footer">
-        <p>Built by:</p>
+        <p>Desenvolvido por:</p>
         <div className="devs">
-          <div className="dev">Daniel</div>
-          <div className="dev">Rafael</div>
-          <div className="dev">Ricky</div>
+          <div className="dev">
+            <p>Daniel Paiva</p>
+            <div className="icons">
+              <a href="https://www.linkedin.com/in/danielcspaiva/" target="_blank">
+                <FiLinkedin size={35} color={'#fff'}/>
+              </a>
+              <a href="https://github.com/danielcspaiva" target="_blank">
+                <FiGithub size={35} color={'#fff'}/>
+              </a>
+            </div>
+          </div>
+          <div className="dev">
+            <p>Rafael Freitas</p>
+            <div className="icons">
+              <a href="https://www.linkedin.com/in/rafaelborgesfreitas/" target="_blank">
+                <FiLinkedin size={35} color={'#fff'}/>
+              </a>
+              <a href="https://github.com/rafaelbogfreitas" target="_blank">
+                <FiGithub size={35} color={'#fff'}/>
+              </a>
+            </div>
+          </div>
+          <div className="dev">
+            <p>Ricky Almeida</p>
+            <div className="icons">
+              <a href="https://www.linkedin.com/in/rickyalmeidadev/" target="_blank">
+                <FiLinkedin size={35} color={'#fff'}/>
+              </a>
+              <a href="https://github.com/rickyalmeidadev" target="_blank">
+                <FiGithub size={35} color={'#fff'}/>
+              </a>
+            </div>
+          </div>
         </div>
       </footer>
     </>

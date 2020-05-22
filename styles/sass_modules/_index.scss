@@ -193,6 +193,21 @@
     margin-top: 10px;
     display: flex;
     justify-content: space-around;
-    width: 30vw;
+    width: 85vw;
+    text-align: center;
+
+    .icons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    p {
+      margin: 1.5rem;
+    }
+
+    a {
+      margin: 1rem;
+    }
   }
 }
