@@ -95,7 +95,7 @@ const SingleProduct = ({ product, name }) => {
         {renderMetatags(
           product.name,
           product.description,
-          `http://localhost:3000/store/${name}/product/${product._id}`,
+          `https://meu-carrinho.now.sh/store/${name}/product/${product._id}`,
           product.imageUrl
         )}
       </Head>

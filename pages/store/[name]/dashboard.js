@@ -127,7 +127,7 @@ export default function Store({ store }) {
         {renderMetatags(
           'Loja ' + store.name, 
           store.about,
-          'http://localhost:3000/store/' + store.name,
+          'http://meu-carrinho.now.sh/store/' + store.name,
           store.imageUrl
         )}
       </Head>
