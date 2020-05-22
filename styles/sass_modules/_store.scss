@@ -109,7 +109,6 @@
   width: 40%;
   @include grid(display, grid);
   @include grid(grid-template-columns, repeat(2, 1fr));
-
   a {
     width: 200px;
     height: 200px;
@@ -120,6 +119,7 @@
     font-size: 2.4rem;
 
     background-color: $plus-sign-bgcolor;
+    
 
     h2 {
       width: 70%;
@@ -128,6 +128,7 @@
 
     @media (max-width: 1000px){
       height: 25vh;
+      background-color: white;
     }
   }
 
@@ -140,7 +141,7 @@
     width: 200px;
     transform: translateX(200px);
     transition:transform 0.2s linear;
-
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.12);
   }
 }
 
@@ -153,7 +154,7 @@
   font-size: 1.4rem;
   font-weight: bold;
   text-align: right;
-  background-color:$plus-sign-bgcolor;
+  // background-color:$plus-sign-bgcolor;
 
   @media (max-width: 1000px) {
     display: inline-block;
