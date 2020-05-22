@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "routes": [
+    { "src": "/store", "status": 404, "dest": "/404" },
+    { "src": "/store/[name]/product", "status": 404, "dest": "/404" }
+  ]
+}
