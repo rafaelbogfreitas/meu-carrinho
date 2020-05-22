@@ -60,9 +60,13 @@ describe('Deletar Produto', () => {
     cy.location('pathname').should('contain', `/store/${editStoreName}/dashboard`)
   })
 
-  it('Limpar cookies', () => {
-    cy.clearCookies()
+  it('Ir para Novo Produto', () => {
+    cy.get('[href="/minhaslojas"]').first().click().wait(2000)
+    cy.location('pathname').should('eq', `/minhaslojas`)
   })
 
+  it('Logout', () => {
+    cy.get('.btn--logout').click()
+  })
 })
 

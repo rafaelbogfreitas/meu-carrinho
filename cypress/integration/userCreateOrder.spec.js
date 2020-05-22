@@ -8,7 +8,7 @@ describe('Criar ordem (cliente)', () => {
   })
 
   it('Ir para loja', () => {
-    cy.visit(`/store/${editStoreName}/dashboard`)
+    cy.visit(`/store/${editStoreName}/dashboard`).wait(2000)
   })
 
   it('Adicionar produtos', () => {

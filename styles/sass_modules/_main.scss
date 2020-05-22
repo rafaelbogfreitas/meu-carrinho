@@ -80,11 +80,23 @@ a {
   &--row {
     @include flex(display, flex);
     @include flex(justify-content, space-between);
+
+    @media (max-width: 1024px) {
+      @include flex(flex-direction, column);
+      @include flex(justify-content, flex-start);
+      @include flex(align-items, center);
+    }
   }
   &--row-reverse {
     @include flex(display, flex);
     @include flex(flex-direction, row-reverse);
     @include flex(justify-content, space-between);
+
+    @media (max-width: 1024px) {
+      @include flex(flex-direction, column);
+      @include flex(justify-content, flex-start);
+      @include flex(align-items, center);
+    }
   }
 }
 

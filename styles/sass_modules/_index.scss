@@ -17,19 +17,31 @@
 .main-section {
   background-image: url('/vector3.svg');
   background-size: cover;
+  
 
   height: 100vh;
   padding-top: $navbar-height;
 
-  color: #4b2d12;
+  color: #193747;
+
+  .container {
+    @include flex(display, flex);
+    @include flex(justify-content, center);
+    @include flex(flex-direction, column);
+  }
 
   &__info {
     min-height: 30vh;
-    width: 50%;
-    padding: 2rem;
+    // width: 50%;
+    padding: 0 2rem;
     @include flex(display, flex);
     @include flex(flex-direction, column);
     @include flex(align-items, flex-start);
+
+    @media (max-width: 1024px) {
+      width: 100%;
+      text-align: center;
+    }
   }
 
   h1 {
@@ -39,22 +51,33 @@
   }
 
   h2 {
-    font-size: 2.5rem;
+    font-size: 3.5rem;
     font-weight: bold;
     margin-bottom: 4rem;
+
+    @media (max-width: 1024px) {
+      margin: 0 auto 2rem;
+    }
   }
 
   p {
+    // text-align: center;
     font-size: 2.5rem;
     line-height: 3rem;
+    width: 40%;
   }
 
   &__figure {
-    @include flex(display, flex);
-    @include flex(justify-content, flex-end);
-    @include flex(align-items, flex-start);
     width: 50%;
     padding: 2rem;
+
+    @include flex(display, flex);
+    @include flex(justify-content, center);
+    @include flex(align-items, center);
+    
+    @media (max-width: 1024px) {
+      width: 100%;
+    }
 
     &__img {
       width: 100%;
@@ -75,7 +98,7 @@
 
   &--light {
     background-color: white;
-    color: #4b2d12;
+    color: #193747;
   }
 
   &__title {
@@ -95,29 +118,52 @@
     @include flex(flex-direction, column);
     @include flex(align-items, flex-start);
 
+    @media (max-width: 1024px) {
+      width: 100%;
+      text-align: center;
+    }
+
     h3 {
       font-size: 6rem;
       font-weight: bold;
-      margin-bottom: 4rem;
+      margin-bottom: 4.5rem;
     }
 
     p {
-      font-size: 2.5rem;
-      line-height: 3rem;
+      font-size: 3.5rem;
+      line-height: 3.5rem;
     }
   }
 
   &__figure {
+    width: 50%;
+    padding: 2rem;
+
     @include flex(display, flex);
     @include flex(justify-content, flex-end);
     @include flex(align-items, flex-start);
-    width: 50%;
-    padding: 2rem;
+
+    @media (max-width: 1024px) {
+      width: 100%;
+    }
 
     &__img {
       width: 100%;
       height: auto;
     }
+  }
+
+  article {
+    padding: 0 5rem;
+    @include flex(display, flex);
+    @include flex(justify-content, center);
+    @include flex(align-items, center);
+  }
+
+  figure {
+    @include flex(display, flex);
+    @include flex(justify-content, space-around);
+    @include flex(align-items, center);
   }
 }
 
