@@ -86,7 +86,7 @@
   }
 
   &__info {
-    margin-top: 10rem;
+    margin-top: 5vh;
     min-height: 30vh;
     width: 50%;
     padding: 2rem;
@@ -119,55 +119,6 @@
       height: auto;
     }
   }
-}
-
-.instructions {
-  background-color: #79b6bf;
-  color: white;
-  h1,
-  h2 {
-    font-weight: bold;
-    font-size: 8rem;
-    text-align: center;
-  }
-
-  h1 {
-    padding-top: 100px;
-  }
-
-  p {
-    font-size: 2.5rem;
-    margin-top: 100px;
-    width: 35vw;
-    text-align: center;
-  }
-}
-.container-instructions {
-  justify-content: center;
-  height: 90vh;
-  padding: 30px;
-  h2 {
-    font-size: 6rem;
-  }
-}
-.regular {
-  display: flex;
-  align-items: center;
-  color: white;
-  justify-content: center;
-}
-
-.reverse {
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-around;
-  align-items: center;
-  background-color: white;
-  color: #4b2d12;
-}
-.instructions-img {
-  height: auto;
-  width: 50vw;
 }
 
 .main-footer {
