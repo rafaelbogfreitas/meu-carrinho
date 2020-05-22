@@ -4,6 +4,7 @@ import Head from 'next/head';
 import Login from '../components/Login/Login';
 import Signup from '../components/Signup/Signup';
 import { FiLinkedin, FiGithub } from 'react-icons/fi';
+import { IoIosClose } from 'react-icons/io';
 
 import { renderMetatags } from '../services/helpers';
 
@@ -24,8 +25,8 @@ export default function Home() {
       {/* Navbar placeholder */}
       <nav className="navbar navbar-home">
         <div className={ modal ? "container--modal offScreen" : "container--modal"}>
-          <div onClick={() => setModal(!modal)}>Fechar</div>
           <div className="container--auth">
+            <div className="closeButton" onClick={() => setModal(!modal)}><IoIosClose size={75} color="#193747"/></div>
             <div className={flip ? "container--rotate turn-modal" : "container--rotate"}>
               <Login setFlip={setFlip}  flip={flip}/>
               <Signup setFlip={setFlip} flip={flip}/>
