@@ -25,7 +25,7 @@
     width: 100%;
     @include grid(grid-template-columns, repeat(2, 1fr));
   }
-  @media (max-width:400px){
+  @media (max-width:463px){
     width: 100%;
     @include grid(grid-template-columns, repeat(1, 1fr));
   }
