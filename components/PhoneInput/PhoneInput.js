@@ -18,6 +18,7 @@ const PhoneInput = ({ label, phone, regionCode, setPhone, setRegionCode }) => {
           name="phone"
           id="phone"
           placeholder="xxxxx-xxxx"
+          min="0"
           minLength="8"
           maxLength="9"
           value={phone}
