@@ -23,6 +23,10 @@ export default function paineldevendas({ store }) {
       </Head>
       <h1 className="title">Painel de vendas</h1>
       <div className="container--painel">
+          
+          <Link href="/store/[name]/dashboard" as={`/store/${name}/dashboard`}>
+            <button className="btn--logout">Voltar</button>
+          </Link>
 
           <div class="panel">
             <h1 className="panel__title">Em andamento</h1>
@@ -68,10 +72,6 @@ export default function paineldevendas({ store }) {
         </div>
 
       </div>
-
-      <Link href="/store/[name]/dashboard" as={`/store/${name}/dashboard`}>
-        <button className="btn--logout">Voltar</button>
-      </Link>
     </ProtectedRoute>
   );
 }
