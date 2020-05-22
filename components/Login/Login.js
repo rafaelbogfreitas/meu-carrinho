@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { login } from '../../services/authService';
 import Input from '../Input/Input';
 
-const Login = ({ flip, setFlip }) => {
+const Login = ({ flip, setFlip, loading, setLoading }) => {
   let router = useRouter();
 
   let [email, setEmail] = useState('');
@@ -14,11 +14,15 @@ const Login = ({ flip, setFlip }) => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-
+    setLoading(!loading)
     login(email, password) // <== adicionei then e catch aqui por ser uma função async
-      .then(() => router.push('/minhaslojas'))
+      .then(() => {
+        router.push('/minhaslojas')
+        setLoading(false)
+      })
       .catch((error) => {
         console.log(error);
+        setLoading(false)
       });
 
     setEmail('');
@@ -46,8 +50,8 @@ const Login = ({ flip, setFlip }) => {
           value={password}
         />
         <button className="btn--login">Entrar</button>
-        <button id="login-button" onClick={() => setFlip(!flip)}> Ir para o registro</button>
-        <a href="https://meu-carrinho.herokuapp.com/api/v1/auth/google">
+        <button type="button" id="login-button" onClick={() => setFlip(!flip)}> Ir para o registro</button>
+        <a type="button" href="https://meu-carrinho.herokuapp.com/api/v1/auth/google">
           Google
         </a>
       </form>

@@ -3,6 +3,7 @@ import { useState } from  'react';
 import Head from 'next/head';
 import Login from '../components/Login/Login';
 import Signup from '../components/Signup/Signup';
+import Loading from '../components/Loading/Loading';
 
 import { renderMetatags } from '../services/helpers';
 
@@ -10,7 +11,11 @@ export default function Home() {
 
   let [ modal, setModal ] = useState(false);
   let [ flip, setFlip ] = useState(false);
+  let [ loading, setLoading ] = useState(false);
+
   return (
+    loading ?
+    <Loading/> :
     <>
       <Head>
         {renderMetatags(
@@ -26,8 +31,18 @@ export default function Home() {
           <div onClick={() => setModal(!modal)}>Fechar</div>
           <div className="container--auth">
             <div className={flip ? "container--rotate turn-modal" : "container--rotate"}>
-              <Login setFlip={setFlip}  flip={flip}/>
-              <Signup setFlip={setFlip} flip={flip}/>
+              <Login 
+                setFlip={setFlip}  
+                flip={flip}
+                setLoading={setLoading}
+                loading={loading}
+              />
+              <Signup 
+                setFlip={setFlip} 
+                flip={flip}
+                setLoading={setLoading}
+                loading={loading}
+                />
             </div>
           </div>
         </div>

@@ -65,11 +65,7 @@
       width: 80%;
       height: 50px;
       background:$title-color;
-      box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.639);
       outline: none;
-      &:active {
-        box-shadow: none;
-      }
     }
   }
   
