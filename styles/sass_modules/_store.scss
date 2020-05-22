@@ -132,6 +132,7 @@
   }
 
   @media (max-width: 1000px) {
+    max-height: 100vh;
     display: inline-block;
     position: fixed;
     top: 0;
@@ -139,10 +140,12 @@
     width: 200px;
     transform: translateX(200px);
     transition:transform 0.2s linear;
+
   }
 }
 
 .close-panel {
+  position: absolute;
   display: none;
   width: 100%;
   padding: 5px;
